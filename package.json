@@ -1,0 +1,50 @@
+{
+    "name": "dsds-react",
+    "version": "0.1.0",
+    "private": true,
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lewis Dorigo",
+            "email": "lewis.dorigo@socialsecurity.gov.scot"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lewisdorigo/dsds-react"
+    },
+    "scripts": {
+        "lint": "eslint @types/**/* src/**/*",
+        "type-check": "tsc --skipLibCheck --noEmit",
+        "build": "tsc",
+        "pre-commit": "npm run lint && npm run type-check",
+        "postinstall": "npm run build"
+    },
+    "dependencies": {
+        "html-react-parser": "^5.1.9"
+    },
+    "peerDependencies": {
+        "@scottish-government/design-system": "^2.0.0",
+        "@types/node": "^20.2.5",
+        "@types/react": "^18.2.8",
+        "@types/react-dom": "^18.2.4",
+        "next": "^14.0.0",
+        "react": "^18.0.0",
+        "react-dom": "^18.2.0",
+        "typescript": "^5.0.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^18.0.0",
+        "@commitlint/config-conventional": "^18.0.0",
+        "@typescript-eslint/eslint-plugin": "^6.0.0",
+        "@typescript-eslint/parser": "^6.0.0",
+
+        "eslint": "^8.32.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-next": "14.0.0",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-jsx-a11y": "^6.7.1",
+        "eslint-plugin-react": "^7.32.2",
+        "eslint-plugin-react-hooks": "^4.6.0"
+    }
+}

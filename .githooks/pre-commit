@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Required when using NVM to manage Node versions, for some reason.
+if test -f $HOME/.nvm/nvm.sh; then
+    . $HOME/.nvm/nvm.sh
+fi
+
+# Make sure we're navigated to the top level of the git tree
+cd "$(git rev-parse --show-toplevel)"
+
+# Set the location of the ESLint binary
+NEXTJS="./node_modules/.bin/next"
+TSC="./node_modules/.bin/tsc"
+CUR_DIR=pwd
+pwd
+
+# If ESLint is not installed display an error and exit, preventing commit.
+if [[ ! -x "$NEXTJS" ]]; then
+    printf "NextJS does not seem to be installed\n"
+    exit 1
+fi
+
+# If ESLint is not installed display an error and exit, preventing commit.
+if [[ ! -x "$NEXTJS" ]]; then
+    printf "TypeScript does not seem to be installed\n"
+    exit 1
+fi
+
+# Perform Linting
+npm run pre-commit
+EXIT_CODE="$?"
+
+# If ESlint exited without error, commit can go ahead. Otherwise, stop.
+if [[ "${EXIT_CODE}" != 0 ]]; then
+    printf "\nPRE-COMMIT CHECKS FAILED: Please fix errors and try again.\n"
+    exit 1
+fi
+
+exit $?

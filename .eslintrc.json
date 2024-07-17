@@ -1,0 +1,123 @@
+{
+    "extends": [
+        "airbnb",
+        "airbnb/hooks",
+        "next/core-web-vitals"
+    ],
+    "plugins": ["react", "react-hooks"],
+    "rules": {
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "max-len": [
+            "warn",
+            {
+                "code": 100,
+                "tabWidth": 4,
+                "ignoreUrls": true,
+                "ignoreComments": false,
+                "ignoreRegExpLiterals": true,
+                "ignoreStrings": true,
+                "ignoreTemplateLiterals": true
+            }
+        ],
+        "max-lines": [
+            "warn",
+            {
+                "max": 500,
+                "skipBlankLines": true,
+                "skipComments": true
+            }
+        ],
+        "require-jsdoc": [
+            "warn",
+            {
+                "require": {
+                    "FunctionDeclaration": true,
+                    "MethodDefinition": true,
+                    "ClassDeclaration": true,
+                    "ArrowFunctionExpression": false,
+                    "FunctionExpression": true
+                }
+            }
+        ],
+        "valid-jsdoc": [
+            "warn",
+            {
+                "prefer": {
+                    "arg": "param",
+                    "argument": "param",
+                    "return": "returns"
+                },
+                "requireReturn": false,
+                "requireReturnType": true,
+                "requireReturnDescription": false,
+                "requireParamType": true,
+                "requireParamDescription": true
+            }
+        ],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "react/jsx-props-no-spreading": "off",
+        "react/no-danger": "off",
+        "react-hooks/rules-of-hooks": "warn",
+        "react/jsx-filename-extension": ["error", { "extensions": [".tsx", ".ts"] }],
+        "import/extensions": ["error", "never"],
+        "react/button-has-type": "off",
+        "@next/next/no-html-link-for-pages": "off"
+    },
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "es2020": true,
+        "browser": true
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    },
+    "overrides": [
+        {
+            "files": ["**/*.ts", "**/*.tsx"],
+            "parser": "@typescript-eslint/parser",
+            "extends": [
+                "plugin:@typescript-eslint/recommended"
+            ],
+            "rules": {
+                "no-unused-vars": "off",
+                "no-use-before-define": "off",
+                "no-shadow": "off",
+
+                "@typescript-eslint/no-use-before-define": "error",
+                "@typescript-eslint/no-unused-vars": "error",
+                "@typescript-eslint/no-shadow": "error",
+                "@typescript-eslint/no-explicit-any": [
+                    "error",
+                    {
+                        "fixToUnknown": true,
+                        "ignoreRestArgs": true
+                    }
+                ],
+                "@typescript-eslint/member-delimiter-style": [
+                    "error",
+                    {
+                        "multiline": {
+                            "delimiter": "comma",
+                            "requireLast": true
+                        },
+                        "singleline": {
+                            "delimiter": "comma",
+                            "requireLast": false
+                        },
+                        "multilineDetection": "brackets"
+                    }
+                ]
+            }
+        }
+    ]
+}

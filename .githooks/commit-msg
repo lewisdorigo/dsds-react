@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+LC_ALL=C
+
+commit_message=$(<$1)
+COMMIT_LINT="./node_modules/.bin/commitlint"
+
+
+# If ESLint is not installed display an error and exit, preventing commit.
+if [[ ! -x "$COMMIT_LINT" ]]; then
+    printf "\nCommitLint is not installed.\n"
+    exit 1
+fi
+
+echo "${commit_message}" | npx --no -- commitlint
+COMMITLINT_EXIT="$?"
+
+# If ESlint exited without error, commit can go ahead. Otherwise, stop.
+if [[ "${COMMITLINT_EXIT}" != 0 ]]; then
+    printf "\nCOMMITLINT FAILED: Fix commit message errors and try again.\n"
+    exit 1
+fi

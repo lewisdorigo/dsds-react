@@ -1,0 +1,50 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "NodeNext",
+        "moduleResolution": "nodenext",
+        "jsx": "react",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "strict": true,
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        // "noEmit": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "incremental": true,
+        "baseUrl": ".",
+        "composite": true,
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "paths": {
+            "@/*": ["./src/*"],
+            "@design-system/*": ["./node_modules/@scottish-government/design-system/src/*"],
+        },
+        "typeRoots": [
+            "../node_modules/@types",
+            "../@types"
+        ],
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ]
+    },
+    "include": [
+        "next-env.d.ts",
+        "**/*.tsx",
+        "**/*.ts",
+        ".next/types/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "./dist",
+    ]
+}
