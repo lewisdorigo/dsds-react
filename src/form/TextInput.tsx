@@ -21,7 +21,7 @@ const TextInput:React.FC<DSDS.Form.TextInput> = function TextInput({
 }) {
     let type:React.HTMLInputTypeAttribute = rawType;
 
-    if (!(type in InputTypes)) {
+    if (!Object.values(InputTypes).includes(type as InputTypes)) {
         type = InputTypes.Text;
     }
 

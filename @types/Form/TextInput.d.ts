@@ -8,6 +8,7 @@ declare namespace DSDS.Form {
         React.HTMLProps<HTMLInputElement>,
         never,
     > {
+        type?: Type,
         width?: DSDS.Width,
         value?: Component.Value,
     }

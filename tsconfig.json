@@ -39,12 +39,18 @@
     },
     "include": [
         "next-env.d.ts",
-        "**/*.tsx",
-        "**/*.ts",
+        "./src",
+        "./@types",
+        // "**/*.tsx",
+        // "**/*.ts",
         ".next/types/**/*.ts"
     ],
     "exclude": [
-        "node_modules",
-        "./dist",
+        // "node_modules",
+        // "./dist",
+        // "./tests",
+        // "./playwright",
+        // "./playwright.config.ts",
+        // "./playwright-ct.config.ts"
     ]
 }

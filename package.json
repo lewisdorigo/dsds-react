@@ -16,8 +16,9 @@
     "scripts": {
         "lint": "eslint @types/**/* src/**/*",
         "type-check": "tsc --skipLibCheck --noEmit",
+        "test": "playwright test -c playwright.config.ts",
         "build": "tsc",
-        "pre-commit": "npm run lint && npm run type-check",
+        "pre-commit": "npm run lint && npm run type-check && npm run test",
         "postinstall": "npm run build"
     },
     "dependencies": {
@@ -36,9 +37,11 @@
     "devDependencies": {
         "@commitlint/cli": "^18.0.0",
         "@commitlint/config-conventional": "^18.0.0",
+        "@playwright/experimental-ct-react": "^1.45.2",
+        "@playwright/test": "^1.45.2",
+        "@types/node": "^20.14.11",
         "@typescript-eslint/eslint-plugin": "^6.0.0",
         "@typescript-eslint/parser": "^6.0.0",
-
         "eslint": "^8.32.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-next": "14.0.0",
