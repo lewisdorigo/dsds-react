@@ -1,4 +1,5 @@
-import { test, expect } from '@playwright/test';
+/* eslint-disable no-console */
+import { test } from '@playwright/test';
 import { readdir } from 'node:fs/promises';
 import path from 'path';
 

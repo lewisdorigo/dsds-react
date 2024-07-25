@@ -1,15 +1,10 @@
 declare namespace DSDS.Form {
-    namespace TextInput {
-        type Types = import('@/lib/enums').InputTypes;
-    }
-
     interface TextInput extends FormComponent<
-        string | TextInput.Types,
-        React.HTMLProps<HTMLInputElement>,
+        string | DSDS.Form.Meta.Types,
+        HTMLInputElement,
         never,
+        Component.Value,
     > {
-        type?: Type,
-        width?: DSDS.Width,
-        value?: Component.Value,
+        width?: DSDS.Form.Meta.Width,
     }
 }

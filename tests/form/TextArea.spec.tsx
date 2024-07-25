@@ -1,15 +1,14 @@
 import React from 'react';
 import { test, expect } from '@playwright/experimental-ct-react';
 
-import TextInput from '../../src/form/TextInput';
-import { InputWidth } from '../../src/lib/enums';
+import TextArea from '../../src/form/TextArea';
 
-test.describe('TextInput', () => {
+test.describe('TextArea', () => {
     test.use({ viewport: { width: 500, height: 500 } });
 
-    test('Default Input', async ({ mount }) => {
+    test('Default', async ({ mount }) => {
         const component = await mount(
-            <TextInput
+            <TextArea
                 id="test"
                 name="test"
             />,
@@ -17,50 +16,17 @@ test.describe('TextInput', () => {
 
         await expect(
             await component.evaluate((e) => e.tagName.toLowerCase()),
-            'is an `<input>` element',
-        ).toEqual('input');
+            'is an `<textarea>` element',
+        ).toEqual('textarea');
         await expect(component, 'is editable').toBeEditable();
         await expect(component, 'has expected value').toHaveValue('');
         await expect(component, 'has base class').toHaveClass(/\bds_input\b/);
-        await expect(component, 'is expected type').toHaveAttribute('type', 'text');
-        await expect(component, 'has expected id').toHaveAttribute('id', 'test');
-    });
-
-    test('Email Input', async ({ mount }) => {
-        const component = await mount(
-            <TextInput
-                id="test"
-                name="test"
-                type="email"
-            />,
-        );
-
-        await expect(component, 'is editable').toBeEditable();
-        await expect(component, 'has expected value').toHaveValue('');
-        await expect(component, 'has base class').toHaveClass(/\bds_input\b/);
-        await expect(component, 'is expected type').toHaveAttribute('type', 'email');
-        await expect(component, 'has expected id').toHaveAttribute('id', 'test');
-    });
-
-    test('Invalid Type', async ({ mount }) => {
-        const component = await mount(
-            <TextInput
-                id="test"
-                name="test"
-                type="invalid"
-            />,
-        );
-
-        await expect(component, 'is editable').toBeEditable();
-        await expect(component, 'has expected value').toHaveValue('');
-        await expect(component, 'has base class').toHaveClass(/\bds_input\b/);
-        await expect(component, 'is expected type').toHaveAttribute('type', 'text');
         await expect(component, 'has expected id').toHaveAttribute('id', 'test');
     });
 
     test('Has Initial Value', async ({ mount }) => {
         const component = await mount(
-            <TextInput
+            <TextArea
                 id="test"
                 name="test"
                 value="test"
@@ -70,13 +36,12 @@ test.describe('TextInput', () => {
         await expect(component, 'is editable').toBeEditable();
         await expect(component, 'has expected value').toHaveValue('test');
         await expect(component, 'has base class').toHaveClass(/\bds_input\b/);
-        await expect(component, 'is expected type').toHaveAttribute('type', 'text');
         await expect(component, 'has expected id').toHaveAttribute('id', 'test');
     });
 
     test('Disabled', async ({ mount }) => {
         const component = await mount(
-            <TextInput
+            <TextArea
                 id="test"
                 name="test"
                 attributes={{
@@ -94,7 +59,7 @@ test.describe('TextInput', () => {
         const className = 'text-class';
 
         const component = await mount(
-            <TextInput
+            <TextArea
                 id="test"
                 name="test"
                 className={className}
@@ -107,20 +72,20 @@ test.describe('TextInput', () => {
         await expect(component, 'has expected id').toHaveAttribute('id', 'test');
     });
 
-    test('Has Set Width', async ({ mount }) => {
-        const width = InputWidth.Fixed5;
+    test('Has Set Rows', async ({ mount }) => {
+        const rows = 7;
 
         const component = await mount(
-            <TextInput
+            <TextArea
                 id="test"
                 name="test"
-                width={width}
+                attributes={{ rows }}
             />,
         );
 
         await expect(component, 'is editable').toBeEditable();
         await expect(component, 'has base class').toHaveClass(/\bds_input\b/);
-        await expect(component, 'has width').toHaveClass(new RegExp(`\\bds_input--${width}\\b`));
+        await expect(component, 'to have rows').toHaveAttribute('rows', rows.toString());
         await expect(component, 'has expected id').toHaveAttribute('id', 'test');
     });
 });

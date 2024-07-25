@@ -1,16 +1,17 @@
 declare namespace DSDS.Form {
     namespace Select {
-        interface Item extends DSDS.Component.Item<HTMLOptionElement> {
+        interface Item extends DSDS.Meta.Item<HTMLOptionElement> {
+            content: never,
         }
     }
 
     interface Select extends FormComponent<
         'select',
-        React.HTMLProps<HTMLSelectElement>,
-        Select.Item
+        HTMLSelectElement,
+        Select.Item,
+        DSDS.Meta.Value,
     > {
-        width?: DSDS.Width,
-        value?: Component.Value,
+        width?: DSDS.Form.Meta.Width,
         allowNull?: boolean,
     }
 }

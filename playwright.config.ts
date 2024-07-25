@@ -1,10 +1,11 @@
+/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true }] */
 import { defineConfig, devices } from '@playwright/experimental-ct-react';
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-    testDir: './',
+    testDir: './tests',
     /*
      * The base directory, relative to the config file, for snapshot files created with
      * toMatchSnapshot and toHaveScreenshot.

@@ -1,17 +1,6 @@
 declare namespace DSDS {
-    interface Error {
-        fieldId: string,
-        href?: string,
-        message: React.ReactNode,
-        fieldMessage?: React.ReactNode,
-    }
-
-    type Errors = string | string[] | Error | Error[] | boolean;
-
-    namespace Component {
-        type Validation = (value:unknown, formData?: FormData) => boolean | string;
-
-        namespace Condition {
+    namespace Meta {
+        namespace Conditional {
             interface Condition {
                 fieldId: string,
                 value: unknown,
@@ -25,15 +14,15 @@ declare namespace DSDS {
                 ),
             }
 
-            type Items = (Items | Condition)[];
+            type Items = (DSDS.Meta.Conditional.Items | Condition)[];
         }
 
         interface Condition {
             type?: 'and' | 'or',
-            conditions: Condition.Items,
+            conditions: Conditional.Items,
         }
 
-        type Label = React.ReactNode | {
+        type Label = {
             label: React.ReactNode,
             hidden?: boolean,
             review?: React.ReactNode,
@@ -43,47 +32,31 @@ declare namespace DSDS {
 
         interface Item<
             Tag extends HTMLElement = HTMLElement
-        > extends Partial<React.HTMLProps<Tag>> {
+        > {
             id: string,
             label?: React.ReactNode,
+            content?: React.ReactNode,
             value?: Value,
+            attributes?: Partial<React.HTMLProps<Tag>>,
         }
     }
 
-    type Width = import('@/lib/enums').Width;
-
     interface Component<
         Type = unknown,
-        Tag = Record<string, unknown>,
+        Tag extends HTMLElement = HTMLElement,
         Items = unknown,
     > {
-        id: string,
-        name: string,
+        id?: string,
+        name?: string,
         type: Type,
 
-        label?: Component.Label,
+        label?: React.ReactNode | Meta.Label,
         content?: React.ReactNode,
-        hintText?: React.ReactNode,
 
         className?: string,
 
-        attributes?: (
-            Tag extends HTMLElement
-                ? Partial<React.HTMLProps<Tag>>
-                : Tag
-        ),
+        attributes?: Partial<React.HTMLProps<Tag>>,
         items?: Items[],
-        conditions?: Component.Condition | Component.Condition.Items,
-    }
-
-    interface FormComponent<
-        Type = unknown,
-        Tag = unknown,
-        Items = unknown,
-    > extends Component<Type, Tag, Items> {
-        required?: boolean,
-        validation?: Component.Validation,
-        value?: Component.Value | Component.Value[],
-        error?: Errors,
+        conditions?: Meta.Condition | Meta.Conditional.Items,
     }
 }

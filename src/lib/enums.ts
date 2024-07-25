@@ -2,6 +2,7 @@ export enum InputWidth {
     Fixed20 = 'fixed-20',
     Fixed10 = 'fixed-10',
     Fixed5 = 'fixed-5',
+    Fixed4 = 'fixed-4',
     Fixed3 = 'fixed-3',
     Fixed2 = 'fixed-2',
 
