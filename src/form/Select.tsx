@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
-import classNames from '../lib/classNames';
+import React, { useContext } from 'react';
 
+import classNames from '../lib/classNames';
 import { InputWidth } from '../lib/enums';
+import FormContext from '../lib/formContext';
 
 /**
  * @param {DSDS.Form.Select} props - Properties for the element
@@ -20,6 +21,22 @@ const Select:React.FC<DSDS.Form.Select> = function Select({
     allowNull = false,
     items = [],
 }) {
+    const { setField } = useContext(FormContext);
+
+    const handleChange = (event:React.ChangeEvent<HTMLSelectElement>) => {
+        const {
+            target: {
+                value: fieldValue,
+            },
+        } = event;
+
+        setField(name, fieldValue);
+
+        if (typeof attributes?.onChange === 'function') {
+            attributes.onChange(event);
+        }
+    };
+
     return (
         <div
             className={classNames(
@@ -38,6 +55,7 @@ const Select:React.FC<DSDS.Form.Select> = function Select({
                 id={id}
                 name={name}
                 defaultValue={value}
+                onChange={handleChange}
             >
                 {allowNull && (
                     <option

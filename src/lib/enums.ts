@@ -39,3 +39,13 @@ export enum InputModes {
     Decimal = 'decimal',
     Search = 'search',
 }
+
+export enum InputSize {
+    Small = 'small'
+}
+
+export enum DatePickerFormat {
+    DayMonthYear = 'DMY',
+    MonthDayYear = 'MDY',
+    YearMonthDay = 'YMD',
+}

@@ -59,4 +59,21 @@ declare namespace DSDS {
         items?: Items[],
         conditions?: Meta.Condition | Meta.Conditional.Items,
     }
+
+    type Components = (React.ReactNode | Component | Form.FormComponent)[];
+
+    namespace Context {
+        namespace Form {
+            interface Provider extends React.PropsWithChildren {
+                initial?: Record<string, unknown>,
+            }
+        }
+
+        interface Form {
+            setFields: React.SetStateAction,
+            setField: <Type = unknown>(name:string, value:Type) => void,
+            getField: <Type = unknown>(name:string) => Type,
+            fields: Record<string, unknown>,
+        }
+    }
 }

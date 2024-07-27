@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
-import classNames from '../lib/classNames';
+import React, { useContext } from 'react';
 
+import classNames from '../lib/classNames';
 import { InputWidth, InputTypes, InputModes } from '../lib/enums';
+import FormContext from '../lib/formContext';
 
 /**
  * @param {DSDS.Form.TextInput} props - Properties for the element
@@ -19,6 +20,8 @@ const TextInput:React.FC<DSDS.Form.TextInput> = function TextInput({
     width = InputWidth.Fixed20,
     attributes = {},
 }) {
+    const { setField } = useContext(FormContext);
+
     let type:React.HTMLInputTypeAttribute = rawType;
 
     if (!Object.values(InputTypes).includes(type as InputTypes)) {
@@ -39,6 +42,20 @@ const TextInput:React.FC<DSDS.Form.TextInput> = function TextInput({
         }
     };
 
+    const handleChange = (event:React.ChangeEvent<HTMLInputElement>) => {
+        const {
+            target: {
+                value: fieldValue,
+            },
+        } = event;
+
+        setField(name, fieldValue);
+
+        if (typeof attributes?.onChange === 'function') {
+            attributes.onChange(event);
+        }
+    };
+
     return (
         <input
             {...attributes}
@@ -54,6 +71,7 @@ const TextInput:React.FC<DSDS.Form.TextInput> = function TextInput({
                 className,
             )}
             onBlur={handleBlur}
+            onChange={handleChange}
         />
     );
 };

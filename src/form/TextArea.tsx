@@ -1,7 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useContext } from 'react';
+
 import classNames from '../lib/classNames';
+import FormContext from '../lib/formContext';
 
 /**
  * @param {DSDS.Form.TextArea} props - Properties for the element
@@ -18,6 +20,31 @@ const TextArea:React.FC<DSDS.Form.TextArea> = function TextArea({
         ...attributes
     } = {},
 }) {
+    const { setField } = useContext(FormContext);
+
+    const handleBlur = (event:React.FocusEvent<HTMLTextAreaElement>) => {
+        const { target } = event;
+        target.value = target.value.trim();
+
+        if (typeof attributes?.onBlur === 'function') {
+            attributes.onBlur(event);
+        }
+    };
+
+    const handleChange = (event:React.ChangeEvent<HTMLTextAreaElement>) => {
+        const {
+            target: {
+                value: fieldValue,
+            },
+        } = event;
+
+        setField(name, fieldValue);
+
+        if (typeof attributes?.onChange === 'function') {
+            attributes.onChange(event);
+        }
+    };
+
     return (
         <textarea
             {...attributes}
@@ -30,6 +57,8 @@ const TextArea:React.FC<DSDS.Form.TextArea> = function TextArea({
             id={id}
             name={name}
             defaultValue={value}
+            onBlur={handleBlur}
+            onChange={handleChange}
         />
     );
 };

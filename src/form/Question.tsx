@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from 'react';
 import CharacterCount from '@scottish-government/design-system/src/forms/character-count/character-count';
 
 import WrapperTag from '../components/WrapperTag';
+
 import Label from './Label';
 import HintText from './HintText';
 import { ErrorMessages } from './ErrorMessage';
@@ -16,11 +17,16 @@ import htmlToReact from '../lib/htmlToReact';
  * @returns {JSX.Element} - The element
  */
 const Question:React.FC<DSDS.Form.Question> = function Question({
-    tag = 'div',
     className,
-    field: {
+    children,
+    field,
+}) {
+    const ref = useRef<HTMLDivElement>(null);
+
+    const {
         label: rawLabel,
         id,
+        type,
         hintText,
         content,
         error,
@@ -28,10 +34,7 @@ const Question:React.FC<DSDS.Form.Question> = function Question({
         attributes: {
             maxLength = 0,
         } = {},
-    },
-    children,
-}) {
-    const ref = useRef<HTMLDivElement>(null);
+    } = field;
 
     let label:React.ReactNode;
     let labelHidden:boolean = false;
@@ -58,6 +61,21 @@ const Question:React.FC<DSDS.Form.Question> = function Question({
         </>
     );
 
+    let tag:keyof JSX.IntrinsicElements = 'div';
+
+    switch (type) {
+        case 'radio':
+        case 'checkbox':
+            tag = 'fieldset';
+            break;
+
+        case 'date':
+            tag = (field as DSDS.Form.DatePicker).multiple ? 'fieldset' : 'div';
+            break;
+
+        default:
+    }
+
     useEffect(() => {
         if (typeof window === 'undefined') { return; }
 
@@ -79,12 +97,27 @@ const Question:React.FC<DSDS.Form.Question> = function Question({
             data-module={maxLength ? 'ds-character-count' : undefined}
             ref={ref}
         >
-            <Label
-                className={labelHidden ? 'visually-hidden' : ''}
-                htmlFor={id}
-            >
-                { label }
-            </Label>
+            {(
+                tag === 'div'
+                    ? (
+                        <Label
+                            className={labelHidden ? 'visually-hidden' : ''}
+                            htmlFor={id}
+                        >
+                            { label }
+                        </Label>
+                    )
+                    : (
+                        <legend
+                            className={classNames(
+                                'ds_label',
+                                labelHidden ? 'visually-hidden' : '',
+                            )}
+                        >
+                            { label }
+                        </legend>
+                    )
+            )}
             { content && htmlToReact(content) }
             { hintText && <HintText text={hintText} id={`${id}-hintText`} /> }
             { error && <ErrorMessages errors={error} /> }

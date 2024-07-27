@@ -1,8 +1,10 @@
 declare namespace DSDS.Form {
     namespace Meta {
-        type Width = import('@/lib/enums').Width;
-        type InputTypes = import('@/lib/enums').InputTypes;
-        type InputTypes = import('@/lib/enums').InputTypes;
+        type Width = import('../lib/enums').Width;
+        type InputTypes = import('../lib/enums').InputTypes;
+        type InputModes = import('../lib/enums').InputModes;
+        type InputSize = import('../lib/enums').InputSize;
+        type DatePickerFormat = import('../lib/enums').DatePickerFormat;
 
         interface Error {
             fieldId: string,
@@ -19,7 +21,7 @@ declare namespace DSDS.Form {
 
     interface FormComponent<
         Type = unknown,
-        Tag = HTMLInputElement,
+        Tag extends HTMLElement = HTMLElement,
         Items = unknown,
         Value = Component.Value | Component.Value[],
     > extends Component<Type, Tag, Items> {
