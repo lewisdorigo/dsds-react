@@ -1,3 +1,13 @@
+export enum LayoutTypes {
+    Article = 'article',
+    CategoryList = 'category-list',
+    Guide = 'guide',
+    SearchResults = 'search-results',
+    SeachResultsWithFilters = 'search-results--filters',
+    // SeachResultsWithSidebar = 'search-results-with-sidebar', // @deprecated
+    Questions = 'question-page',
+}
+
 export enum InputWidth {
     Fixed20 = 'fixed-20',
     Fixed10 = 'fixed-10',
@@ -48,4 +58,53 @@ export enum DatePickerFormat {
     DayMonthYear = 'DMY',
     MonthDayYear = 'MDY',
     YearMonthDay = 'YMD',
+}
+
+export enum IconSize {
+    Sixteen = 16,
+    Twenty = 20,
+    TwentyFour = 24,
+    TwentyEight = 28,
+    ThirtyTwo = 32,
+    ThirtySix = 36,
+    Fourty = 40,
+    FourtyFour = 44,
+    FourtyEight = 48,
+
+    Fill = 'fill',
+}
+
+export enum AspectRatio {
+    Square = 'square',
+    FourByThree = '43',
+    SixteenByNine = '169',
+    TwentyOneByNine = '219',
+}
+
+export enum ButtonSize {
+    Small = 'small',
+}
+
+export enum ButtonWidth {
+    Flexible = 'flexible',
+    Fixed = 'fixed',
+    Max = 'max',
+}
+
+export enum ButtonStyle {
+    Primary = 'primary',
+    Cancel = 'cancel',
+    Secondary = 'secondary',
+}
+
+export enum ButtonIconPosition {
+    Left = 'left',
+    Right = 'right',
+    Only = 'only'
+}
+
+export enum ButtonType {
+    Button = 'button',
+    Submit = 'submit',
+    Reset = 'reset',
 }

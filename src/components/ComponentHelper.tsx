@@ -2,14 +2,19 @@ import React from 'react';
 
 import htmlToReact from '../lib/htmlToReact';
 
-import Question from '../form/Question';
+import Question from './Question';
 
-import CheckboxGroup from '../form/Checkbox';
-import Currency from '../form/Currency';
-import RadioGroup from '../form/Radio'; // eslint-disable-line import/no-cycle
-import Select from '../form/Select';
-import TextArea from '../form/TextArea';
-import TextInput from '../form/TextInput';
+import Accordion from './Accordion';
+import CheckboxGroup from './Checkbox';
+import Currency from './Currency';
+import DatePicker from './DatePicker';
+import Details from './Details';
+import InsetText from './InsetText';
+import RadioGroup from './Radio'; // eslint-disable-line import/no-cycle
+import Select from './Select';
+import TextArea from './TextArea';
+import TextInput from './TextInput';
+import WarningText from './WarningText';
 
 /**
  * @param {DSDS.ComponentHelper} props - Properties for the element
@@ -29,48 +34,67 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
         return htmlToReact(field);
     }
 
-    const { type } = field as DSDS.Component | DSDS.Form.FormComponent;
+    const { type } = field as DSDS.Component | DSDS.FormComponent;
 
     switch (type) {
+        case 'accordion':
+            return <Accordion {...field as DSDS.Component.Accordion} />;
+
         case 'checkbox':
             return (
-                <Question field={field as DSDS.Form.Checkbox}>
-                    <CheckboxGroup {...field as DSDS.Form.Checkbox} />
+                <Question field={field as DSDS.Component.Checkbox}>
+                    <CheckboxGroup {...field as DSDS.Component.Checkbox} />
                 </Question>
             );
 
         case 'currency':
             return (
-                <Question field={field as DSDS.Form.Currency}>
-                    <Currency {...field as DSDS.Form.Currency} />
+                <Question field={field as DSDS.Component.Currency}>
+                    <Currency {...field as DSDS.Component.Currency} />
                 </Question>
             );
 
+        case 'date':
+            return (
+                <Question field={field as DSDS.Component.DatePicker}>
+                    <DatePicker {...field as DSDS.Component.DatePicker} />
+                </Question>
+            );
+
+        case 'details':
+            return <Details {...field as DSDS.Component.Details} />;
+
+        case 'inset':
+            return <InsetText {...field as DSDS.Component.InsetText} />;
+
         case 'radio':
             return (
-                <Question field={field as DSDS.Form.Radio}>
-                    <RadioGroup {...field as DSDS.Form.Radio} />
+                <Question field={field as DSDS.Component.Radio}>
+                    <RadioGroup {...field as DSDS.Component.Radio} />
                 </Question>
             );
 
         case 'select':
             return (
-                <Question field={field as DSDS.Form.Select}>
-                    <Select {...field as DSDS.Form.Select} />
+                <Question field={field as DSDS.Component.Select}>
+                    <Select {...field as DSDS.Component.Select} />
                 </Question>
             );
 
         case 'textarea':
             return (
-                <Question field={field as DSDS.Form.TextArea}>
-                    <TextArea {...field as DSDS.Form.TextArea} />
+                <Question field={field as DSDS.Component.TextArea}>
+                    <TextArea {...field as DSDS.Component.TextArea} />
                 </Question>
             );
 
+        case 'warning':
+            return <WarningText {...field as DSDS.Component.WarningText} />;
+
         default:
             return (
-                <Question field={field as DSDS.Form.Checkbox}>
-                    <TextInput {...field as DSDS.Form.TextInput} />
+                <Question field={field as DSDS.Component.TextInput}>
+                    <TextInput {...field as DSDS.Component.TextInput} />
                 </Question>
             );
     }

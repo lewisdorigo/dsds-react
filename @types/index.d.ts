@@ -1,5 +1,22 @@
 declare namespace DSDS {
     namespace Meta {
+        type InputWidth = import('../src/lib/enums').InputWidth;
+        type InputTypes = import('../src/lib/enums').InputTypes;
+        type InputModes = import('../src/lib/enums').InputModes;
+        type InputSize = import('../src/lib/enums').InputSize;
+
+        interface Error {
+            fieldId: string,
+            href?: string,
+            message: React.ReactNode,
+            fieldMessage?: React.ReactNode,
+        }
+
+        type FieldErrors = string | Error;
+        type Errors = FieldErrors | FieldErrors[];
+
+        type Validation = (value:unknown, formData?: FormData) => boolean | string;
+
         namespace Conditional {
             interface Condition {
                 fieldId: string,
@@ -60,20 +77,23 @@ declare namespace DSDS {
         conditions?: Meta.Condition | Meta.Conditional.Items,
     }
 
-    type Components = (React.ReactNode | Component | Form.FormComponent)[];
+    interface FormComponent<
+        Type = unknown,
+        Tag extends HTMLElement = HTMLElement,
+        Items = unknown,
+        Value = Component.Value | Component.Value[],
+    > extends Component<Type, Tag, Items> {
+        id: string,
+        name: string,
 
-    namespace Context {
-        namespace Form {
-            interface Provider extends React.PropsWithChildren {
-                initial?: Record<string, unknown>,
-            }
-        }
+        hintText?: React.ReactNode,
 
-        interface Form {
-            setFields: React.SetStateAction,
-            setField: <Type = unknown>(name:string, value:Type) => void,
-            getField: <Type = unknown>(name:string) => Type,
-            fields: Record<string, unknown>,
-        }
+        required?: boolean,
+        validation?: Meta.Validation[],
+        value?: Value,
+        error?: Meta.Errors,
     }
+
+    type ComponentType = React.ReactNode | Component | FormComponent;
+    type Components = ComponentType[];
 }
