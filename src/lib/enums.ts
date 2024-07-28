@@ -108,3 +108,9 @@ export enum ButtonType {
     Submit = 'submit',
     Reset = 'reset',
 }
+
+export enum AddressState {
+    PostcodeLookup,
+    SelectAddress,
+    EnterAddress
+}

@@ -22,6 +22,7 @@ import WarningText from './WarningText';
  */
 export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function ComponentHelper({
     component: field,
+    customLookup,
 }) {
     if (!field) { return null; }
 
@@ -35,6 +36,14 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
     }
 
     const { type } = field as DSDS.Component | DSDS.FormComponent;
+
+    if (typeof customLookup === 'function') {
+        const custom = customLookup(field as DSDS.Component | DSDS.FormComponent);
+
+        if (custom) {
+            return custom;
+        }
+    }
 
     switch (type) {
         case 'accordion':
@@ -106,9 +115,16 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
  */
 export const ComponentsHelper:React.FC<DSDS.ComponentsHelper> = function ComponentsHelper({
     components = [],
+    customLookup,
 }) {
     return components.map((component, index) => {
         const key = `components-helper-${index}`;
-        return <ComponentHelper key={key} component={component} />;
+        return (
+            <ComponentHelper
+                key={key}
+                component={component}
+                customLookup={customLookup}
+            />
+        );
     });
 };

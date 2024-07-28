@@ -74,6 +74,7 @@ const Select:React.FC<DSDS.Component.Select> = function Select({
                     </option>
                 ))}
             </select>
+            <span className="ds_select-arrow" aria-hidden="true" />
         </div>
     );
 };
