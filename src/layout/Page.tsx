@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Wrapper from '../components/Wrapper';
 import WrapperTag from '../components/WrapperTag';
 import BackToTop from '../components/BackToTop';
 import SkipLinks from '../components/SkipLinks';
@@ -19,6 +20,7 @@ const Page:React.FC<DSDS.Layout.Page> = function Page({
     middle,
     bottom,
 
+    wrapMiddle = true,
     includeBackToTop = true,
     includeSkipLinks = true,
 }) {
@@ -36,8 +38,21 @@ const Page:React.FC<DSDS.Layout.Page> = function Page({
                 { top && <div className="ds_page__top">{ top }</div> }
                 { (middle || children) && (
                     <div className="ds_page__middle">
-                        { middle }
-                        { children }
+                        {(
+                            wrapMiddle
+                                ? (
+                                    <Wrapper>
+                                        { middle }
+                                        { children }
+                                    </Wrapper>
+                                )
+                                : (
+                                    <>
+                                        { middle }
+                                        { children }
+                                    </>
+                                )
+                        )}
                     </div>
                 )}
                 { includeBackToTop && <BackToTop /> }
