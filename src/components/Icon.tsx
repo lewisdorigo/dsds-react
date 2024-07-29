@@ -12,7 +12,7 @@ const Icon:React.FC<DSDS.Component.Icon> = function Icon({
     className,
     label = '',
     size,
-    pathToSvg = '/public/images/icons/icons.stack.svg',
+    pathToSvg = '/design-system/images/icons/icons.stack.svg',
     ...props
 }) {
     return (
@@ -29,7 +29,7 @@ const Icon:React.FC<DSDS.Component.Icon> = function Icon({
             {...props}
         >
             <use
-                href={`${pathToSvg}#${icon}`}
+                xlinkHref={`${pathToSvg}#${icon}`}
             />
         </svg>
     );

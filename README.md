@@ -17,6 +17,12 @@ import TextInput from 'dsds-react/dist/form/TextInput';
 > ⚠️ This is very much a work in progress and quite experimental. Be careful about using it in live
 > projects.
 
+To ensure things like icons are properly visible, make sure that you copy the design system's “dist”
+folder into your project's public directory:
+```bash
+cp -r ./node_modules/@scottish-government/design-system/dist/ ./public/design-system
+```
+
 ----
 
 ## `app/layout.tsx`

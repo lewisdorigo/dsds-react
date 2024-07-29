@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef } from 'react';
 
 import ToTop from '@scottish-government/design-system/src/components/back-to-top/back-to-top';
