@@ -114,3 +114,18 @@ export enum AddressState {
     SelectAddress,
     EnterAddress
 }
+
+export enum FileDownloadTypes {
+    CSV = 'csv',
+    Excel = 'excel',
+    File = 'file',
+    Generic = 'generic',
+    GeoData = 'geodata',
+    Image = 'image',
+    PDF = 'pdf',
+    PowerPoint = 'ppt',
+    RichText = 'rtf',
+    PlainText = 'text',
+    Word = 'word',
+    XML = 'xml',
+}

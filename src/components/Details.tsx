@@ -25,7 +25,7 @@ const Details:React.FC<DSDS.Component.Details> = function Details({
             {...attributes}
         >
             <summary className="ds_details__summary">
-                { htmlToReact(label) }
+                { htmlToReact(label, false) }
             </summary>
 
             <div className="ds_details__text">

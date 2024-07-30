@@ -6,9 +6,11 @@ import Question from './Question';
 
 import Accordion from './Accordion';
 import CheckboxGroup from './Checkbox';
+import ConfirmationMessage from './ConfirmationMessage';
 import Currency from './Currency';
 import DatePicker from './DatePicker';
 import Details from './Details';
+import FileDownload from './FileDownload';
 import InsetText from './InsetText';
 import RadioGroup from './Radio'; // eslint-disable-line import/no-cycle
 import Select from './Select';
@@ -56,6 +58,9 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
                 </Question>
             );
 
+        case 'confirmation':
+            return <ConfirmationMessage {...field as DSDS.Component.ConfirmationMessage} />;
+
         case 'currency':
             return (
                 <Question field={field as DSDS.Component.Currency}>
@@ -72,6 +77,9 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
 
         case 'details':
             return <Details {...field as DSDS.Component.Details} />;
+
+        case 'download':
+            return <FileDownload {...field as DSDS.Component.FileDownload} />;
 
         case 'inset':
             return <InsetText {...field as DSDS.Component.InsetText} />;

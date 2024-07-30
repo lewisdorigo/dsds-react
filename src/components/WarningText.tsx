@@ -31,7 +31,7 @@ const WarningText:React.FC<DSDS.Component.WarningText> = function WarningText({
                 data-symbol={symbol}
             />
             <strong className="visually-hidden">
-                { htmlToReact(label) }
+                { htmlToReact(label, false) }
             </strong>
 
             <div className="ds_warning-text__text">

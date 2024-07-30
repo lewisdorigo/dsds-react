@@ -43,10 +43,10 @@ const Question:React.FC<DSDS.Component.Question> = function Question({
         rawLabel
         && typeof (rawLabel as DSDS.Meta.Label).label !== 'undefined'
     ) {
-        label = htmlToReact((rawLabel as DSDS.Meta.Label).label);
+        label = htmlToReact((rawLabel as DSDS.Meta.Label).label, false);
         labelHidden = (rawLabel as DSDS.Meta.Label).hidden || false;
     } else {
-        label = htmlToReact(rawLabel as React.ReactNode);
+        label = htmlToReact(rawLabel as React.ReactNode, false);
     }
 
     label = (

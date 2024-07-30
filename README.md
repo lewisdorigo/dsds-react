@@ -8,6 +8,7 @@ You can include it in your project by running:
 ```bash
 npm i -S github:lewisdorigo/dsds-react
 ```
+<small>Maybe I'll publish into npm at some point…</small>
 
 You can then import components into your project like this:
 ```typescript
@@ -21,6 +22,54 @@ To ensure things like icons are properly visible, make sure that you copy the de
 folder into your project's public directory:
 ```bash
 cp -r ./node_modules/@scottish-government/design-system/dist/ ./public/design-system
+```
+
+Document icons for the `<FileDownload>` component aren't included in the `/dist` directory, so
+should be copied separately:
+```bash
+cp -r ./node_modules/@scottish-government/design-system/src/images/documents/svg/ ./public/design-system/images/documents
+```
+
+> ℹ️ You could add a `postinstall` script to your `package.json` to do this in your project, to keep
+> the design system assets up-to-date.
+
+> ℹ️ The above is assuming that you'll be using NextJS. The components that make use of these
+> components and reference them by URL don't expect `/public` to be in it. E.g., the icons should be
+> accessible at `/design-system/images/icons/icons.stack.svg`.
+
+----
+## Setting up the stylesheet
+Set up a `styles` folder in your project root, and create a `globals.scss` and a `settings.scss`.
+
+`settings.scss`, should include any variables that are needed for your site E.g.:
+```scss
+$iconsfile: '/design-system/images/icons/icons.stack.svg';
+
+$site-logo__height: 48px;
+$site-logo__height--medium: 64px;
+```
+
+Your `globals.scss` should then import your settings, and the design system:
+```scss
+@import './settings';
+@import '../node_modules/@scottish-government/design-system/src/design-system';
+```
+
+In your project's `/app/layout.tsx`, you can then import your base styles:
+```tsx
+import React, { PropsWithChildren } from 'react';
+import '../styles/globals.scss';
+
+
+/**
+ * The main app
+ *
+ * @param {React.PropsWithChildren} props - Properties for the page
+ * @returns {JSX.Element} - The page
+ */
+const Layout:React.FC<React.PropsWithChildren> = function Layout({ children }) {
+   // Your layout goes here
+};
 ```
 
 ----

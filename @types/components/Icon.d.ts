@@ -3,8 +3,9 @@ declare namespace DSDS.Component {
         type Size = import('../../src/lib/enums').IconSize;
     }
 
-    interface Icon extends React.AllHTMLAttributes<HTMLOrSVGElement> {
+    interface Icon extends React.SVGProps<SVGSVGElement> {
         icon: string,
+        label?: string,
         accessible?: boolean,
         size?: Icon.Size,
         pathToSvg?: string,

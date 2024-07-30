@@ -23,7 +23,7 @@ const Label:React.FC<DSDS.Component.Label> = function Label({
             htmlFor={htmlFor}
             {...props}
         >
-            { text && htmlToReact(text) }
+            { text && htmlToReact(text, false) }
             { children }
         </label>
     );
