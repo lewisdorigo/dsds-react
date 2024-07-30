@@ -18,7 +18,7 @@ const Select:React.FC<DSDS.Component.Select> = function Select({
     error,
     attributes = {},
     width = InputWidth.Fixed20,
-    allowNull = false,
+    allowNull = true,
     items = [],
 }) {
     const { setField } = useContext(FormContext);
@@ -59,20 +59,24 @@ const Select:React.FC<DSDS.Component.Select> = function Select({
             >
                 {allowNull && (
                     <option
+                        key={`${id}-null`}
                         value=""
                         aria-label="Please select an option"
                     />
                 )}
-                {items.map((item) => (
-                    <option
-                        {...item.attributes}
-                        key={item.id}
-                        id={item.id}
-                        value={item.value}
-                    >
-                        { item.label }
-                    </option>
-                ))}
+                {items.map((item, index) => {
+                    const key = item.id || `${id}-${index}`;
+                    return (
+                        <option
+                            {...item.attributes}
+                            key={key}
+                            id={item.id}
+                            value={item.value}
+                        >
+                            { item.label }
+                        </option>
+                    );
+                })}
             </select>
             <span className="ds_select-arrow" aria-hidden="true" />
         </div>

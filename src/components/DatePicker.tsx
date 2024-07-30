@@ -118,11 +118,13 @@ const DatePicker:React.FC<DSDS.Component.DatePicker> = function DatePicker({
         if (!ref.current || !window) {
             return;
         }
-        const picker = new DSDSDatePicker(ref, {
+
+        const picker = new DSDSDatePicker(ref.current, {
             minDate,
             maxDate,
             disabledDates,
             dateSelectCallback: handleSelect,
+            imagePath: '/design-system/images/icons/',
         });
 
         picker.init();
@@ -132,11 +134,12 @@ const DatePicker:React.FC<DSDS.Component.DatePicker> = function DatePicker({
 
     if (multiple) {
         inputs = (
-            <>
+            <div className="ds_datepicker__input-wrapper">
                 <div>
                     <Label htmlFor={`${id}-day`}>Day</Label>
                     <TextInput
                         {...props}
+                        type="text"
                         id={`${id}-day`}
                         name={`${name}-day`}
                         width={InputWidth.Fixed2}
@@ -152,6 +155,7 @@ const DatePicker:React.FC<DSDS.Component.DatePicker> = function DatePicker({
                     <Label htmlFor={`${id}-month`}>Month</Label>
                     <TextInput
                         {...props}
+                        type="text"
                         id={`${id}-month`}
                         name={`${name}-month`}
                         width={InputWidth.Fixed2}
@@ -167,10 +171,11 @@ const DatePicker:React.FC<DSDS.Component.DatePicker> = function DatePicker({
                     <Label htmlFor={`${id}-year`}>Year</Label>
                     <TextInput
                         {...props}
+                        type="text"
                         id={`${id}-year`}
-                        name={`${name}-month`}
+                        name={`${name}-year`}
                         width={InputWidth.Fixed4}
-                        className="js-datepicker-month"
+                        className="js-datepicker-year"
                         value={yearValue}
                         attributes={{
                             ...attributes,
@@ -178,30 +183,34 @@ const DatePicker:React.FC<DSDS.Component.DatePicker> = function DatePicker({
                         }}
                     />
                 </div>
-            </>
+            </div>
         );
     } else {
         inputs = (
-            <TextInput
-                {...props}
-                id={id}
-                name={name}
-                width={InputWidth.Fixed10}
-                attributes={attributes}
-                value={value}
-            />
+            <div className="ds_input__wrapper">
+                <TextInput
+                    {...props}
+                    type="text"
+                    id={id}
+                    name={name}
+                    width={InputWidth.Fixed10}
+                    attributes={attributes}
+                    value={value}
+                />
+            </div>
         );
     }
 
     return (
         <div
             className={classNames(
-                'ds_date-picker',
-                multiple ? 'ds_date-picker--multiple' : '',
+                'ds_datepicker',
+                multiple ? 'ds_datepicker--multiple' : '',
                 className,
             )}
             data-dateformat={dateFormat}
             id={`${id}-wrapper`}
+            ref={ref}
         >
             {inputs}
         </div>

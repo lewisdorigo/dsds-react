@@ -39,7 +39,7 @@ declare namespace DSDS {
             conditions: Conditional.Items,
         }
 
-        type Label = {
+        interface Label {
             label: React.ReactNode,
             hidden?: boolean,
             review?: React.ReactNode,
@@ -92,6 +92,12 @@ declare namespace DSDS {
         validation?: Meta.Validation[],
         value?: Value,
         error?: Meta.Errors,
+    }
+
+    interface Title {
+        title: React.ReactNode,
+        label?: React.ReactNode,
+        metadata?: Component.Metadata.Item[],
     }
 
     type ComponentType = React.ReactNode | Component | FormComponent;

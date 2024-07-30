@@ -57,6 +57,27 @@ test.describe('Select', () => {
         await expect(nullOption, 'null value has label').toHaveAttribute('aria-label');
     });
 
+    test('Null Option Disabled', async ({ mount }) => {
+        const component = await mount(
+            <Select
+                id="test"
+                name="test"
+                allowNull={false}
+            />,
+        );
+
+        const selectElem = await component.locator('select');
+
+        await expect(
+            await selectElem.evaluate((e) => e.tagName.toLowerCase()),
+            'is an `<select>` element',
+        ).toEqual('select');
+        await expect(selectElem, 'is editable').toBeEditable();
+        await expect(selectElem, 'has base class').toHaveClass(/\bds_select\b/);
+        await expect(selectElem, 'has expected id').toHaveAttribute('id', 'test');
+        await expect(selectElem, 'no null element').toBeEmpty();
+    });
+
     test('Options', async ({ mount }) => {
         const items = [
             {
@@ -80,6 +101,7 @@ test.describe('Select', () => {
                 id="test"
                 name="test"
                 items={items}
+                allowNull={false}
             />,
         );
 

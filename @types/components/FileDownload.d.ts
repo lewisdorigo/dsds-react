@@ -9,7 +9,7 @@ declare namespace DSDS.Component {
     >, React.PropsWithChildren {
         link: string,
         label: React.ReactNode,
-        type?: FileDownload.Types,
+        fileType?: FileDownload.Types,
         image?: string,
         metadata?: DSDS.Component.Metadata.Item[],
         highlight?: boolean,

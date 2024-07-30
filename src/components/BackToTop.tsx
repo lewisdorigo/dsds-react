@@ -27,13 +27,13 @@ const BackToTop:React.FC<DSDS.Component.BackToTop> = function BackToTop({
         }
 
         const toTop = new ToTop(
-            ref,
+            ref.current,
             window,
             { footerElSelector: footer },
         );
 
         toTop.init();
-    });
+    }, [ref, footer]);
 
     return (
         <div

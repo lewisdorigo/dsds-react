@@ -43,7 +43,7 @@ const SiteBranding:React.FC<DSDS.Component.SiteBranding> = function SiteBranding
             </Link>
             {title && (
                 <div className="ds_site-branding__title">
-                    { htmlToReact(title) }
+                    { htmlToReact(title, false) }
                 </div>
             )}
         </div>

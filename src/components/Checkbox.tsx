@@ -1,6 +1,11 @@
 'use client';
 
-import React, { useRef, useContext, useState } from 'react';
+import React, {
+    useRef,
+    useContext,
+    useState,
+    useMemo,
+} from 'react';
 
 import HintText from './HintText';
 import FieldGroup from './FieldGroup';
@@ -65,9 +70,10 @@ export const Checkbox:React.FC<DSDS.Component.Checkbox.Item> = function Checkbox
 const CheckboxGroup:React.FC<DSDS.Component.Checkbox> = function CheckboxGroup({
     id,
     name,
-    items,
+    items: rawItems,
     className,
     attributes = {},
+    size,
     value: rawValue = [],
 }) {
     const ref = useRef<HTMLDivElement>(null);
@@ -82,9 +88,10 @@ const CheckboxGroup:React.FC<DSDS.Component.Checkbox> = function CheckboxGroup({
         const { target } = event;
         const {
             value: fieldValue,
+            checked,
         } = target;
 
-        let fieldValues:string[] = value;
+        let fieldValues:string[] = [];
 
         /**
          * Handle exclusive checkboxes first.
@@ -93,7 +100,7 @@ const CheckboxGroup:React.FC<DSDS.Component.Checkbox> = function CheckboxGroup({
          * set the values to *only* include this checkbox, then exit out early.
          */
         if (
-            target.checked
+            checked
             && target.getAttribute('data-behaviour') === 'exclusive'
         ) {
             fieldValues = [fieldValue];
@@ -110,7 +117,7 @@ const CheckboxGroup:React.FC<DSDS.Component.Checkbox> = function CheckboxGroup({
          * If it's not an exclusive checkbox, add it's value to the array.
          */
         ref.current
-            .querySelectorAll<HTMLInputElement>('.ds_checkbox__input:selected')
+            .querySelectorAll<HTMLInputElement>('.ds_checkbox__input:checked')
             .forEach((input) => {
                 if (input.getAttribute('data-behaviour') === 'exclusive') {
                     return;
@@ -123,8 +130,19 @@ const CheckboxGroup:React.FC<DSDS.Component.Checkbox> = function CheckboxGroup({
         setField<string[]>(name, fieldValues);
     };
 
+    const items = useMemo(() => (
+        rawItems?.map((item) => ({
+            ...item,
+            attributes: {
+                ...item.attributes,
+                checked: item.value ? value.includes(item.value) : false,
+            },
+        }))
+    ), [value, rawItems]);
+
     return (
         <FieldGroup
+            id={id}
             className={className}
             ref={ref}
         >
@@ -133,6 +151,7 @@ const CheckboxGroup:React.FC<DSDS.Component.Checkbox> = function CheckboxGroup({
                 return (
                     <Checkbox
                         key={key}
+                        size={size}
                         {...checkbox}
                         name={name}
                         attributes={{
@@ -145,11 +164,6 @@ const CheckboxGroup:React.FC<DSDS.Component.Checkbox> = function CheckboxGroup({
                                     checkbox.attributes.onChange(event);
                                 }
                             },
-                            checked: (
-                                checkbox.value
-                                    ? value?.includes(checkbox.value)
-                                    : false
-                            ),
                         }}
                     />
                 );

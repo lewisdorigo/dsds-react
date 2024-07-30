@@ -21,6 +21,7 @@ declare namespace DSDS.Component {
 
         interface Button extends Base, React.HTMLProps<HTMLButtonElement> {
             type?: Type,
+            label?: React.ReactNode,
         }
     }
 

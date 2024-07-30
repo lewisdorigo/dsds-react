@@ -7,6 +7,7 @@ import {
     ButtonIconPosition as IconPosition,
 } from '../lib/enums';
 import classNames from '../lib/classNames';
+import htmlToReact from '../lib/htmlToReact';
 
 /**
  * @param {DSDS.Component.Button} props - Properties for the element
@@ -24,6 +25,7 @@ const Button:React.FC<DSDS.Component.Button> = function Button({
 
     className: rawClassName,
     children,
+    label,
     ...props
 }) {
     const className = classNames(
@@ -34,11 +36,16 @@ const Button:React.FC<DSDS.Component.Button> = function Button({
         width ? `ds_button--${width}` : '',
         style ? `ds_button--${style}` : '',
 
-        icon ? 'ds_button--has-icon' : '',
+        (
+            icon
+            && iconPosition !== IconPosition.Only
+                ? 'ds_button--has-icon'
+                : ''
+        ),
         (
             iconPosition === IconPosition.Left
             || iconPosition === IconPosition.Right
-                ? `ds_button--${iconPosition}`
+                ? `ds_button--has-icon--${iconPosition}`
                 : ''
         ),
     );
@@ -55,10 +62,14 @@ const Button:React.FC<DSDS.Component.Button> = function Button({
                 && iconPosition === IconPosition.Only
                     ? (
                         <span className="visually-hidden">
+                            { label && htmlToReact(label, false) }
                             { children }
                         </span>
                     )
-                    : children
+                    : [
+                        label && htmlToReact(label, false),
+                        children,
+                    ]
             )}
             {
                 icon

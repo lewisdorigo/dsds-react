@@ -2,6 +2,8 @@ import React from 'react';
 
 import Wrapper from './Wrapper';
 import SiteBranding from './SiteBranding';
+import PhaseBanner from './PhaseBanner';
+import SiteNavigation from './SiteNavigation';
 
 import classNames from '../lib/classNames';
 
@@ -11,8 +13,12 @@ import classNames from '../lib/classNames';
  */
 const SiteHeader:React.FC<ScotGov.Component.SiteHeader> = function SiteHead({
     className,
-    branding,
     'aria-label': ariaLabel = 'Site Header',
+
+    branding,
+    phase,
+    menuItems,
+
     ...props
 }) {
     return (
@@ -27,8 +33,29 @@ const SiteHeader:React.FC<ScotGov.Component.SiteHeader> = function SiteHead({
             <Wrapper>
                 <div className="ds_site-header__content">
                     <SiteBranding {...branding} />
+                    { menuItems && (
+                        <SiteNavigation
+                            mobile
+                            id="mobile-navigation"
+                            aria-label=""
+                            menuItems={menuItems}
+                        />
+                    )}
                 </div>
             </Wrapper>
+            { phase && <PhaseBanner {...phase} />}
+            { menuItems && (
+                <div className="ds_site-header__navigation">
+                    <Wrapper>
+                        <SiteNavigation
+                            mobile={false}
+                            id="site-navigation"
+                            aria-label="Main Menu"
+                            menuItems={menuItems}
+                        />
+                    </Wrapper>
+                </div>
+            )}
         </header>
     );
 };

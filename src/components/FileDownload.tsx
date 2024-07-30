@@ -14,7 +14,7 @@ const FileDownload:React.FC<DSDS.Component.FileDownload> = function FileDownload
     link = '#',
     highlight = false,
     label,
-    type = FileDownloadTypes.Generic,
+    fileType = FileDownloadTypes.Generic,
     image: rawImage,
     metadata,
     className,
@@ -23,7 +23,7 @@ const FileDownload:React.FC<DSDS.Component.FileDownload> = function FileDownload
     content,
     children,
 }) {
-    const image = rawImage || `/design-system/images/documents/${type}.svg`;
+    const image = rawImage || `/design-system/images/documents/${fileType}.svg`;
 
     return (
         <div

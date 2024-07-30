@@ -42,7 +42,7 @@ const Link:React.FC<DSDS.Component.Link> = function Link({
             rel={rel || linkRel}
             {...props}
         >
-            { text && htmlToReact(text) }
+            { text && htmlToReact(text, false) }
             { children }
             { (target === '_blank' || target === '_new') && (
                 <>

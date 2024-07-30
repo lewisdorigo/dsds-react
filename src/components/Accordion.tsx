@@ -17,7 +17,7 @@ export const AccordionItem:React.FC<DSDS.Component.Accordion.Item> = function Ac
 }) {
     return (
         <div
-            className="ds_accordion__item"
+            className="ds_accordion-item"
             id={id}
             {...attributes}
         >
@@ -71,7 +71,7 @@ const Accordion:React.FC<DSDS.Component.Accordion> = function Accordion({
             return;
         }
 
-        const accordion = new DSDSAccordion(ref);
+        const accordion = new DSDSAccordion(ref.current);
 
         accordion.init();
     });
