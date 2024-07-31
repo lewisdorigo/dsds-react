@@ -24,6 +24,7 @@ import InsetText from './InsetText';
 import List from './List';
 import RadioGroup from './Radio'; // eslint-disable-line import/no-cycle
 import Select from './Select';
+import Tabs from './Tabs';
 import TextArea from './TextArea';
 import TextInput from './TextInput';
 import WarningText from './WarningText';
@@ -69,6 +70,8 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
     const field = component as DSDS.Component | DSDS.FormComponent;
 
     const { type } = field;
+
+    console.log(field.id, { isVisible });
 
     if (!isVisible) {
         return null;
@@ -153,6 +156,9 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
                     <Select {...field as DSDS.Component.Select} />
                 </Question>
             );
+
+        case 'tabs':
+            return <Tabs {...field as DSDS.Component.Tabs} />;
 
         case 'textarea':
             return (
