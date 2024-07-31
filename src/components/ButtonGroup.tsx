@@ -1,35 +1,41 @@
 import React from 'react';
 
 import WrapperTag from './WrapperTag';
+import Heading from './Heading';
+import { ComponentsHelper } from './ComponentHelper'; // eslint-disable-line import/no-cycle
 
 import classNames from '../lib/classNames';
 
 /**
- * @param {DSDS.Component.WrapperTag} props - Properties for the element
+ * @param {DSDS.Component.ButtonGroup} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const ButtonGroup:React.FC<DSDS.Component.WrapperTag> = function ButtonGroup({
+const ButtonGroup:React.FC<Omit<DSDS.Component.ButtonGroup, 'type'>> = function ButtonGroup({
     tag = 'nav',
     className,
+    label,
+    headingLevel,
+    items = [],
     children,
-    ...props
+    attributes = {},
 }) {
     return (
-        <WrapperTag
-            tag={tag}
-            className={classNames(
-                'ds_button-group',
-                className,
+        <>
+            { label && (
+                <Heading level={headingLevel}>{ label }</Heading>
             )}
-            {...props}
-        >
-            { React.Children.map(children, (child) => (
-                <>
-                    { child }
-                    {' '}
-                </>
-            )) }
-        </WrapperTag>
+            <WrapperTag
+                tag={tag}
+                className={classNames(
+                    'ds_button-group',
+                    className,
+                )}
+                {...attributes}
+            >
+                { items && <ComponentsHelper components={items as DSDS.Components} /> }
+                { children }
+            </WrapperTag>
+        </>
     );
 };
 

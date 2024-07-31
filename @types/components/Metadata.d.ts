@@ -1,16 +1,18 @@
 declare namespace DSDS.Component {
     namespace Metadata {
         interface Item {
-            name: string,
+            label: string,
             value: Date | React.ReactNode,
-            hideName?: boolean,
+            hideLabel?: boolean,
             isLabel?: boolean,
         }
     }
 
-    interface Metadata extends React.HTMLProps<HTMLDListElement> {
+    interface Metadata extends Component<
+        'metadata',
+        HTMLDListElement,
+        Metadata.Item
+    > {
         inline?: boolean,
-        items: Metadata.Item[],
-        className?: string,
     }
 }

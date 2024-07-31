@@ -23,7 +23,7 @@ import Label from './Label';
  * @param {DSDS.Component.DatePicker} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const DatePicker:React.FC<DSDS.Component.DatePicker> = function DatePicker({
+const DatePicker:React.FC<Omit<DSDS.Component.DatePicker, 'type'>> = function DatePicker({
     id,
     name,
     className,
@@ -39,6 +39,53 @@ const DatePicker:React.FC<DSDS.Component.DatePicker> = function DatePicker({
 }) {
     const ref = useRef<HTMLDivElement>(null);
     const { fields, setFields } = useContext(FormContext);
+
+    const parseDateString = (date:string):Date => {
+        let d = new Date(date);
+
+        if (d instanceof Date && !Number.isNaN(d.getTime())) {
+            return d;
+        }
+
+        d = new Date();
+        d.setHours(0, 0, 0);
+
+        if (date === 'now' || date === 'today') {
+            return d;
+        }
+
+        const match = date.match(/^(\+|-)\s*(\d+) (day|month|year)s?$/);
+
+        if (!match) {
+            return d;
+        }
+
+        const [
+            ,
+            operator,
+            variable,
+            period,
+        ] = match;
+
+        const modifier = parseInt(variable, 10) * (operator === '+' ? 1 : -1);
+
+        switch (period) {
+            case 'year':
+                d.setFullYear(d.getFullYear() + modifier);
+                break;
+
+            case 'month':
+                d.setMonth(d.getMonth() + modifier);
+                break;
+
+            case 'day':
+                d.setDate(d.getDate() + modifier);
+                break;
+            default:
+        }
+
+        return d;
+    };
 
     let dayValue:string = '';
     let monthValue:string = '';
@@ -64,13 +111,13 @@ const DatePicker:React.FC<DSDS.Component.DatePicker> = function DatePicker({
 
     const minDate = useMemo(() => (
         typeof rawMinDate === 'string'
-            ? new Date(rawMinDate)
+            ? parseDateString(rawMinDate)
             : rawMinDate
     ), [rawMinDate]);
 
     const maxDate = useMemo(() => (
         typeof rawMaxDate === 'string'
-            ? new Date(rawMaxDate)
+            ? parseDateString(rawMaxDate)
             : rawMaxDate
     ), [rawMaxDate]);
 

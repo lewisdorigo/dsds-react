@@ -6,22 +6,23 @@ declare namespace DSDS.Component {
         type IconPosition = import('../../src/lib/enums').ButtonIconPosition;
         type Type = import('../../src/lib/enums').ButtonType;
 
-        interface Base {
+        interface Base extends React.PropsWithChildren {
             size?: Size,
             width?: Width,
             style?: Style,
 
             icon?: string,
             iconPosition?: IconPosition,
+            label?: React.ReactNode,
         }
 
         interface Anchor extends Base, React.HTMLProps<HTMLAnchorElement> {
             type: never,
+            href: string,
         }
 
         interface Button extends Base, React.HTMLProps<HTMLButtonElement> {
             type?: Type,
-            label?: React.ReactNode,
         }
     }
 

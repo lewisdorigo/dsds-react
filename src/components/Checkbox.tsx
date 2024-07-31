@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 
 import HintText from './HintText';
-import FieldGroup from './FieldGroup';
+import FieldGroup from './FieldGroup'; // eslint-disable-line import/no-cycle
 
 import classNames from '../lib/classNames';
 import FormContext from '../context/FormContext';
@@ -67,7 +67,7 @@ export const Checkbox:React.FC<DSDS.Component.Checkbox.Item> = function Checkbox
  * @param {DSDS.Component.Checkbox} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const CheckboxGroup:React.FC<DSDS.Component.Checkbox> = function CheckboxGroup({
+const CheckboxGroup:React.FC<Omit<DSDS.Component.Checkbox, 'type'>> = function CheckboxGroup({
     id,
     name,
     items: rawItems,

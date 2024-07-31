@@ -8,9 +8,8 @@ import { InputWidth, InputTypes } from '../lib/enums';
  * @param {DSDS.Component.Currency} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Currency:React.FC<DSDS.Component.Currency> = function Currency({
+const Currency:React.FC<Omit<DSDS.Component.Currency, 'type'>> = function Currency({
     id,
-    type = InputTypes.Number,
     symbol = '£',
     width = InputWidth.Fixed4,
     ...props
@@ -24,7 +23,7 @@ const Currency:React.FC<DSDS.Component.Currency> = function Currency({
             <TextInput
                 {...props}
                 id={id}
-                type={type}
+                type={InputTypes.Number}
                 width={width}
             />
         </div>

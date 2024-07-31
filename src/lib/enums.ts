@@ -54,6 +54,12 @@ export enum InputSize {
     Small = 'small'
 }
 
+export enum TextAreaSize {
+    Normal,
+    Small,
+    Large,
+}
+
 export enum DatePickerFormat {
     DayMonthYear = 'DMY',
     MonthDayYear = 'MDY',

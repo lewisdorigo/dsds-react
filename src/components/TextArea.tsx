@@ -2,6 +2,7 @@
 
 import React, { useContext } from 'react';
 
+import { TextAreaSize } from '../lib/enums';
 import classNames from '../lib/classNames';
 import FormContext from '../context/FormContext';
 
@@ -9,16 +10,14 @@ import FormContext from '../context/FormContext';
  * @param {DSDS.Component.TextArea} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const TextArea:React.FC<DSDS.Component.TextArea> = function TextArea({
+const TextArea:React.FC<Omit<DSDS.Component.TextArea, 'type'>> = function TextArea({
     id,
     name,
     className,
     value,
     error,
-    attributes: {
-        rows = 3,
-        ...attributes
-    } = {},
+    size = TextAreaSize.Normal,
+    attributes = {},
 }) {
     const { setField } = useContext(FormContext);
 
@@ -44,6 +43,22 @@ const TextArea:React.FC<DSDS.Component.TextArea> = function TextArea({
             attributes.onChange(event);
         }
     };
+
+    let rows:number|TextAreaSize;
+
+    switch (size) {
+        case TextAreaSize.Small:
+            rows = 2;
+            break;
+
+        case TextAreaSize.Large:
+            rows = 5;
+            break;
+
+        default:
+            rows = attributes.rows || 3;
+            break;
+    }
 
     return (
         <textarea

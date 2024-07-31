@@ -3,24 +3,29 @@ import React from 'react';
 import WrapperTag from './WrapperTag';
 
 import classNames from '../lib/classNames';
+import htmlToReact from '../lib/htmlToReact';
 
 /**
  * @param {DSDS.Component.AspectBox} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const AspectBox:React.FC<DSDS.Component.AspectBox> = function AspectBox({
+const AspectBox:React.FC<Omit<DSDS.Component.AspectBox, 'type'>> = function AspectBox({
+    tag = 'div',
     ratio,
     children,
-    ...props
+    content,
+    attributes = {},
 }) {
     return (
         <WrapperTag
+            tag={tag}
             className={classNames(
                 'ds_aspect-box',
                 ratio ? `ds_aspect-box--${ratio}` : '',
             )}
-            {...props}
+            {...attributes}
         >
+            { content && htmlToReact(content) }
             { children }
         </WrapperTag>
     );

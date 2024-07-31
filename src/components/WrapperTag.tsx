@@ -7,7 +7,7 @@ import React, { forwardRef } from 'react';
  * @returns {JSX.Element} - The element
  */
 // eslint-disable-next-line prefer-arrow-callback
-const WrapperTag = forwardRef<HTMLDivElement, DSDS.Component.WrapperTag>(function WrapperTag({
+const WrapperTag = forwardRef<HTMLOrSVGElement, DSDS.Component.WrapperTag>(function WrapperTag({
     tag = 'div',
     children,
     ...props

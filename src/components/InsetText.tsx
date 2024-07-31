@@ -9,7 +9,7 @@ import htmlToReact from '../lib/htmlToReact';
  * @param {DSDS.Component.InsetText} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const InsetText:React.FC<DSDS.Component.InsetText> = function InsetText({
+const InsetText:React.FC<Omit<DSDS.Component.InsetText, 'type'>> = function InsetText({
     id,
     tag = 'div',
     content,

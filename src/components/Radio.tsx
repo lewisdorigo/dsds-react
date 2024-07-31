@@ -3,7 +3,7 @@
 import React, { useContext } from 'react';
 
 import HintText from './HintText';
-import FieldGroup from './FieldGroup';
+import FieldGroup from './FieldGroup'; // eslint-disable-line import/no-cycle
 import { ComponentsHelper } from './ComponentHelper'; // eslint-disable-line import/no-cycle
 
 import classNames from '../lib/classNames';
@@ -77,7 +77,7 @@ export const Radio:React.FC<DSDS.Component.Radio.Item> = function Radio({
  * @param {DSDS.Component.Radio} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const RadioGroup:React.FC<DSDS.Component.Radio> = function RadioGroup({
+const RadioGroup:React.FC<Omit<DSDS.Component.Radio, 'type'>> = function RadioGroup({
     id,
     name,
     items,

@@ -57,7 +57,7 @@ export const AccordionItem:React.FC<DSDS.Component.Accordion.Item> = function Ac
  * @param {DSDS.Component.Accordion} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Accordion:React.FC<DSDS.Component.Accordion> = function Accordion({
+const Accordion:React.FC<Omit<DSDS.Component.Accordion, 'type'>> = function Accordion({
     id,
     allowOpenAll = true,
     items = [],

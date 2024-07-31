@@ -3,17 +3,16 @@ import React from 'react';
 import htmlToReact from '../lib/htmlToReact';
 
 import Question from './Question';
-import WrapperTag from './WrapperTag';
 
 import Accordion from './Accordion';
 import Button from './Button';
-import ButtonGroup from './ButtonGroup';
-import CheckboxGroup from './Checkbox';
+import ButtonGroup from './ButtonGroup'; // eslint-disable-line import/no-cycle
+import CheckboxGroup from './Checkbox'; // eslint-disable-line import/no-cycle
 import ConfirmationMessage from './ConfirmationMessage';
 import Currency from './Currency';
 import DatePicker from './DatePicker';
 import Details from './Details';
-import FieldGroup from './FieldGroup';
+import FieldGroup from './FieldGroup'; // eslint-disable-line import/no-cycle
 import FileDownload from './FileDownload';
 import InsetText from './InsetText';
 import RadioGroup from './Radio'; // eslint-disable-line import/no-cycle
@@ -42,6 +41,7 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
     }
 
     const field = component as DSDS.Component | DSDS.FormComponent;
+
     const { type } = field;
 
     if (typeof customLookup === 'function') {
@@ -65,33 +65,7 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
             );
 
         case 'button-group':
-            return (
-                <>
-                    {(
-                        field.label
-                            ? (
-                                <WrapperTag tag="h2">
-                                    {(
-                                        typeof field.label !== 'string'
-                                        && Object.prototype.hasOwnProperty.call(field.label, 'label')
-                                            ? (field.label as DSDS.Meta.Label).label
-                                            : htmlToReact(field.label as React.ReactNode, false)
-                                    )}
-                                </WrapperTag>
-                            )
-                            : ''
-                    )}
-                    <ButtonGroup>
-                        {field.items && (
-                            <ComponentsHelper // eslint-disable-line @typescript-eslint/no-use-before-define
-                                components={(
-                                    field.items as DSDS.Components
-                                )}
-                            />
-                        )}
-                    </ButtonGroup>
-                </>
-            );
+            return <ButtonGroup {...field as DSDS.Component.ButtonGroup} />;
 
         case 'checkbox':
             return (
@@ -125,37 +99,7 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
 
         case 'group':
         case 'fieldset':
-            return (
-                <FieldGroup
-                    id={field.id}
-                    tag={type === 'fieldset' ? 'fieldset' : undefined}
-                    inline={(field as DSDS.Component.FieldGroup).inline || false}
-                >
-                    {(
-                        field.label
-                            ? (
-                                <WrapperTag
-                                    tag={type === 'fieldset' ? 'legend' : 'h2'}
-                                >
-                                    {(
-                                        typeof field.label !== 'string'
-                                        && Object.prototype.hasOwnProperty.call(field.label, 'label')
-                                            ? (field.label as DSDS.Meta.Label).label
-                                            : htmlToReact(field.label as React.ReactNode, false)
-                                    )}
-                                </WrapperTag>
-                            )
-                            : ''
-                    )}
-                    {field.items && (
-                        <ComponentsHelper // eslint-disable-line @typescript-eslint/no-use-before-define
-                            components={(
-                                field.items as DSDS.Components
-                            )}
-                        />
-                    )}
-                </FieldGroup>
-            );
+            return <FieldGroup {...field as DSDS.Component.FieldGroup} />;
 
         case 'inset':
             return <InsetText {...field as DSDS.Component.InsetText} />;

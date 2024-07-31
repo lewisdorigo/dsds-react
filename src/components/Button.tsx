@@ -61,10 +61,13 @@ const Button:React.FC<DSDS.Component.Button> = function Button({
                 icon
                 && iconPosition === IconPosition.Only
                     ? (
-                        <span className="visually-hidden">
-                            { label && htmlToReact(label, false) }
-                            { children }
-                        </span>
+                        <>
+                            <span className="visually-hidden">
+                                { label && htmlToReact(label, false) }
+                                { children }
+                            </span>
+                            &nbsp;
+                        </>
                     )
                     : [
                         label && htmlToReact(label, false),

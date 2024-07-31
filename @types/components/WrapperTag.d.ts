@@ -1,8 +1,12 @@
 declare namespace DSDS.Component {
+    namespace WrapperTag {
+        interface Tag {
+            tag?: keyof JSX.IntrinsicElements,
+        }
+    }
     interface WrapperTag<
         Tag extends HTMLOrSVGElement = HTMLOrSVGElement,
-    > extends React.PropsWithChildren, React.HTMLAttributes<Tag> {
-        tag?: keyof JSX.IntrinsicElements,
-        ref?: React.Ref,
+    > extends WrapperTag.Tag, React.PropsWithChildren, React.HTMLAttributes<Tag> {
+        ref?: React.Ref<Tag>,
     }
 }

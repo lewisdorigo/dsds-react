@@ -5,10 +5,12 @@ declare namespace DSDS {
     interface ComponentHelper {
         component: React.ReactNode | Component | Form.FormComponent,
         customLookup?: CustomLookup,
+        headingLevel?: Meta.HeadingLevel,
     }
 
     interface ComponentsHelper {
         components: Components,
         customLookup?: CustomLookup,
+        headingLevel?: Meta.HeadingLevel,
     }
 }

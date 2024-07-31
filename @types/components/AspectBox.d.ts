@@ -3,7 +3,10 @@ declare namespace DSDS.Component {
         type AspectRatio = import('../../src/lib/enums').AspectRatio;
     }
 
-    interface AspectBox extends WrapperTag<HTMLDivElement> {
+    interface AspectBox extends React.PropsWithChildren, WrapperTag.Tag, Component<
+        'aspect-box',
+        HTMLDivElement,
+    > {
         ratio?: AspectBox.AspectRatio,
     }
 }

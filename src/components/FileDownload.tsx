@@ -10,7 +10,7 @@ import { FileDownloadTypes } from '../lib/enums';
  * @param {DSDS.Component.FileDownload} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const FileDownload:React.FC<DSDS.Component.FileDownload> = function FileDownload({
+const FileDownload:React.FC<Omit<DSDS.Component.FileDownload, 'type'>> = function FileDownload({
     link = '#',
     highlight = false,
     label,

@@ -9,21 +9,27 @@ import htmlToReact from '../lib/htmlToReact';
  * @param {DSDS.Component.ArticleAside} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const ArticleAside:React.FC<DSDS.Component.ArticleAside> = function ArticleAside({
+const ArticleAside:React.FC<Omit<DSDS.Component.ArticleAside, 'type'>> = function ArticleAside({
+    tag = 'aside',
+    label,
     content,
     children,
     className,
-    ...props
+    attributes = {},
 }) {
     return (
         <WrapperTag
+            tag={tag}
             className={classNames(
                 'ds_article-aside',
                 'ds_!_margin-top--8',
                 className,
             )}
-            {...props}
+            {...attributes}
         >
+            { label && (
+                <h2>{ htmlToReact(label, false) }</h2>
+            )}
             { content && htmlToReact(content) }
             { children }
         </WrapperTag>

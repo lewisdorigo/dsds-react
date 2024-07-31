@@ -7,7 +7,7 @@ import htmlToReact from '../lib/htmlToReact';
  * @param {DSDS.Component.Currency} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Details:React.FC<DSDS.Component.Details> = function Details({
+const Details:React.FC<Omit<DSDS.Component.Details, 'type'>> = function Details({
     id,
     label,
     content,

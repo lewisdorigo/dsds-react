@@ -11,7 +11,7 @@ import Icon from './Icon';
  * @param {DSDS.Component.ConfirmationMessage} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const ConfirmationMessage:React.FC<DSDS.Component.ConfirmationMessage> = (
+const ConfirmationMessage:React.FC<Omit<DSDS.Component.ConfirmationMessage, 'type'>> = (
     function ConfirmationMessage({
         label,
         className,

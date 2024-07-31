@@ -1,5 +1,5 @@
 declare namespace DSDS.Component {
-    interface HintText extends DSDS.Component.WrapperTag {
+    interface HintText extends WrapperTag {
         text?: React.ReactNode,
     }
 }

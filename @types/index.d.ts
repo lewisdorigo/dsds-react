@@ -56,36 +56,41 @@ declare namespace DSDS {
             value?: Value,
             attributes?: Partial<React.HTMLProps<Tag>>,
         }
+
+        type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
     }
 
     interface Component<
         Type = unknown,
         Tag extends HTMLElement = HTMLElement,
-        Items = unknown,
+        Items = never,
     > {
         id?: string,
-        name?: string,
         type: Type,
 
-        label?: React.ReactNode | Meta.Label,
+        label?: React.ReactNode,
         content?: React.ReactNode,
 
         className?: string,
+        headingLevel?: Meta.HeadingLevel,
 
         attributes?: Partial<React.HTMLProps<Tag>>,
-        items?: Items[],
+        items?: (Items extends never ? never : Items[]),
         conditions?: Meta.Condition | Meta.Conditional.Items,
+
+        ref?: React.Ref<Tag>,
     }
 
     interface FormComponent<
         Type = unknown,
         Tag extends HTMLElement = HTMLElement,
-        Items = unknown,
+        Items = never,
         Value = Component.Value | Component.Value[],
     > extends Component<Type, Tag, Items> {
         id: string,
         name: string,
 
+        label?: React.ReactNode | Meta.Label,
         hintText?: React.ReactNode,
 
         required?: boolean,

@@ -7,7 +7,7 @@ import htmlToReact from '../lib/htmlToReact';
  * @param {DSDS.Component.WarningText} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const WarningText:React.FC<DSDS.Component.WarningText> = function WarningText({
+const WarningText:React.FC<Omit<DSDS.Component.WarningText, 'type'>> = function WarningText({
     id,
     label,
     symbol = '!',

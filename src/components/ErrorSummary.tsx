@@ -26,6 +26,8 @@ const ErrorSummary:React.FC<DSDS.Component.ErrorSummary> = function ErrorSummary
             role="alert"
             aria-labelledby={`${id}-title`}
             id={id}
+            tabIndex={-1}
+            autoFocus
         >
             <h2 className="ds_error-summary__title">
                 {title}

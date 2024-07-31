@@ -10,7 +10,7 @@ import FormContext from '../context/FormContext';
  * @param {DSDS.Component.Select} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Select:React.FC<DSDS.Component.Select> = function Select({
+const Select:React.FC<Omit<DSDS.Component.Select, 'type'>> = function Select({
     id,
     name,
     className,

@@ -8,9 +8,9 @@ import htmlToReact from '../lib/htmlToReact';
  * @returns {JSX.Element} - The element
  */
 export const MetadataItem:React.FC<DSDS.Component.Metadata.Item> = function MetadataItem({
-    name,
+    label,
     value: rawValue,
-    hideName,
+    hideLabel,
     isLabel,
 }) {
     let value;
@@ -28,8 +28,8 @@ export const MetadataItem:React.FC<DSDS.Component.Metadata.Item> = function Meta
 
     return (
         <div className="ds_metadata__item">
-            <dt className={classNames('ds_metadata__key', hideName ? 'visually-hidden' : '')}>
-                { name }
+            <dt className={classNames('ds_metadata__key', hideLabel ? 'visually-hidden' : '')}>
+                { label }
             </dt>
             {' '}
             <dd className={classNames('ds_metadata__value', isLabel ? 'ds_content-label' : '')}>
@@ -44,11 +44,11 @@ export const MetadataItem:React.FC<DSDS.Component.Metadata.Item> = function Meta
  * @param {DSDS.Component.Metadata} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Metadata:React.FC<DSDS.Component.Metadata> = function Metadata({
+const Metadata:React.FC<Omit<DSDS.Component.Metadata, 'type'>> = function Metadata({
     items,
     className,
     inline = false,
-    ...props
+    attributes = {},
 }) {
     return (
         <dl
@@ -57,7 +57,7 @@ const Metadata:React.FC<DSDS.Component.Metadata> = function Metadata({
                 inline ? 'ds_metadata--inline' : '',
                 className,
             )}
-            {...props}
+            {...attributes}
         >
             { items && items.map((item, index) => {
                 const itemKey = `meta-data-${index}`;
