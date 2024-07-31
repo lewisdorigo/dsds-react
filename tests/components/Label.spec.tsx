@@ -62,7 +62,7 @@ test.describe('Label', () => {
             <Label
                 id="test"
                 htmlFor="test-input"
-                text="Label Text"
+                content="Label Text"
             />,
         );
 
@@ -77,7 +77,7 @@ test.describe('Label', () => {
             <Label
                 id="test"
                 htmlFor="test-input"
-                text="Label <strong>Text</strong>"
+                content="Label <strong>Text</strong>"
             />,
         );
 

@@ -9,7 +9,7 @@ import classNames from '../lib/classNames';
  */
 const Label:React.FC<DSDS.Component.Label> = function Label({
     className,
-    text,
+    content,
     children,
     htmlFor,
     ...props
@@ -23,7 +23,7 @@ const Label:React.FC<DSDS.Component.Label> = function Label({
             htmlFor={htmlFor}
             {...props}
         >
-            { text && htmlToReact(text, false) }
+            { content && htmlToReact(content, false) }
             { children }
         </label>
     );

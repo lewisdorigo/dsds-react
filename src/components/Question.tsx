@@ -119,8 +119,8 @@ const Question:React.FC<DSDS.Component.Question> = function Question({
                     )
             )}
             { content && htmlToReact(content) }
-            { hintText && <HintText text={hintText} id={`${id}-hintText`} /> }
-            { error && <ErrorMessages errors={error} /> }
+            { hintText && <HintText content={hintText} id={`${id}-hint-text`} /> }
+            { error && <ErrorMessages errors={error} id={`${id}-errors`} /> }
             { children }
         </WrapperTag>
     );

@@ -57,7 +57,7 @@ export const Checkbox:React.FC<DSDS.Component.Checkbox.Item> = function Checkbox
                 >
                     { label }
                 </label>
-                { hintText && <HintText text={hintText} id={`${id}-hintText`} />}
+                { hintText && <HintText content={hintText} id={`${id}-hint-text`} />}
             </div>
         </>
     );

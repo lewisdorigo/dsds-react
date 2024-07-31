@@ -11,7 +11,7 @@ import classNames from '../lib/classNames';
  */
 const HintText:React.FC<DSDS.Component.HintText> = function HintText({
     className,
-    text,
+    content,
     children,
     ...props
 }) {
@@ -23,7 +23,7 @@ const HintText:React.FC<DSDS.Component.HintText> = function HintText({
             )}
             {...props}
         >
-            { text && htmlToReact(text) }
+            { content && htmlToReact(content) }
             { children }
         </WrapperTag>
     );

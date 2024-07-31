@@ -63,7 +63,7 @@ export const Radio:React.FC<DSDS.Component.Radio.Item> = function Radio({
             >
                 { label }
             </label>
-            { hintText && <HintText text={hintText} id={`${id}-hintText`} />}
+            { hintText && <HintText content={hintText} id={`${id}-hint-text`} />}
             { items && items.length > 0 && (
                 <div className="ds_reveal-content">
                     <ComponentsHelper components={items} />

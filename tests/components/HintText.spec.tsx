@@ -55,7 +55,7 @@ test.describe('HintText', () => {
         const component = await mount(
             <HintText
                 id="test"
-                text="Label Text"
+                content="Label Text"
             />,
         );
 
@@ -68,7 +68,7 @@ test.describe('HintText', () => {
         const component = await mount(
             <HintText
                 id="test"
-                text="Label <strong>Text</strong>"
+                content="Label <strong>Text</strong>"
             />,
         );
 
