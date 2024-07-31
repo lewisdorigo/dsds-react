@@ -21,6 +21,7 @@ import FieldGroup from './FieldGroup'; // eslint-disable-line import/no-cycle
 import FileDownload from './FileDownload';
 import Html from './Html';
 import InsetText from './InsetText';
+import List from './List';
 import RadioGroup from './Radio'; // eslint-disable-line import/no-cycle
 import Select from './Select';
 import TextArea from './TextArea';
@@ -135,6 +136,9 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
 
         case 'inset':
             return <InsetText {...field as DSDS.Component.InsetText} />;
+
+        case 'list':
+            return <List {...field as DSDS.Component.List} />;
 
         case 'radio':
             return (
