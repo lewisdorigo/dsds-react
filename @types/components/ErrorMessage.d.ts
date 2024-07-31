@@ -4,7 +4,7 @@ declare namespace DSDS.Component {
     }
 
     interface ErrorMessages {
-        fieldId?: string,
+        id?: string,
         errors: DSDS.Meta.Errors,
     }
 }

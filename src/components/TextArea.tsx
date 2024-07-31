@@ -15,6 +15,7 @@ const TextArea:React.FC<Omit<DSDS.Component.TextArea, 'type'>> = function TextAr
     name,
     className,
     value,
+    hintText,
     error,
     size = TextAreaSize.Normal,
     attributes = {},
@@ -74,6 +75,11 @@ const TextArea:React.FC<Omit<DSDS.Component.TextArea, 'type'>> = function TextAr
             defaultValue={value}
             onBlur={handleBlur}
             onChange={handleChange}
+            aria-describedby={classNames(
+                attributes['aria-describedby'],
+                hintText ? `${id}-hint-text` : '',
+                error ? `${id}-errors` : '',
+            )}
         />
     );
 };

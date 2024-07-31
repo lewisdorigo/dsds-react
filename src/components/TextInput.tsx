@@ -15,6 +15,7 @@ const TextInput:React.FC<DSDS.Component.TextInput> = function TextInput({
     id,
     name,
     className,
+    hintText,
     value,
     error,
     width = InputWidth.Fixed20,
@@ -72,6 +73,11 @@ const TextInput:React.FC<DSDS.Component.TextInput> = function TextInput({
             )}
             onBlur={handleBlur}
             onChange={handleChange}
+            aria-describedby={classNames(
+                attributes['aria-describedby'],
+                hintText ? `${id}-hint-text` : '',
+                error ? `${id}-errors` : '',
+            )}
         />
     );
 };

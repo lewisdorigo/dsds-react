@@ -2,15 +2,16 @@ import React from 'react';
 
 import WrapperTag from './WrapperTag';
 import Heading from './Heading';
-import { ComponentsHelper } from './ComponentHelper'; // eslint-disable-line import/no-cycle
 
 import classNames from '../lib/classNames';
+import Button from './Button';
 
 /**
  * @param {DSDS.Component.ButtonGroup} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
 const ButtonGroup:React.FC<Omit<DSDS.Component.ButtonGroup, 'type'>> = function ButtonGroup({
+    id,
     tag = 'nav',
     className,
     label,
@@ -32,7 +33,13 @@ const ButtonGroup:React.FC<Omit<DSDS.Component.ButtonGroup, 'type'>> = function 
                 )}
                 {...attributes}
             >
-                { items && <ComponentsHelper components={items as DSDS.Components} /> }
+                { items && items.map((item, index) => {
+                    const key = `${id}-button-${index}`;
+                    return (
+                        <Button key={key} {...item} />
+                    );
+                })}
+
                 { children }
             </WrapperTag>
         </>

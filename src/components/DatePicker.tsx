@@ -192,9 +192,15 @@ const DatePicker:React.FC<Omit<DSDS.Component.DatePicker, 'type'>> = function Da
                         width={InputWidth.Fixed2}
                         className="js-datepicker-date"
                         value={dayValue}
+                        hintText={undefined}
                         attributes={{
                             ...attributes,
                             inputMode: InputModes.Numeric,
+                            'aria-describedby': classNames(
+                                attributes['aria-describedby'],
+                                props.hintText ? `${id}-hint-text` : '',
+                                props.error ? `${id}-errors` : '',
+                            ),
                         }}
                     />
                 </div>
@@ -208,9 +214,15 @@ const DatePicker:React.FC<Omit<DSDS.Component.DatePicker, 'type'>> = function Da
                         width={InputWidth.Fixed2}
                         className="js-datepicker-month"
                         value={monthValue}
+                        hintText={undefined}
                         attributes={{
                             ...attributes,
                             inputMode: InputModes.Numeric,
+                            'aria-describedby': classNames(
+                                attributes['aria-describedby'],
+                                props.hintText ? `${id}-hint-text` : '',
+                                props.error ? `${id}-errors` : '',
+                            ),
                         }}
                     />
                 </div>
@@ -224,9 +236,15 @@ const DatePicker:React.FC<Omit<DSDS.Component.DatePicker, 'type'>> = function Da
                         width={InputWidth.Fixed4}
                         className="js-datepicker-year"
                         value={yearValue}
+                        hintText={undefined}
                         attributes={{
                             ...attributes,
                             inputMode: InputModes.Numeric,
+                            'aria-describedby': classNames(
+                                attributes['aria-describedby'],
+                                props.hintText ? `${id}-hint-text` : '',
+                                props.error ? `${id}-errors` : '',
+                            ),
                         }}
                     />
                 </div>

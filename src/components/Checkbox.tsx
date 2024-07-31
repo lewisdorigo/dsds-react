@@ -48,7 +48,7 @@ export const Checkbox:React.FC<DSDS.Component.Checkbox.Item> = function Checkbox
                     name={name}
                     type="checkbox"
                     value={value}
-                    aria-describedby={hintText ? `${id}-hintText` : undefined}
+                    aria-describedby={hintText ? `${id}-hint-text` : undefined}
                     data-behaviour={exclusive ? 'exclusive' : undefined}
                 />
                 <label
@@ -73,6 +73,8 @@ const CheckboxGroup:React.FC<Omit<DSDS.Component.Checkbox, 'type'>> = function C
     items: rawItems,
     className,
     attributes = {},
+    hintText,
+    error,
     size,
     value: rawValue = [],
 }) {
@@ -164,6 +166,11 @@ const CheckboxGroup:React.FC<Omit<DSDS.Component.Checkbox, 'type'>> = function C
                                     checkbox.attributes.onChange(event);
                                 }
                             },
+                            'aria-describedby': classNames(
+                                attributes['aria-describedby'],
+                                hintText ? `${id}-hint-text` : '',
+                                error ? `${id}-errors` : '',
+                            ),
                         }}
                     />
                 );

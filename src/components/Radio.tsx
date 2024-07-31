@@ -54,8 +54,11 @@ export const Radio:React.FC<DSDS.Component.Radio.Item> = function Radio({
                 name={name}
                 type="radio"
                 value={value}
-                aria-describedby={hintText ? `${id}-hintText` : undefined}
                 onChange={handleChange}
+                aria-describedby={classNames(
+                    attributes['aria-describedby'],
+                    hintText ? `${id}-hint-text` : '',
+                )}
             />
             <label
                 className="ds_radio__label"
@@ -84,7 +87,9 @@ const RadioGroup:React.FC<Omit<DSDS.Component.Radio, 'type'>> = function RadioGr
     className,
     attributes = {},
     value,
+    hintText,
     inline = false,
+    error,
     size,
 }) {
     return (
@@ -104,6 +109,11 @@ const RadioGroup:React.FC<Omit<DSDS.Component.Radio, 'type'>> = function RadioGr
                             ...attributes,
                             ...radio.attributes,
                             selected: !!(value && radio.value === value),
+                            'aria-describedby': classNames(
+                                attributes['aria-describedby'],
+                                hintText ? `${id}-hint-text` : '',
+                                error ? `${id}-errors` : '',
+                            ),
                         }}
                     />
                 );

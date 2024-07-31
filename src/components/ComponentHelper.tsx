@@ -6,7 +6,7 @@ import Question from './Question';
 
 import Accordion from './Accordion';
 import Button from './Button';
-import ButtonGroup from './ButtonGroup'; // eslint-disable-line import/no-cycle
+import ButtonGroup from './ButtonGroup';
 import CheckboxGroup from './Checkbox'; // eslint-disable-line import/no-cycle
 import ConfirmationMessage from './ConfirmationMessage';
 import Currency from './Currency';

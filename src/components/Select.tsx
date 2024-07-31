@@ -19,6 +19,7 @@ const Select:React.FC<Omit<DSDS.Component.Select, 'type'>> = function Select({
     attributes = {},
     width = InputWidth.Fixed20,
     allowNull = true,
+    hintText,
     items = [],
 }) {
     const { setField } = useContext(FormContext);
@@ -56,6 +57,11 @@ const Select:React.FC<Omit<DSDS.Component.Select, 'type'>> = function Select({
                 name={name}
                 defaultValue={value}
                 onChange={handleChange}
+                aria-describedby={classNames(
+                    attributes['aria-describedby'],
+                    hintText ? `${id}-hint-text` : '',
+                    error ? `${id}-errors` : '',
+                )}
             >
                 {allowNull && (
                     <option

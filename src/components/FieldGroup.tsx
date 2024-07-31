@@ -57,7 +57,7 @@ const FieldGroup = forwardRef<HTMLElement, DSDS.Component.FieldGroup>(function F
             )}
 
             { content && htmlToReact(content) }
-            { hintText && <HintText text={hintText} /> }
+            { hintText && <HintText content={hintText} /> }
             { children }
 
             { items && <ComponentsHelper components={items} /> }
