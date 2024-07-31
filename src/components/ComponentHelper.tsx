@@ -14,6 +14,7 @@ import DatePicker from './DatePicker';
 import Details from './Details';
 import FieldGroup from './FieldGroup'; // eslint-disable-line import/no-cycle
 import FileDownload from './FileDownload';
+import Html from './Html';
 import InsetText from './InsetText';
 import RadioGroup from './Radio'; // eslint-disable-line import/no-cycle
 import Select from './Select';
@@ -100,6 +101,9 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
         case 'group':
         case 'fieldset':
             return <FieldGroup {...field as DSDS.Component.FieldGroup} />;
+
+        case 'html':
+            return <Html {...field as DSDS.Component.Html} />;
 
         case 'inset':
             return <InsetText {...field as DSDS.Component.InsetText} />;
