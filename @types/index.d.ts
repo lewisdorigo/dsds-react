@@ -31,7 +31,7 @@ declare namespace DSDS {
                 ),
             }
 
-            type Items = (DSDS.Meta.Conditional.Items | Condition)[];
+            type Items = (DSDS.Meta.Condition | Condition)[];
         }
 
         interface Condition {

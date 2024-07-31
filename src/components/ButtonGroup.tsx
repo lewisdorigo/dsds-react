@@ -26,6 +26,7 @@ const ButtonGroup:React.FC<Omit<DSDS.Component.ButtonGroup, 'type'>> = function 
                 <Heading level={headingLevel}>{ label }</Heading>
             )}
             <WrapperTag
+                id={id}
                 tag={tag}
                 className={classNames(
                     'ds_button-group',

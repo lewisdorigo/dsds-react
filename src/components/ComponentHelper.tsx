@@ -1,6 +1,11 @@
-import React from 'react';
+'use client';
+
+import React, { useContext, useMemo } from 'react';
 
 import htmlToReact from '../lib/htmlToReact';
+import { parseConditions } from '../lib/conditional';
+
+import FormContext from '../context/FormContext';
 
 import Question from './Question';
 
@@ -30,6 +35,25 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
     component,
     customLookup,
 }) {
+    const context = useContext(FormContext);
+
+    const isVisible = useMemo(() => {
+        console.log('isVisible Memo', {
+            component,
+            hasComponent: !!component,
+            typeof: typeof component === 'object',
+            conditions: !!component.conditions,
+        });
+
+        return (
+            component
+            && typeof component === 'object'
+            && component.conditions
+                ? parseConditions(component.conditions, context)
+                : true
+        );
+    }, [context, component]);
+
     if (!component) { return null; }
 
     if (
@@ -44,6 +68,10 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
     const field = component as DSDS.Component | DSDS.FormComponent;
 
     const { type } = field;
+
+    if (!isVisible) {
+        return null;
+    }
 
     if (typeof customLookup === 'function') {
         const custom = customLookup(field);

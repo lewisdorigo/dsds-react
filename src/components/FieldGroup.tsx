@@ -21,6 +21,7 @@ const FieldGroup = forwardRef<HTMLElement, DSDS.Component.FieldGroup>(function F
     className,
     children,
     content,
+    id,
     label = '',
     headingLevel = 2,
     inline = false,
@@ -39,6 +40,7 @@ const FieldGroup = forwardRef<HTMLElement, DSDS.Component.FieldGroup>(function F
     return (
         <WrapperTag
             {...attributes}
+            id={id}
             tag={tag as keyof JSX.IntrinsicElements}
             className={classNames(
                 'ds_field-group',
