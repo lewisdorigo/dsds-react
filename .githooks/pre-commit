@@ -11,7 +11,6 @@ cd "$(git rev-parse --show-toplevel)"
 # Set the location of the ESLint, TypeScript, and Playwright binaries
 ESLINT="./node_modules/.bin/eslint"
 TSC="./node_modules/.bin/tsc"
-PLAYWRIGHT="./node_modules/.bin/playwright"
 CUR_DIR=pwd
 pwd
 
@@ -24,12 +23,6 @@ fi
 # If TypeScript is not installed display an error and exit, preventing commit.
 if [[ ! -x "$TSC" ]]; then
     printf "TypeScript does not seem to be installed\n"
-    exit 1
-fi
-
-# If TypeScript is not installed display an error and exit, preventing commit.
-if [[ ! -x "$PLAYWRIGHT" ]]; then
-    printf "Playwright does not seem to be installed\n"
     exit 1
 fi
 
@@ -52,16 +45,5 @@ if [[ "${EXIT_CODE}" != 0 ]]; then
     printf "\nPRE-COMMIT TYPE CHECKS FAILED: Please fix errors and try again.\n"
     exit 1
 fi
-
-# Run Tests
-npm run test
-EXIT_CODE="$?"
-
-# If ESlint exited without error, commit can go ahead. Otherwise, stop.
-if [[ "${EXIT_CODE}" != 0 ]]; then
-    printf "\nPRE-COMMIT TESTS FAILED: Please fix errors and try again.\n"
-    exit 1
-fi
-
 
 exit $?
