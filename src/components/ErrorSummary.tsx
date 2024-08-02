@@ -23,8 +23,6 @@ const ErrorSummary:React.FC<
         ...attributes
     } = {},
 }) {
-    console.log({ id, autoFocus });
-
     return (
         <div
             className={classNames(
