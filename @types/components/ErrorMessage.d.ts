@@ -3,8 +3,13 @@ declare namespace DSDS.Component {
 
     }
 
-    interface ErrorMessages {
-        id?: string,
-        errors: DSDS.Meta.Errors,
+    interface ErrorMessages extends Omit<
+        Component<
+            'error-message',
+            HTMLElement,
+        >,
+        'label' | 'content'
+    > {
+        items?: DSDS.Meta.Errors,
     }
 }

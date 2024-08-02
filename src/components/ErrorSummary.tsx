@@ -1,53 +1,68 @@
 import React from 'react';
 import Link from 'next/link';
 
-import WrapperTag from './WrapperTag';
+import Heading from './Heading';
 
 import classNames from '../lib/classNames';
+import htmlToReact from '../lib/htmlToReact';
 
 /**
- * @param {Object} props - Properties for the element
+ * @param {DSDS.Component.ErrorSummary} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const ErrorSummary:React.FC<DSDS.Component.ErrorSummary> = function ErrorSummary({
-    errors,
+const ErrorSummary:React.FC<
+    Omit<DSDS.Component.ErrorSummary, 'type'>
+> = function ErrorSummary({
+    items = [],
     id = 'error-summary',
-    title = 'There is a problem',
+    label = 'There is a problem',
     className,
-    ...props
+    headingLevel = 2,
+    attributes: {
+        autoFocus = true,
+        ...attributes
+    } = {},
 }) {
+    console.log({ id, autoFocus });
+
     return (
-        <WrapperTag
-            {...props}
+        <div
             className={classNames(
                 'ds_error-summary',
                 className,
             )}
+            {...attributes}
             role="alert"
             aria-labelledby={`${id}-title`}
             id={id}
             tabIndex={-1}
-            autoFocus
+            autoFocus={autoFocus} // eslint-disable-line jsx-a11y/no-autofocus
         >
-            <h2 className="ds_error-summary__title">
-                {title}
-            </h2>
+            <Heading
+                level={headingLevel}
+                className={classNames(
+                    'ds_error-summary__title',
+                    headingLevel !== 2 ? 'beta' : '',
+                )}
+            >
+                { htmlToReact(label) }
+            </Heading>
 
             <ul className="ds_error-summary__list">
-                {errors.map((error, index) => {
+                {items.map((error, index) => {
                     const key = `${id}-${index}`;
                     let message;
 
                     if (typeof error === 'string') {
-                        message = error;
+                        message = htmlToReact(error);
                     } else if ((error.fieldId || error.href) && error.message) {
                         message = (
                             <Link href={error.href || `#${error.fieldId}`}>
-                                { error.message }
+                                { htmlToReact(error.message) }
                             </Link>
                         );
                     } else if (error.message) {
-                        message = error.message;
+                        message = htmlToReact(error.message);
                     } else {
                         return null;
                     }
@@ -59,7 +74,7 @@ const ErrorSummary:React.FC<DSDS.Component.ErrorSummary> = function ErrorSummary
                     );
                 })}
             </ul>
-        </WrapperTag>
+        </div>
     );
 };
 

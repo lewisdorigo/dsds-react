@@ -33,8 +33,10 @@ const ErrorMessage:React.FC<DSDS.Component.ErrorMessage> = function ErrorMessage
  * @param {DSDS.Component.ErrorMessages} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-export const ErrorMessages:React.FC<DSDS.Component.ErrorMessages> = function ErrorMessages({
-    errors: rawErrors,
+export const ErrorMessages:React.FC<
+    Omit<DSDS.Component.ErrorMessages, 'type'>
+> = function ErrorMessages({
+    items: rawErrors = [],
     id = '',
 }) {
     const errors = Array.isArray(rawErrors) ? rawErrors : [rawErrors];

@@ -120,7 +120,7 @@ const Question:React.FC<DSDS.Component.Question> = function Question({
             )}
             { content && htmlToReact(content) }
             { hintText && <HintText content={hintText} id={`${id}-hint-text`} /> }
-            { error && <ErrorMessages errors={error} id={`${id}-errors`} /> }
+            { error && <ErrorMessages items={error} id={`${id}-errors`} /> }
             { children }
         </WrapperTag>
     );
