@@ -9,7 +9,7 @@ import htmlToReact from '../lib/htmlToReact';
  * @returns {JSX.Element} - The element
  */
 const Link:React.FC<DSDS.Component.Link> = function Link({
-    text,
+    content,
     href,
     target,
     className,
@@ -42,7 +42,7 @@ const Link:React.FC<DSDS.Component.Link> = function Link({
             rel={rel || linkRel}
             {...props}
         >
-            { text && htmlToReact(text, false) }
+            { content && htmlToReact(content, false) }
             { children }
             { (target === '_blank' || target === '_new') && (
                 <>
