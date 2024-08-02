@@ -31,6 +31,7 @@ import NotificationPanel from './NotificationPanel';
 import Pagination from './Pagination';
 import RadioGroup from './Radio'; // eslint-disable-line import/no-cycle
 import Select from './Select';
+import SequentialNavigation from './SequentialNavigation';
 import SideNavigation from './SideNavigation';
 import Tabs from './Tabs';
 import TextArea from './TextArea';
@@ -177,6 +178,9 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
                     <Select {...field as DSDS.Component.Select} />
                 </Question>
             );
+
+        case 'sequential-navigation':
+            return <SequentialNavigation {...field as DSDS.Component.SequentialNavigation} />;
 
         case 'side-navigation':
             return <SideNavigation {...field as DSDS.Component.SideNavigation} />;
