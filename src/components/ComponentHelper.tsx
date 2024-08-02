@@ -26,6 +26,7 @@ import Html from './Html';
 import Image from './Image';
 import InsetText from './InsetText';
 import List from './List';
+import NotificationBanner from './NotificationBanner';
 import RadioGroup from './Radio'; // eslint-disable-line import/no-cycle
 import Select from './Select';
 import Tabs from './Tabs';
@@ -150,6 +151,9 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
 
         case 'list':
             return <List {...field as DSDS.Component.List} />;
+
+        case 'notification-banner':
+            return <NotificationBanner {...field as DSDS.Component.NotificationBanner} />;
 
         case 'radio':
             return (
