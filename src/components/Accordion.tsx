@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 
 import DSDSAccordion from '@scottish-government/design-system/src/components/accordion/accordion';
 
+import Heading from './Heading';
+
 import classNames from '../lib/classNames';
 import htmlToReact from '../lib/htmlToReact';
 
@@ -14,6 +16,7 @@ export const AccordionItem:React.FC<DSDS.Component.Accordion.Item> = function Ac
     label,
     content,
     attributes,
+    headingLevel = 3,
 }) {
     return (
         <div
@@ -29,12 +32,13 @@ export const AccordionItem:React.FC<DSDS.Component.Accordion.Item> = function Ac
                 aria-controls={`${id}-content`}
             />
             <div className="ds_accordion-item__header">
-                <h3
+                <Heading
+                    level={headingLevel}
                     id={`${id}-heading`}
                     className="ds_accordion-item__title"
                 >
                     { label }
-                </h3>
+                </Heading>
                 <span className="ds_accordion-item__indicator" />
                 <label // eslint-disable-line jsx-a11y/label-has-associated-control
                     className="ds_accordion-item__label"
@@ -63,6 +67,7 @@ const Accordion:React.FC<Omit<DSDS.Component.Accordion, 'type'>> = function Acco
     items = [],
     className,
     attributes = {},
+    headingLevel = 3,
 }) {
     const ref = useRef<HTMLDivElement>(null);
 
@@ -101,6 +106,7 @@ const Accordion:React.FC<Omit<DSDS.Component.Accordion, 'type'>> = function Acco
                 return (
                     <AccordionItem
                         key={key}
+                        headingLevel={headingLevel}
                         {...item}
                     />
                 );

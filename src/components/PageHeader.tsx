@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Metadata from './Metadata';
+import Heading from './Heading';
 
 import classNames from '../lib/classNames';
 import htmlToReact from '../lib/htmlToReact';
@@ -10,10 +11,12 @@ import htmlToReact from '../lib/htmlToReact';
  * @returns {JSX.Element} - The element
  */
 const PageHeader:React.FC<Omit<DSDS.Component.PageHeader, 'type'>> = function PageHeader({
+    id = 'page-header',
     label,
     title,
     metadata,
     className,
+    headingLevel = 1,
     attributes: {
         'aria-label': ariaLabel = 'Page Header',
         ...attributes
@@ -21,6 +24,7 @@ const PageHeader:React.FC<Omit<DSDS.Component.PageHeader, 'type'>> = function Pa
 }) {
     return (
         <header
+            id={id}
             className={classNames(
                 'ds_page-header',
                 className,
@@ -33,10 +37,19 @@ const PageHeader:React.FC<Omit<DSDS.Component.PageHeader, 'type'>> = function Pa
                     { htmlToReact(label, false) }
                 </span>
             )}
-            <h1 className="ds_page-header__title">
+            <Heading
+                level={headingLevel}
+                id={`${id}-title`}
+                className={classNames(
+                    'ds_page-header__title',
+                    headingLevel > 1 ? 'alpha' : '',
+                )}
+            >
                 { htmlToReact(title, false) }
-            </h1>
-            { metadata && <Metadata items={metadata} /> }
+            </Heading>
+            { metadata && (
+                <Metadata id={`${id}-metadata`} items={metadata} />
+            )}
         </header>
     );
 };

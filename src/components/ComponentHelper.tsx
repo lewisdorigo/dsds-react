@@ -30,6 +30,7 @@ import InsetText from './InsetText';
 import List from './List';
 import NotificationBanner from './NotificationBanner';
 import NotificationPanel from './NotificationPanel';
+import PageHeader from './PageHeader';
 import Pagination from './Pagination';
 import RadioGroup from './Radio'; // eslint-disable-line import/no-cycle
 import Select from './Select';
@@ -47,6 +48,7 @@ import WarningText from './WarningText';
 export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function ComponentHelper({
     component,
     customLookup,
+    headingLevel = 1,
 }) {
     const context = useContext(FormContext);
 
@@ -69,9 +71,10 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
         return htmlToReact(component);
     }
 
-    const field = component as DSDS.Component | DSDS.FormComponent;
-
-    const { type } = field;
+    const field = {
+        ...component,
+        headingLevel: Math.min(headingLevel + 1, 6) as DSDS.Meta.HeadingLevel,
+    } as DSDS.Component | DSDS.FormComponent;
 
     if (!isVisible) {
         return null;
@@ -85,17 +88,12 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
         }
     }
 
-    switch (type) {
+    switch (field.type) {
         case 'accordion':
             return <Accordion {...field as DSDS.Component.Accordion} />;
 
         case 'button':
-            return (
-                <>
-                    <Button {...field as DSDS.Component.Button} />
-                    {' '}
-                </>
-            );
+            return <Button {...field as DSDS.Component.Button} />;
 
         case 'breadcrumbs':
             return <Breadcrumbs {...field as DSDS.Component.Breadcrumbs} />;
@@ -170,6 +168,9 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
         case 'notification-panel':
             return <NotificationPanel {...field as DSDS.Component.NotificationPanel} />;
 
+        case 'page-header':
+            return <PageHeader {...field as DSDS.Component.PageHeader} />;
+
         case 'pagination':
             return <Pagination {...field as DSDS.Component.Pagination} />;
 
@@ -222,6 +223,7 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
 export const ComponentsHelper:React.FC<DSDS.ComponentsHelper> = function ComponentsHelper({
     components = [],
     customLookup,
+    headingLevel = 1,
 }) {
     return components.map((component, index) => {
         const key = `components-helper-${index}`;
@@ -230,6 +232,7 @@ export const ComponentsHelper:React.FC<DSDS.ComponentsHelper> = function Compone
                 key={key}
                 component={component}
                 customLookup={customLookup}
+                headingLevel={headingLevel}
             />
         );
     });

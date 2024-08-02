@@ -1,6 +1,7 @@
 import React from 'react';
 
 import WrapperTag from './WrapperTag';
+import Heading from './Heading';
 
 import classNames from '../lib/classNames';
 import htmlToReact from '../lib/htmlToReact';
@@ -15,6 +16,7 @@ const ArticleAside:React.FC<Omit<DSDS.Component.ArticleAside, 'type'>> = functio
     content,
     children,
     className,
+    headingLevel = 2,
     attributes = {},
 }) {
     return (
@@ -28,7 +30,7 @@ const ArticleAside:React.FC<Omit<DSDS.Component.ArticleAside, 'type'>> = functio
             {...attributes}
         >
             { label && (
-                <h2>{ htmlToReact(label, false) }</h2>
+                <Heading level={headingLevel}>{ htmlToReact(label, false) }</Heading>
             )}
             { content && htmlToReact(content) }
             { children }

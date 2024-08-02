@@ -5,6 +5,7 @@ declare namespace DSDS.Component {
         > {
             label: React.ReactNode,
             content: React.ReactNode,
+            headingLevel?: DSDS.Meta.HeadingLevel,
         }
     }
 

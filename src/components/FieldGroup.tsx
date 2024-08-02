@@ -62,7 +62,7 @@ const FieldGroup = forwardRef<HTMLElement, DSDS.Component.FieldGroup>(function F
             { hintText && <HintText content={hintText} /> }
             { children }
 
-            { items && <ComponentsHelper components={items} /> }
+            { items && <ComponentsHelper components={items} headingLevel={headingLevel} /> }
         </WrapperTag>
     );
 });

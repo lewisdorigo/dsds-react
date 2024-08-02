@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Image from './Image';
+import Heading from './Heading';
 
 import classNames from '../lib/classNames';
 import htmlToReact from '../lib/htmlToReact';
@@ -17,6 +18,7 @@ const FeatureHeader:React.FC<DSDS.Component.FeatureHeader> = function FeatureHea
     style,
     children,
     image,
+    headingLevel = 1,
     attributes: {
         'aria-label': ariaLabel = 'Page Header',
         ...attributes
@@ -34,9 +36,12 @@ const FeatureHeader:React.FC<DSDS.Component.FeatureHeader> = function FeatureHea
             {...attributes}
         >
             <div className="ds_feature-header__primary">
-                <h1 className="ds_feature-header__title">
+                <Heading
+                    level={headingLevel}
+                    className="ds_feature-header__title"
+                >
                     { htmlToReact(title, false) }
-                </h1>
+                </Heading>
                 { content && htmlToReact(content) }
                 { children }
             </div>

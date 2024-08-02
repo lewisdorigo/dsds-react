@@ -6,6 +6,8 @@ import DSDSTabs from '@scottish-government/design-system/src/components/tabs/tab
 import classNames from '../lib/classNames';
 import htmlToReact from '../lib/htmlToReact';
 
+import Heading from './Heading';
+
 /**
  * @param {DSDS.Component.Tabs} props - Properties for the element
  * @returns {JSX.Element} - The element
@@ -16,6 +18,7 @@ const Tabs:React.FC<Omit<DSDS.Component.Tabs, 'type'>> = function Tabs({
     bordered = true,
     id: rawId,
     attributes = {},
+    headingLevel = 2,
 }) {
     const ref = useRef<HTMLDivElement>(null);
     const id = rawId || 'tabs';
@@ -36,12 +39,13 @@ const Tabs:React.FC<Omit<DSDS.Component.Tabs, 'type'>> = function Tabs({
             ref={ref}
         >
             { label && (
-                <h2
+                <Heading
+                    level={headingLevel}
                     className="ds_tabs__title"
                     id={`${id}-title`}
                 >
                     { htmlToReact(label, false) }
-                </h2>
+                </Heading>
             )}
 
             <nav className="ds_tabs__navigation">
