@@ -12,6 +12,9 @@ import Question from './Question';
 import Accordion from './Accordion';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
+import Card from './Card';
+import CategoryItem from './CategoryItem';
+import CategoryList from './CategoryList';
 import CheckboxGroup from './Checkbox'; // eslint-disable-line import/no-cycle
 import ConfirmationMessage from './ConfirmationMessage';
 import Currency from './Currency';
@@ -20,6 +23,7 @@ import Details from './Details';
 import FieldGroup from './FieldGroup'; // eslint-disable-line import/no-cycle
 import FileDownload from './FileDownload';
 import Html from './Html';
+import Image from './Image';
 import InsetText from './InsetText';
 import List from './List';
 import RadioGroup from './Radio'; // eslint-disable-line import/no-cycle
@@ -39,22 +43,13 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
 }) {
     const context = useContext(FormContext);
 
-    const isVisible = useMemo(() => {
-        console.log('isVisible Memo', {
-            component,
-            hasComponent: !!component,
-            typeof: typeof component === 'object',
-            conditions: !!component.conditions,
-        });
-
-        return (
-            component
-            && typeof component === 'object'
-            && component.conditions
-                ? parseConditions(component.conditions, context)
-                : true
-        );
-    }, [context, component]);
+    const isVisible = useMemo(() => (
+        component
+        && typeof component === 'object'
+        && component.conditions
+            ? parseConditions(component.conditions, context)
+            : true
+    ), [context, component]);
 
     if (!component) { return null; }
 
@@ -70,8 +65,6 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
     const field = component as DSDS.Component | DSDS.FormComponent;
 
     const { type } = field;
-
-    console.log(field.id, { isVisible });
 
     if (!isVisible) {
         return null;
@@ -99,6 +92,18 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
 
         case 'button-group':
             return <ButtonGroup {...field as DSDS.Component.ButtonGroup} />;
+
+        case 'card':
+            return <Card {...field as DSDS.Component.Card} />;
+
+        case 'category-item':
+            return <CategoryItem {...field as DSDS.Component.CategoryItem} />;
+
+        case 'category-list':
+        case 'category-grid':
+        case 'card-list':
+        case 'card-grid':
+            return <CategoryList {...field as DSDS.Component.CategoryList} />;
 
         case 'checkbox':
             return (
@@ -136,6 +141,9 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
 
         case 'html':
             return <Html {...field as DSDS.Component.Html} />;
+
+        case 'image':
+            return <Image alt="" {...field as DSDS.Component.Image} />;
 
         case 'inset':
             return <InsetText {...field as DSDS.Component.InsetText} />;

@@ -135,3 +135,12 @@ export enum FileDownloadTypes {
     Word = 'word',
     XML = 'xml',
 }
+
+export enum CategoryListLayout {
+    List = 'list',
+    Grid = 'grid',
+}
+
+export enum CategoryListSpacing {
+    Narrow = 'narrow'
+}

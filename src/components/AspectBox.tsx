@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { isValidElement } from 'react';
 
 import WrapperTag from './WrapperTag';
 
@@ -16,6 +16,17 @@ const AspectBox:React.FC<Omit<DSDS.Component.AspectBox, 'type'>> = function Aspe
     content,
     attributes = {},
 }) {
+    const addClass = (item:React.ReactNode) => (
+        item && typeof item === 'object' && isValidElement(item)
+            ? React.cloneElement(item as React.ReactElement, {
+                className: classNames(
+                    'ds_aspect-box__inner',
+                    item.props.className ? item.props.className : null,
+                ),
+            })
+            : item
+    );
+
     return (
         <WrapperTag
             tag={tag}
@@ -25,8 +36,15 @@ const AspectBox:React.FC<Omit<DSDS.Component.AspectBox, 'type'>> = function Aspe
             )}
             {...attributes}
         >
-            { content && htmlToReact(content) }
-            { children }
+            { content && React.Children.map<React.ReactNode, React.ReactNode>(
+                htmlToReact(content),
+                addClass,
+            )}
+
+            { React.Children.map<React.ReactNode, React.ReactNode>(
+                children,
+                addClass,
+            )}
         </WrapperTag>
     );
 };
