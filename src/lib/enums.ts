@@ -144,3 +144,7 @@ export enum CategoryListLayout {
 export enum CategoryListSpacing {
     Narrow = 'narrow'
 }
+
+export enum FeatureHeaderStyle {
+    Wide = 'wide'
+}

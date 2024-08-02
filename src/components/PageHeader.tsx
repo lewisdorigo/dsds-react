@@ -9,13 +9,15 @@ import htmlToReact from '../lib/htmlToReact';
  * @param {DSDS.Component.PageHeader} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const PageHeader:React.FC<DSDS.Component.PageHeader> = function PageHeader({
+const PageHeader:React.FC<Omit<DSDS.Component.PageHeader, 'type'>> = function PageHeader({
     label,
     title,
     metadata,
     className,
-    'aria-label': ariaLabel = 'Page Header',
-    ...props
+    attributes: {
+        'aria-label': ariaLabel = 'Page Header',
+        ...attributes
+    } = {},
 }) {
     return (
         <header
@@ -24,7 +26,7 @@ const PageHeader:React.FC<DSDS.Component.PageHeader> = function PageHeader({
                 className,
             )}
             aria-label={ariaLabel}
-            {...props}
+            {...attributes}
         >
             { label && (
                 <span className="ds_page-header__label ds_content-label">

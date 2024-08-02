@@ -21,6 +21,7 @@ import ConfirmationMessage from './ConfirmationMessage';
 import Currency from './Currency';
 import DatePicker from './DatePicker';
 import Details from './Details';
+import FeatureHeader from './FeatureHeader';
 import FieldGroup from './FieldGroup'; // eslint-disable-line import/no-cycle
 import FileDownload from './FileDownload';
 import Html from './Html';
@@ -143,6 +144,9 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
 
         case 'download':
             return <FileDownload {...field as DSDS.Component.FileDownload} />;
+
+        case 'feature-header':
+            return <FeatureHeader {...field as DSDS.Component.FeatureHeader} />;
 
         case 'group':
         case 'fieldset':

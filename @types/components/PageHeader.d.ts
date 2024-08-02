@@ -1,4 +1,10 @@
 declare namespace DSDS.Component {
-    interface PageHeader extends DSDS.Title, React.HTMLProps<HTMLDivElement> {
+    interface PageHeader extends DSDS.Title, Omit<
+        Component<
+            'page-header',
+            HTMLDivElement,
+        >,
+        'content'
+    > {
     }
 }
