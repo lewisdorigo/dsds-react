@@ -1,8 +1,8 @@
 declare namespace DSDS.Component {
-    interface InsetText extends Component<
+    interface InsetText extends React.PropsWithChildren, WrapperTag.Tag, Component<
         'inset',
         HTMLDivElement,
-    >, React.PropsWithChildren {
-        tag?: keyof JSX.IntrinsicElements,
+    > {
+
     }
 }

@@ -1,9 +1,8 @@
 declare namespace DSDS.Component {
-    interface CategoryItem extends Component<
+    interface CategoryItem extends React.PropsWithChildren, WrapperTag.Tag, Component<
         'category-item',
         HTMLElement,
-    >, React.PropsWithChildren {
-        tag?: keyof JSX.IntrinsicElements,
+    > {
         label: React.ReactNode,
         link?: Omit<DSDS.Component.Link, 'content' | 'children'>,
     }

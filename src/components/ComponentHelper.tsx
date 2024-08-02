@@ -10,6 +10,7 @@ import FormContext from '../context/FormContext';
 import Question from './Question';
 
 import Accordion from './Accordion';
+import Breadcrumbs from './Breadcrumbs';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
 import Card from './Card';
@@ -94,6 +95,9 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
                     {' '}
                 </>
             );
+
+        case 'breadcrumbs':
+            return <Breadcrumbs {...field as DSDS.Component.Breadcrumbs} />;
 
         case 'button-group':
             return <ButtonGroup {...field as DSDS.Component.ButtonGroup} />;

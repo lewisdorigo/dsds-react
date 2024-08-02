@@ -4,7 +4,7 @@ declare namespace DSDS.Component {
         type Spacing = import('../../src/lib/enums').CategoryListSpacing;
     }
 
-    interface CategoryList extends Omit<
+    interface CategoryList extends WrapperTag.Tag, Omit<
         Component<
             'category-list' | 'category-grid' | 'card-list' | 'card-grid',
             HTMLElement,
@@ -12,7 +12,6 @@ declare namespace DSDS.Component {
         >,
         'label' | 'content'
     > {
-        tag?: keyof JSX.IntrinsicElements,
         layout?: CategoryList.Layout,
         spacing?: CategoryList.Spacing,
     }

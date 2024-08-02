@@ -170,6 +170,7 @@ return (
   - not documented in design system docs
 - [AspectBox]
 - [BackToTop]
+- [Breadcrumbs]
 - [Button]
   - ButtonGroup
 - [Card / Category Lists][NavigationPage]
@@ -219,7 +220,6 @@ return (
 
 ## Not Currently Supported
 - [AutoComplete]
-- [Breadcrumbs]
 - [ContactDetails]
 - [CookieBanner]
 - [FeatureHeader]
