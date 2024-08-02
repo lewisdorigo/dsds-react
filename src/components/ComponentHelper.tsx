@@ -42,16 +42,23 @@ import TextArea from './TextArea';
 import TextInput from './TextInput';
 import WarningText from './WarningText';
 
+let CUSTOM_LOOKUP:DSDS.ComponentHelper.CustomLookup;
+
 /**
  * @param {DSDS.ComponentHelper} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
 export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function ComponentHelper({
     component,
-    customLookup,
+    customLookup: lookupBase,
     headingLevel = 1,
 }) {
     const context = useContext(FormContext);
+    const customLookup = lookupBase || CUSTOM_LOOKUP;
+
+    if (lookupBase && !CUSTOM_LOOKUP) {
+        CUSTOM_LOOKUP = lookupBase;
+    }
 
     const isVisible = useMemo(() => (
         component
@@ -72,21 +79,18 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
         return htmlToReact(component);
     }
 
+    if (!isVisible) {
+        return null;
+    }
+
     const field = {
         ...component,
         headingLevel: Math.min(headingLevel + 1, 6) as DSDS.Meta.HeadingLevel,
     } as DSDS.Component | DSDS.FormComponent;
 
-    if (!isVisible) {
-        return null;
-    }
-
-    if (typeof customLookup === 'function') {
-        const custom = customLookup(field);
-
-        if (custom) {
-            return custom;
-        }
+    if (customLookup && customLookup[field.type]) {
+        const CustomElement = customLookup[field.type];
+        return <CustomElement {...field} />;
     }
 
     switch (field.type) {

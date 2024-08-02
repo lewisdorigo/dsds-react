@@ -1,6 +1,6 @@
 declare namespace DSDS {
     namespace ComponentHelper {
-        type CustomLookup = (component: Component | Form.FormComponent) => React.ReactNode | false;
+        type CustomLookup = Record<string, React.FC>;
     }
     interface ComponentHelper {
         component: React.ReactNode | Component | Form.FormComponent,
