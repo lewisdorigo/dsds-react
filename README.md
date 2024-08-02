@@ -162,5 +162,122 @@ return (
     </Layout>
 )
 ```
+----
+
+## Supported Components
+- [Accordion]
+- ArticleAside
+  - not documented in design system docs
+- [AspectBox]
+- [BackToTop]
+- [Button]
+  - ButtonGroup
+- [Card / Category Lists][NavigationPage]
+- [ConfirmationMessage]
+- [Details]
+- [FileDownload]
+- [InsetText]
+- [Metadata][PageMetadata]
+- [NotificationBanner]
+- [NotificationPanel]
+- [PageHeader]
+- [Pagination]
+- [PhaseBanner]
+- [SequentialNavigation]
+- [SideNavigation]
+- [SiteFooter]
+- [SiteHeader]
+    - SiteBranding
+- [SiteNavigation]
+- [SkipLinks]
+- [Tabs]
+- [Tag]
+- [WarningText]
+
+### Supported Form Components
+- [Checkbox]
+  - CheckboxGroup
+- [DatePicker]
+- [ErrorMessage]
+- [ErrorSummary]
+- [Question]
+  - [CharacterCount]
+- [Radio]
+  - RadioGroup
+- [Select]
+- [TextArea]
+- [TextInput]
+  - Currency
+
+### Other Supplied Components
+- [Page][PageTemplate] (`.ds_page`)
+- [Layout][PageLayout] (`.ds_layout`)
+- Wrapper (`.ds_wrapper`)
+- Link (`.ds_link`) - with automatic insertion of “(opens in new tab)” text
+- FieldGroup (`.ds_fieldgroup`)
+- [Icon] (`.ds_icon`)
+
+## Not Currently Supported
+- [AutoComplete]
+- [Breadcrumbs]
+- [ContactDetails]
+- [CookieBanner]
+- [FeatureHeader]
+- [HidePage]
+- [SiteSearch]
+  - [SearchResults]
+- [SummaryList]
+  - SummaryCards
+- [TextInput] (with associated button)
+- [TaskList]
 
 [dsds]: https://designsystem.gov.scot
+
+[PageTemplate]: https://designsystem.gov.scot/styles/page-template
+[PageLayout]: https://designsystem.gov.scot/styles/layout
+[Icon]: https://designsystem.gov.scot/styles/icons
+
+[Accordion]: https://designsystem.gov.scot/components/accordion
+[AspectBox]: https://designsystem.gov.scot/components/aspect-box
+[AutoComplete]: https://designsystem.gov.scot/components/autocomplete
+[BackToTop]: https://designsystem.gov.scot/components/back-to-top
+[Breadcrumbs]: https://designsystem.gov.scot/components/breadcrumbs
+[Button]: https://designsystem.gov.scot/components/button
+[Checkbox]: https://designsystem.gov.scot/components/checkboxes
+[CharacterCount]: https://designsystem.gov.scot/components/character-count
+[ContactDetails]: https://designsystem.gov.scot/components/contact-details
+[CookieBanner]: https://designsystem.gov.scot/components/cookie-banner
+[DatePicker]: https://designsystem.gov.scot/components/date-picker
+[ErrorMessage]: https://designsystem.gov.scot/components/error-message
+[ErrorSummary]: https://designsystem.gov.scot/components/error-summary
+[ConfirmationMessage]: https://designsystem.gov.scot/components/confirmation-message
+[Details]: https://designsystem.gov.scot/components/details
+[FeatureHeader]: https://designsystem.gov.scot/components/feature-header
+[FileDownload]: https://designsystem.gov.scot/components/file-download
+[HidePage]: https://designsystem.gov.scot/components/hide-this-page
+[InsetText]: https://designsystem.gov.scot/components/inset-text
+[NavigationPage]: https://designsystem.gov.scot/patterns/navigational-pages
+[NotificationBanner]: https://designsystem.gov.scot/components/notification-banner
+[NotificationPanel]: https://designsystem.gov.scot/components/notification-panel
+[PageHeader]: https://designsystem.gov.scot/components/page-header
+[PageMetadata]: https://designsystem.gov.scot/components/page-metadata
+[Pagination]: https://designsystem.gov.scot/components/pagination
+[PhaseBanner]: https://designsystem.gov.scot/components/phase-banner
+[Question]: https://designsystem.gov.scot/components/question
+[Radio]: https://designsystem.gov.scot/components/radio-buttons
+[SearchResults]: https://designsystem.gov.scot/patterns/search-results
+[Select]: https://designsystem.gov.scot/components/select
+[SequentialNavigation]: https://designsystem.gov.scot/components/sequential-navigation
+[SideNavigation]: https://designsystem.gov.scot/components/side-navigation
+[SiteFooter]: https://designsystem.gov.scot/patterns/site-footer
+[SiteHeader]: https://designsystem.gov.scot/patterns/site-header
+[SiteNavigation]: https://designsystem.gov.scot/components/site-navigation
+[SiteSearch]: https://designsystem.gov.scot/components/site-search
+[SkipLinks]: https://designsystem.gov.scot/components/skip-links
+[SummaryList]: https://designsystem.gov.scot/components/summary-list
+[Tabs]: https://designsystem.gov.scot/components/tabs
+[Tag]: https://designsystem.gov.scot/components/tag
+[TaskList]: https://designsystem.gov.scot/patterns/task-list
+[TextArea]: https://designsystem.gov.scot/components/text-input
+[TextInput]: https://designsystem.gov.scot/components/textarea
+[WarningText]: https://designsystem.gov.scot/components/warning-text
