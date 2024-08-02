@@ -37,7 +37,10 @@ const ButtonGroup:React.FC<Omit<DSDS.Component.ButtonGroup, 'type'>> = function 
                 { items && items.map((item, index) => {
                     const key = `${id}-button-${index}`;
                     return (
-                        <Button key={key} {...item} />
+                        <>
+                            <Button key={key} {...item} />
+                            {' '}
+                        </>
                     );
                 })}
 
