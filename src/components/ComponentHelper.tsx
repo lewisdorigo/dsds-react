@@ -28,6 +28,7 @@ import InsetText from './InsetText';
 import List from './List';
 import NotificationBanner from './NotificationBanner';
 import NotificationPanel from './NotificationPanel';
+import Pagination from './Pagination';
 import RadioGroup from './Radio'; // eslint-disable-line import/no-cycle
 import Select from './Select';
 import Tabs from './Tabs';
@@ -158,6 +159,9 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
 
         case 'notification-panel':
             return <NotificationPanel {...field as DSDS.Component.NotificationPanel} />;
+
+        case 'pagination':
+            return <Pagination {...field as DSDS.Component.Pagination} />;
 
         case 'radio':
             return (
