@@ -4,15 +4,15 @@ import WrapperTag from './WrapperTag';
 
 import classNames from '../lib/classNames';
 
-const classes = [
-    null,
-    'alpha',
-    'beta',
-    'gamma',
-    'delta',
-    'epsilon',
-    'zeta',
-];
+// const classes = [
+//     null,
+//     'alpha',
+//     'beta',
+//     'gamma',
+//     'delta',
+//     'epsilon',
+//     'zeta',
+// ];
 
 /**
  * @param {DSDS.Component.Heading} props - Properties for the element
@@ -26,11 +26,11 @@ const Heading:React.FC<DSDS.Component.Heading> = function Heading({
     ...props
 }) {
     let tag = `h${level}`;
-    let levelClass:string|null = '';
+    // let levelClass:string|null = '';
 
     if (isLegend) {
         tag = 'legend';
-        levelClass = classes[level];
+        // levelClass = classes[level];
     }
 
     return (
@@ -38,7 +38,7 @@ const Heading:React.FC<DSDS.Component.Heading> = function Heading({
             tag={tag as keyof JSX.IntrinsicElements}
             className={classNames(
                 className,
-                levelClass,
+                // levelClass,
             )}
             {...props}
         >
