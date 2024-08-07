@@ -6,15 +6,28 @@ declare namespace DSDS.Component {
         }
 
         interface Actions {
-            itemId: React.ReactNode,
+            itemId: string,
             actions?: Action[],
+        }
+
+        type AnswerItem = { label: React.ReactNode, value: Answer }
+        type Answer = (
+            React.ReactNode
+            | React.ReactNode[]
+            | AnswerItem[]
+        );
+
+        interface AnswerHelper {
+            itemId: string,
+            answer: Answer,
         }
 
         interface Item extends Omit<Actions, 'itemId'>, Omit<
             DSDS.Meta.Item<HTMLLIElement>,
-            'content'
+            'content' | 'value'
         > {
             id: string,
+            value?: Answer,
         }
     }
 
@@ -26,6 +39,7 @@ declare namespace DSDS.Component {
         >,
         'label' | 'content'
     > {
+        id: string,
         borders?: boolean,
     }
 }

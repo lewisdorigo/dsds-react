@@ -78,9 +78,7 @@ const SummaryCard:React.FC<DSDS.Component.SummaryCard> = function SummaryCard({
                 >
                     { htmlToReact(label, false) }
                 </Heading>
-                { actions && actions.length > 1 && (
-                    <SummaryCardActions itemId={id} actions={actions} />
-                )}
+                <SummaryCardActions itemId={id} actions={actions} />
             </div>
             <div className="ds_summary-card__content">
                 <SummaryList

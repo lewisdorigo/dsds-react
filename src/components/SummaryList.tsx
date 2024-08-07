@@ -48,6 +48,69 @@ const SummaryListActions:React.FC<
 };
 
 /**
+ * @param {DSDS.Component.SummaryList.AnswerHelper} props - Properties for the element
+ * @returns {JSX.Element} - The element
+ */
+const SummaryListAnswer:React.FC<
+    DSDS.Component.SummaryList.AnswerHelper
+> = function SummaryListAnswer({
+    answer,
+    itemId,
+}) {
+    if (
+        Array.isArray(answer)
+        && (
+            typeof answer[0]
+            && (
+                typeof answer[0] !== 'object'
+                || !Object.prototype.hasOwnProperty.call(answer[0], 'label')
+            )
+        )
+    ) {
+        const ans = answer as React.ReactNode[];
+        return (
+            <ul className="ds_no-margin--vertical">
+                {ans.map((item, index) => {
+                    const key = `${itemId}-answer-${index}`;
+                    return (
+                        <li key={key} className="ds_no-margin--bottom">
+                            <SummaryListAnswer itemId={key} answer={item} />
+                        </li>
+                    );
+                })}
+            </ul>
+        );
+    }
+
+    if (
+        Array.isArray(answer)
+        && (
+            typeof answer[0]
+            && typeof answer[0] === 'object'
+            && Object.prototype.hasOwnProperty.call(answer[0], 'label')
+            && Object.prototype.hasOwnProperty.call(answer[0], 'value')
+        )
+    ) {
+        const ans = answer as DSDS.Component.SummaryList.AnswerItem[];
+        return (
+            <dl className="ds_no-margin--bottom">
+                {ans.map(({ label, value }, index) => {
+                    const key = `${itemId}-answer-${index}`;
+                    return (
+                        <React.Fragment key={key}>
+                            <dt>{ htmlToReact(label, false) }</dt>
+                            <dd><SummaryListAnswer itemId={key} answer={value} /></dd>
+                        </React.Fragment>
+                    );
+                })}
+            </dl>
+        );
+    }
+
+    return htmlToReact(answer as React.ReactNode, false);
+};
+
+/**
  * @param {DSDS.Component.SummaryList.Item} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
@@ -62,22 +125,22 @@ const SummaryListItem:React.FC<DSDS.Component.SummaryList.Item> = function Summa
             className="ds_summary-list__item"
             id={id}
         >
-            <span
+            <div
                 className="ds_summary-list__key"
                 id={`${id}-label`}
             >
                 { htmlToReact(label, false) }
-            </span>
+            </div>
 
-            <span className="ds_summary-list__value">
+            <div className="ds_summary-list__value">
                 <span className="visually-hidden">Your answer is:</span>
                 <q
                     className="ds_summary-list__answer"
                     id={`${id}-answer`}
                 >
-                    { htmlToReact(value, false) }
+                    <SummaryListAnswer itemId={id} answer={value} />
                 </q>
-            </span>
+            </div>
 
             { actions && actions.length > 0 && (
                 <SummaryListActions
