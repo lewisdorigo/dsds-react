@@ -192,6 +192,8 @@ return (
     - SiteBranding
 - [SiteNavigation]
 - [SkipLinks]
+- [SummaryList]
+  - SummaryCards
 - [Tabs]
 - [Tag]
 - [WarningText]
@@ -226,8 +228,6 @@ return (
 - [HidePage]
 - [SiteSearch]
   - [SearchResults]
-- [SummaryList]
-  - SummaryCards
 - [TextInput] (with associated button)
 - [TaskList]
 
