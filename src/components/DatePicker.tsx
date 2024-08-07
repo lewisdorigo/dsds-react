@@ -166,15 +166,13 @@ const DatePicker:React.FC<Omit<DSDS.Component.DatePicker, 'type'>> = function Da
             return;
         }
 
-        const picker = new DSDSDatePicker(ref.current, {
+        new DSDSDatePicker(ref.current, {
             minDate,
             maxDate,
             disabledDates,
             dateSelectCallback: handleSelect,
             imagePath: '/design-system/images/icons/',
-        });
-
-        picker.init();
+        }).init();
     }, [ref, minDate, maxDate, disabledDates]);
 
     let inputs;

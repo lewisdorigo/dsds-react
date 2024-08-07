@@ -7,5 +7,6 @@ declare namespace DSDS.Layout {
         includeBackToTop?: boolean,
         includeSkipLinks?: boolean,
         wrapMiddle?: boolean,
+        hasHidePage?: boolean,
     }
 }

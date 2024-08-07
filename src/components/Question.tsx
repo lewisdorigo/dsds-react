@@ -77,11 +77,10 @@ const Question:React.FC<DSDS.Component.Question> = function Question({
     }
 
     useEffect(() => {
-        if (typeof window === 'undefined') { return; }
+        if (!!ref.current || typeof window === 'undefined') { return; }
 
         if (maxLength) {
-            const characterCount = new CharacterCount(ref.current);
-            characterCount.init();
+            new CharacterCount(ref.current).init();
         }
     }, [ref, maxLength]);
 

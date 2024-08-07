@@ -1,6 +1,7 @@
 import React from 'react';
 
 import WrapperTag from '../components/WrapperTag';
+import HidePage from '../components/HidePage';
 
 import { LayoutTypes } from '../lib/enums';
 import classNames from '../lib/classNames';
@@ -25,6 +26,8 @@ const Layout:React.FC<DSDS.Layout.Layout> = function Layout({
     footer,
     sidebar,
     feedback,
+
+    hasHidePage = false,
 }) {
     return (
         <WrapperTag
@@ -48,7 +51,12 @@ const Layout:React.FC<DSDS.Layout.Layout> = function Layout({
             { list && <div className="ds_layout__list">{ list }</div> }
             { grid && <div className="ds_layout__grid">{ grid }</div> }
             { footer && <div className="ds_layout__footer">{ footer }</div> }
-            { sidebar && <div className="ds_layout__sidebar">{ sidebar }</div> }
+            { (sidebar || hasHidePage) && (
+                <div className="ds_layout__sidebar">
+                    <HidePage />
+                    { sidebar }
+                </div>
+            )}
             { feedback && <div className="ds_layout__feedback">{ feedback }</div> }
         </WrapperTag>
     );

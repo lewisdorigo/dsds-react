@@ -23,9 +23,17 @@ const Page:React.FC<DSDS.Layout.Page> = function Page({
     wrapMiddle = true,
     includeBackToTop = true,
     includeSkipLinks = true,
+    hasHidePage = false,
 }) {
     return (
         <>
+            { hasHidePage && (
+                <div className="visually-hidden  ds_hide-page">
+                    <p>
+                        To leave the page quickly, press the escape key.
+                    </p>
+                </div>
+            ) }
             { includeSkipLinks && <SkipLinks /> }
             <span id="page-top" />
             <WrapperTag

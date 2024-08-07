@@ -15,5 +15,7 @@ declare namespace DSDS.Layout {
         footer?: React.ReactNode,
         sidebar?: React.ReactNode,
         feedback?: React.ReactNode,
+
+        hasHidePage?: boolean,
     }
 }

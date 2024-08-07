@@ -76,9 +76,7 @@ const Accordion:React.FC<Omit<DSDS.Component.Accordion, 'type'>> = function Acco
             return;
         }
 
-        const accordion = new DSDSAccordion(ref.current);
-
-        accordion.init();
+        new DSDSAccordion(ref.current).init();
     });
 
     return (

@@ -181,6 +181,7 @@ return (
 - [Details]
 - [FeatureHeader]
 - [FileDownload]
+- [HidePage]
 - [InsetText]
 - [Metadata][PageMetadata]
 - [NotificationBanner]
@@ -230,7 +231,6 @@ return (
 - [AutoComplete]
 - [ContactDetails]
 - [CookieBanner]
-- [HidePage]
 - [SiteSearch]
   - [SearchResults]
 - [TextInput] (with associated button)
