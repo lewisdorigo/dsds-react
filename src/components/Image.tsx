@@ -14,7 +14,10 @@ const Image:React.FC<Omit<DSDS.Component.Image, 'type'>> = function Image({
     ...props
 }) {
     let image = (
-        <img {...props} />
+        <img
+            loading="lazy"
+            {...props}
+        />
     );
 
     if (ratio) {
