@@ -39,7 +39,7 @@ const CategoryItem:React.FC<Omit<DSDS.Component.CategoryItem, 'type'>> = functio
                     link
                         ? (
                             <Link
-                                {...link}
+                                {...link as DSDS.Component.Link}
                                 baseClass="ds_category-item__link"
                                 tabText={false}
                             >

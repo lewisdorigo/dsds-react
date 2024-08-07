@@ -1,6 +1,6 @@
 declare namespace DSDS.Component {
     namespace SideNavigation {
-        interface Item extends DSDS.Component.Link {
+        type Item = DSDS.Component.Link & {
             items?: Item[],
             current?: boolean,
         }

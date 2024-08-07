@@ -1,10 +1,22 @@
 declare namespace DSDS.Component {
-    interface Link extends Partial<React.HTMLProps<HTMLAnchorElement>> {
-        content?: React.ReactNode,
-        href: string,
-        ref?: React.Ref<HTMLAnchorElement>,
-        target?: undefined | '_blank' | '_new' | '_self',
-        baseClass?: string,
-        tabText?: boolean | string,
+    namespace Link {
+        interface Base {
+            content?: React.ReactNode,
+            baseClass?: string,
+            tabText?: boolean | string,
+            className?: string,
+        }
+
+        interface Anchor extends Base, React.HTMLProps<HTMLAnchorElement> {
+            href: string,
+            target?: undefined | '_blank' | '_new' | '_self',
+            type?: never,
+        }
+
+        interface Button extends Base, React.HTMLProps<HTMLButtonElement> {
+            type?: DSDS.Component.Button.Type,
+        }
     }
+
+    type Link = Link.Anchor | Link.Button;
 }

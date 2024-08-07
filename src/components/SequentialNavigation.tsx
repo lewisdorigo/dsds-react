@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Link from './Link';
+
 import htmlToReact from '../lib/htmlToReact';
 import classNames from '../lib/classNames';
 
@@ -39,17 +41,17 @@ const SequentialNavigationItem:React.FC<
                 `ds_sequential-nav__item--${typeClass}`,
             )}
         >
-            <a
-                className={classNames(
+            <Link
+                {...link as DSDS.Component.Link}
+                baseClass={classNames(
                     'ds_sequential-nav__button',
                     `ds_sequential-nav__button--${side}`,
                 )}
-                {...link}
             >
                 <span className="ds_sequential-nav__text" data-label={buttonLabel}>
                     { htmlToReact(label, false) }
                 </span>
-            </a>
+            </Link>
         </div>
     );
 };

@@ -11,6 +11,7 @@ import htmlToReact from '../lib/htmlToReact';
 const Link:React.FC<DSDS.Component.Link> = function Link({
     content,
     href,
+    type,
     target,
     className,
     baseClass = 'ds_link',
@@ -20,8 +21,11 @@ const Link:React.FC<DSDS.Component.Link> = function Link({
     ...props
 }) {
     const linkRel = (
-        target === '_blank'
-        || target === '_new'
+        href
+        && (
+            target === '_blank'
+            || target === '_new'
+        )
             ? 'noreferrer noopener'
             : ''
     );
@@ -31,17 +35,8 @@ const Link:React.FC<DSDS.Component.Link> = function Link({
             : '(opens in a new tab)'
     );
 
-    return (
-        <NextLink
-            className={classNames(
-                baseClass,
-                className,
-            )}
-            href={href}
-            target={target}
-            rel={rel || linkRel}
-            {...props}
-        >
+    const linkContent = (
+        <>
             { content && htmlToReact(content, false) }
             { children }
             { (target === '_blank' || target === '_new') && (
@@ -50,7 +45,37 @@ const Link:React.FC<DSDS.Component.Link> = function Link({
                     { !tabText && <span className="visually-hidden">{ newTabText }</span> }
                 </>
             )}
-        </NextLink>
+        </>
+    );
+
+    if (href) {
+        return (
+            <NextLink
+                {...props as React.HTMLProps<HTMLAnchorElement>}
+                className={classNames(
+                    baseClass,
+                    className,
+                )}
+                href={href}
+                target={target}
+                rel={rel || linkRel}
+            >
+                { linkContent }
+            </NextLink>
+        );
+    }
+
+    return (
+        <button
+            {...props as React.HTMLProps<HTMLButtonElement>}
+            type={type}
+            className={classNames(
+                baseClass,
+                className,
+            )}
+        >
+            { linkContent }
+        </button>
     );
 };
 
