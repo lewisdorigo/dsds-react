@@ -174,6 +174,9 @@ return (
 - [Button]
   - ButtonGroup
 - [Card / Category Lists][NavigationPage]
+  - Card
+  - CategoryItem
+  - CategoryList
 - [ConfirmationMessage]
 - [Details]
 - [FeatureHeader]
@@ -196,6 +199,8 @@ return (
   - SummaryCards
 - [Tabs]
 - [Tag]
+- [TaskList]
+  - TaskListGroup
 - [WarningText]
 
 ### Supported Form Components
@@ -229,7 +234,6 @@ return (
 - [SiteSearch]
   - [SearchResults]
 - [TextInput] (with associated button)
-- [TaskList]
 
 [dsds]: https://designsystem.gov.scot
 

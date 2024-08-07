@@ -148,3 +148,10 @@ export enum CategoryListSpacing {
 export enum FeatureHeaderStyle {
     Wide = 'wide'
 }
+
+export enum TaskListStatus {
+    NotStarted = 'not-started',
+    InProgress = 'in-progress',
+    Complete = 'complete',
+    CannotStart = 'cannot-start',
+}
