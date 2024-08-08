@@ -1,11 +1,13 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 import Question from '../components/Question';
 import TextInput from '../components/TextInput';
 import Select from '../components/Select';
 import Button from '../components/Button';
+import Link from '../components/Link';
 import PrefilledValues from '../components/PrefilledValues';
 
 import { InputWidth, ButtonType, AddressState } from '../lib/enums';
@@ -15,6 +17,7 @@ import { InputWidth, ButtonType, AddressState } from '../lib/enums';
  * @returns {JSX.Element} - The element
  */
 const Address:React.FC<Omit<DSDS.Pattern.Address, 'type'>> = function Address({
+    id,
     state: rawState,
     lookup,
     items: {
@@ -34,7 +37,23 @@ const Address:React.FC<Omit<DSDS.Pattern.Address, 'type'>> = function Address({
         fullAddress = 'Tell us your full address',
     },
 }) {
-    const initialState = useMemo(() => {
+    const searchParams = useSearchParams();
+    const stateParam = useMemo(() => `${id}-state`, [id]);
+
+    const initialState:AddressState = useMemo(() => {
+        if (searchParams.has(stateParam)) {
+            switch (searchParams.get(stateParam)) {
+                case 'select':
+                    return AddressState.SelectAddress;
+
+                case 'address':
+                    return AddressState.EnterAddress;
+
+                default:
+                    return AddressState.PostcodeLookup;
+            }
+        }
+
         if (rawState) {
             return rawState;
         }
@@ -48,77 +67,75 @@ const Address:React.FC<Omit<DSDS.Pattern.Address, 'type'>> = function Address({
         }
 
         return AddressState.PostcodeLookup;
-    }, [rawState, addressSelect.value, address1.value]);
+    }, [rawState, searchParams, stateParam, addressSelect.value, address1.value]);
 
-    const [state, setState] = useState<AddressState>(initialState);
-    const [lookupError, setLookupError] = useState<DSDS.Meta.Error | undefined>();
-    const [enteredPostcode, setEnteredPostcode] = useState<string>(postcodeLookup.value);
-    const [addresses, setAddresses] = useState<DSDS.Component.Select.Item[]>(
-        addressSelect
-            ? addressSelect.items || []
-            : [],
-    );
+    const [formState, setFormState] = useState<DSDS.Pattern.Address.FormState>({
+        message: '',
+        postcode: postcodeLookup.value,
+        addresses: addressSelect.items,
+        error: undefined,
+        state: initialState,
+    });
+
+    const {
+        state,
+        error: lookupError,
+        postcode: enteredPostcode,
+    } = formState;
+
+    const handleLookup = (
+        event:React.KeyboardEvent<HTMLInputElement>|React.MouseEvent<HTMLButtonElement>,
+    ) => {
+        event.preventDefault();
+        const { value } = (document.getElementById(postcodeLookup.id) as HTMLInputElement);
+
+        const formData = new FormData();
+        formData.set(postcodeLookup.id, value);
+
+        lookup(formState, formData)
+            .then((result) => {
+                setFormState(result);
+            });
+    };
 
     const typeFullAddressButton = (
-        <button
-            type="button"
-            className="ds_link ds_no-margin"
-            onClick={(event) => {
+        <Link
+            href={`?${stateParam}=address`}
+            className="ds_no-margin"
+            onClick={(event:React.MouseEvent<HTMLAnchorElement>) => {
                 event.preventDefault();
-                setEnteredPostcode('');
-                setLookupError(undefined);
-                setState(AddressState.EnterAddress);
+                setFormState({
+                    ...formState,
+                    postcode: '',
+                    error: undefined,
+                    state: AddressState.EnterAddress,
+                });
             }}
         >
             { fullAddressBtn }
-        </button>
+        </Link>
     );
-
-    const lookupPostcode = async () => {
-        const postcodeVal = (document.getElementById(postcodeLookup.id) as HTMLInputElement).value;
-
-        if (!postcodeVal) {
-            setLookupError({
-                fieldId: postcodeLookup.id,
-                message: 'Enter a valid postcode',
-            });
-            return;
-        }
-
-        setEnteredPostcode(postcodeVal);
-
-        lookup(postcodeVal.trim())
-            .then((results) => {
-                if (Array.isArray(results)) {
-                    setAddresses(results);
-                    setLookupError(undefined);
-                    setState(AddressState.SelectAddress);
-
-                    return results;
-                }
-
-                setLookupError(results);
-                setState(AddressState.PostcodeLookup);
-                return results;
-            });
-    };
 
     switch (state) {
         case AddressState.EnterAddress:
             return (
                 <>
                     <p>
-                        <button
+                        <Link
+                            href="?"
                             className="ds_link ds_no-margin"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                setEnteredPostcode('');
-                                setLookupError(undefined);
-                                setState(AddressState.PostcodeLookup);
+                            onClick={(event:React.MouseEvent<HTMLAnchorElement>) => {
+                                event.preventDefault();
+                                setFormState({
+                                    ...formState,
+                                    postcode: '',
+                                    error: undefined,
+                                    state: AddressState.PostcodeLookup,
+                                });
                             }}
                         >
                             { returnToLookupBtn }
-                        </button>
+                        </Link>
                     </p>
                     <fieldset>
                         <legend>{ fullAddress }</legend>
@@ -207,16 +224,18 @@ const Address:React.FC<Omit<DSDS.Pattern.Address, 'type'>> = function Address({
                                 value: enteredPostcode,
                                 actions: [
                                     (
-                                        <button
+                                        <Link
+                                            href="?"
                                             key="entered-postcode-action"
-                                            type="button"
-                                            className="ds_link ds_prefilled-value-list__value-actions"
-                                            onClick={(e) => {
+                                            className="ds_prefilled-value-list__value-actions"
+                                            onClick={(e:React.MouseEvent<HTMLAnchorElement>) => {
                                                 e.preventDefault();
-
-                                                setEnteredPostcode('');
-                                                setLookupError(undefined);
-                                                setState(AddressState.PostcodeLookup);
+                                                setFormState({
+                                                    ...formState,
+                                                    postcode: '',
+                                                    error: undefined,
+                                                    state: AddressState.PostcodeLookup,
+                                                });
                                             }}
                                         >
                                             Change
@@ -226,7 +245,7 @@ const Address:React.FC<Omit<DSDS.Pattern.Address, 'type'>> = function Address({
                                                 {' '}
                                                 <q>Postcode</q>
                                             </span>
-                                        </button>
+                                        </Link>
                                     ),
                                 ],
                             },
@@ -236,7 +255,6 @@ const Address:React.FC<Omit<DSDS.Pattern.Address, 'type'>> = function Address({
                         <Select
                             {...addressSelect}
                             width={InputWidth.Fixed20}
-                            items={addresses}
                         />
                     </Question>
                     <p>{ typeFullAddressButton }</p>
@@ -283,8 +301,7 @@ const Address:React.FC<Omit<DSDS.Pattern.Address, 'type'>> = function Address({
                                             && !event.altKey
                                             && !event.ctrlKey
                                         ) {
-                                            event.preventDefault();
-                                            lookupPostcode();
+                                            handleLookup(event);
                                             return false;
                                         }
 
@@ -294,9 +311,9 @@ const Address:React.FC<Omit<DSDS.Pattern.Address, 'type'>> = function Address({
                             />
                         </Question>
                         <Button
-                            type={ButtonType.Button}
-                            onClick={lookupPostcode}
+                            type={ButtonType.Submit}
                             className="ds_no-margin"
+                            onClick={handleLookup}
                         >
                             Find address
                         </Button>

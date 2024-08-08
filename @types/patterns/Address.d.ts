@@ -14,10 +14,15 @@ declare namespace DSDS.Pattern {
             postcode: DSDS.Component.TextInput,
         }
 
-        type LookupFunction = (postcode:string) => Promise<
-            DSDS.Meta.Error
-            | DSDS.Component.Select.Item[]
-        >;
+        interface FormState {
+            message: string,
+            postcode?: string,
+            addresses?: DSDS.Component.Select.Item[],
+            error?: DSDS.Meta.Error,
+            state: State,
+        }
+
+        type LookupFunction = (state:FormState, data:FormData) => Promise<FormState>;
     }
 
     interface Address extends Omit<
