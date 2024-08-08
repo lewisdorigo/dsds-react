@@ -37,7 +37,11 @@ import RadioGroup from './Radio'; // eslint-disable-line import/no-cycle
 import Select from './Select';
 import SequentialNavigation from './SequentialNavigation';
 import SideNavigation from './SideNavigation';
+import SummaryCard from './SummaryCard';
+import SummaryList from './SummaryList';
 import Tabs from './Tabs';
+import TaskList from './TaskList';
+import TaskListGroup from './TaskListGroup';
 import TextArea from './TextArea';
 import TextInput from './TextInput';
 import WarningText from './WarningText';
@@ -202,8 +206,20 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
         case 'side-navigation':
             return <SideNavigation {...field as DSDS.Component.SideNavigation} />;
 
+        case 'summary-card':
+            return <SummaryCard {...field as DSDS.Component.SummaryCard} />;
+
+        case 'summary-list':
+            return <SummaryList {...field as DSDS.Component.SummaryList} />;
+
         case 'tabs':
             return <Tabs {...field as DSDS.Component.Tabs} />;
+
+        case 'task-list':
+            return <TaskList {...field as DSDS.Component.TaskList} />;
+
+        case 'task-list-group':
+            return <TaskListGroup {...field as DSDS.Component.TaskListGroup} />;
 
         case 'textarea':
             return (

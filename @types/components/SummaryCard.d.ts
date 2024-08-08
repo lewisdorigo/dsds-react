@@ -3,6 +3,7 @@ declare namespace DSDS.Component {
         DSDS.Component.SummaryList<HTMLDivElement>,
         'content',
     > {
+        type: 'summary-card',
         label: React.ReactNode,
     }
 }
