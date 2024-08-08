@@ -14,6 +14,7 @@ import Breadcrumbs from './Breadcrumbs';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
 import Card from './Card';
+import ContactDetails from './ContactDetails';
 import CategoryItem from './CategoryItem';
 import CategoryList from './CategoryList';
 import CheckboxGroup from './Checkbox'; // eslint-disable-line import/no-cycle
@@ -131,6 +132,9 @@ export const ComponentHelper:React.FC<DSDS.ComponentHelper> = function Component
 
         case 'confirmation':
             return <ConfirmationMessage {...field as DSDS.Component.ConfirmationMessage} />;
+
+        case 'contact-details':
+            return <ContactDetails {...field as DSDS.Component.ContactDetails} />;
 
         case 'currency':
             return (

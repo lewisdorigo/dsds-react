@@ -178,6 +178,7 @@ return (
   - CategoryItem
   - CategoryList
 - [ConfirmationMessage]
+- [ContactDetails]
 - [Details]
 - [FeatureHeader]
 - [FileDownload]
@@ -232,7 +233,6 @@ return (
 
 ## Not Currently Supported
 - [AutoComplete]
-- [ContactDetails]
 - [CookieBanner]
 - [SiteSearch]
   - [SearchResults]
