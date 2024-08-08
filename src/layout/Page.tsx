@@ -4,6 +4,7 @@ import Wrapper from '../components/Wrapper';
 import WrapperTag from '../components/WrapperTag';
 import BackToTop from '../components/BackToTop';
 import SkipLinks from '../components/SkipLinks';
+import JSEnabled from '../helpers/JSEnabled';
 
 import classNames from '../lib/classNames';
 
@@ -27,8 +28,9 @@ const Page:React.FC<DSDS.Layout.Page> = function Page({
 }) {
     return (
         <>
+            <JSEnabled />
             { hasHidePage && (
-                <div className="visually-hidden  ds_hide-page">
+                <div className="visually-hidden ds_hide-page">
                     <p>
                         To leave the page quickly, press the escape key.
                     </p>
