@@ -219,6 +219,9 @@ return (
 - [TextInput]
   - Currency
 
+### Patterns
+- [Address]
+
 ### Other Supplied Components
 - [Page][PageTemplate] (`.ds_page`)
 - [Layout][PageLayout] (`.ds_layout`)
@@ -242,6 +245,7 @@ return (
 [Icon]: https://designsystem.gov.scot/styles/icons
 
 [Accordion]: https://designsystem.gov.scot/components/accordion
+[Address]: https://designsystem.gov.scot/patterns/addresses
 [AspectBox]: https://designsystem.gov.scot/components/aspect-box
 [AutoComplete]: https://designsystem.gov.scot/components/autocomplete
 [BackToTop]: https://designsystem.gov.scot/components/back-to-top

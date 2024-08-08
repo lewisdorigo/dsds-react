@@ -1,10 +1,13 @@
 declare namespace DSDS.Component {
-    interface List {
-        type: 'list',
+    interface List extends Omit<
+        Component<
+            'list',
+            HTMLOListElement | HTMLUListElement,
+            React.ReactNode
+        >,
+        'label' | 'content' | 'headingLevel'
+    > {
         ordered?: boolean,
-        items?: React.ReactNode[],
         id?: string,
-        className?: string,
-        attributes?: React.HTMLProps<HTMLOListElement | HTMLUListElement>,
     }
 }

@@ -20,13 +20,22 @@ declare namespace DSDS.Pattern {
         >;
     }
 
-    interface Address extends FormComponent<
-        'address',
-        HTMLElement,
-        never,
+    interface Address extends Omit<
+        FormComponent<
+            'address',
+            HTMLElement,
+            never,
+        >,
+        'label' | 'value'
     > {
         state?: Address.State,
         items: Address.Items,
         lookup: Address.LookupFunction,
+
+        labels: {
+            fullAddressBtn?: string,
+            returnToLookupBtn?: string,
+            fullAddress?: string,
+        },
     }
 }
