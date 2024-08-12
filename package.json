@@ -13,6 +13,9 @@
         "type": "git",
         "url": "https://github.com/lewisdorigo/dsds-react"
     },
+    "files": [
+        "dist"
+    ],
     "scripts": {
         "lint": "eslint @types/**/* src/**/*",
         "type-check": "tsc --skipLibCheck --noEmit",

@@ -1,12 +1,21 @@
+import type { FieldsType } from '../context/FormContext/FormContext.type';
+import {
+    Item as ConditionItem,
+    Items as ConditionItems,
+    Condition,
+    ConditionType,
+    FieldConditions,
+} from '../utils/types/conditional';
+
 export const parseCondition = (
     {
         fieldId: conditionalField,
         value: conditionValue,
         operator: conditionType = '===',
-    }:DSDS.Meta.Conditional.Condition,
-    context:DSDS.Context.Form,
+    }:ConditionItem,
+    formValues:FieldsType,
 ) => {
-    const fieldValue = context.getField(conditionalField);
+    const fieldValue = formValues[conditionalField];
 
     switch (conditionType) {
         case '>':
@@ -39,25 +48,25 @@ export const parseCondition = (
 };
 
 export const parseConditional = (
-    conditions:DSDS.Meta.Conditional.Items,
-    context:DSDS.Context.Form,
-    type = 'and',
+    conditions:ConditionItems,
+    formValues:FieldsType,
+    type = ConditionType.And,
 ) => {
     let conditionsMet = false;
 
     conditions.every((condition) => {
         let conditionMet = false;
 
-        if (typeof (condition as DSDS.Meta.Condition).conditions !== 'undefined') {
+        if (typeof (condition as Condition).conditions !== 'undefined') {
             conditionMet = parseConditional(
-                (condition as DSDS.Meta.Condition).conditions,
-                context,
-                (condition as DSDS.Meta.Condition).type,
+                (condition as Condition).conditions,
+                formValues,
+                (condition as Condition).type,
             );
         } else {
             conditionMet = parseCondition(
-                condition as DSDS.Meta.Conditional.Condition,
-                context,
+                condition as ConditionItem,
+                formValues,
             );
         }
 
@@ -78,13 +87,13 @@ export const parseConditional = (
 };
 
 export const parseConditions = (
-    conditions:DSDS.Meta.Condition | DSDS.Meta.Conditional.Items,
-    context:DSDS.Context.Form,
+    conditions:FieldConditions,
+    formValues:FieldsType,
 ) => {
     if (Array.isArray(conditions)) {
         return parseConditional(
             conditions,
-            context,
+            formValues,
         );
     }
 
@@ -92,7 +101,7 @@ export const parseConditions = (
 
     return parseConditional(
         conditions?.conditions,
-        context,
+        formValues,
         conditions?.type,
     );
 };
