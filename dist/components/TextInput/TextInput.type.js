@@ -1,0 +1,44 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.InputModes = exports.InputTypes = exports.InputWidth = void 0;
+var InputWidth;
+(function (InputWidth) {
+    InputWidth["Fixed20"] = "fixed-20";
+    InputWidth["Fixed10"] = "fixed-10";
+    InputWidth["Fixed5"] = "fixed-5";
+    InputWidth["Fixed4"] = "fixed-4";
+    InputWidth["Fixed3"] = "fixed-3";
+    InputWidth["Fixed2"] = "fixed-2";
+    InputWidth["FluidThreeQuarter"] = "fluid-three-quarters";
+    InputWidth["FluidTwoThirds"] = "fluid-two-thirds";
+    InputWidth["FluidHalf"] = "fluid-half";
+    InputWidth["FluidThird"] = "fluid-one-third";
+    InputWidth["FluidQuarter"] = "fluid-one-quarter";
+})(InputWidth || (exports.InputWidth = InputWidth = {}));
+var InputTypes;
+(function (InputTypes) {
+    InputTypes["Color"] = "color";
+    InputTypes["Date"] = "date";
+    InputTypes["DateTime"] = "datetime-local";
+    InputTypes["Email"] = "email";
+    InputTypes["Month"] = "month";
+    InputTypes["Number"] = "number";
+    InputTypes["Password"] = "password";
+    InputTypes["Search"] = "search";
+    InputTypes["Telephone"] = "tel";
+    InputTypes["Text"] = "text";
+    InputTypes["Time"] = "time";
+    InputTypes["Url"] = "url";
+    InputTypes["Week"] = "week";
+})(InputTypes || (exports.InputTypes = InputTypes = {}));
+var InputModes;
+(function (InputModes) {
+    InputModes["None"] = "none";
+    InputModes["Text"] = "text";
+    InputModes["Telephone"] = "tel";
+    InputModes["Url"] = "url";
+    InputModes["Email"] = "email";
+    InputModes["Numeric"] = "numeric";
+    InputModes["Decimal"] = "decimal";
+    InputModes["Search"] = "search";
+})(InputModes || (exports.InputModes = InputModes = {}));

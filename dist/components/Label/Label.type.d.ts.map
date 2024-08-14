@@ -1,0 +1,1 @@
+{"version":3,"file":"Label.type.d.ts","sourceRoot":"","sources":["../../../src/components/Label/Label.type.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,KAAK,MAAM,OAAO,CAAC;AAE/B,MAAM,WAAW,KAAK,CAClB,IAAI,SAAS,WAAW,GAAG,gBAAgB,CAC7C,SAAQ,IAAI,CAAC,KAAK,CAAC,SAAS,CAAC,IAAI,CAAC,EAAE,SAAS,CAAC;IAC5C,OAAO,CAAC,EAAE,KAAK,CAAC,SAAS,CAAC;CAC7B"}

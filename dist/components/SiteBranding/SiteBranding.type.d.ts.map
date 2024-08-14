@@ -1,0 +1,1 @@
+{"version":3,"file":"SiteBranding.type.d.ts","sourceRoot":"","sources":["../../../src/components/SiteBranding/SiteBranding.type.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,KAAK,MAAM,OAAO,CAAC;AAE/B,MAAM,WAAW,YAAY;IACzB,QAAQ,EAAE,MAAM,CAAC;IACjB,IAAI,EAAE,MAAM,CAAC;IACb,SAAS,CAAC,EAAE,MAAM,CAAC;IACnB,KAAK,CAAC,EAAE,KAAK,CAAC,SAAS,CAAC;CAC3B"}

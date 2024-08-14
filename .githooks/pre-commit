@@ -46,4 +46,7 @@ if [[ "${EXIT_CODE}" != 0 ]]; then
     exit 1
 fi
 
+npm run build
+git add ./dist/*
+
 exit $?

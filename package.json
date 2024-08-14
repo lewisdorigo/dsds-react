@@ -20,9 +20,8 @@
         "lint": "eslint @types/**/* src/**/*",
         "type-check": "tsc --skipLibCheck --noEmit",
         "test": "playwright test -c playwright.config.ts",
-        "build": "tsc",
+        "build": "npx tsc",
         "pre-commit": "npm run lint && npm run type-check && npm run test",
-        "postinstall": "npm run build",
         "set-hooks": "git config core.hooksPath ./.githooks && chmod -f 755 ./.githooks/*"
     },
     "dependencies": {

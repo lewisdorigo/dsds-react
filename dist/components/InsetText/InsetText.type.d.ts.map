@@ -1,0 +1,1 @@
+{"version":3,"file":"InsetText.type.d.ts","sourceRoot":"","sources":["../../../src/components/InsetText/InsetText.type.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAC1B,OAAO,EAAE,SAAS,EAAE,MAAM,mBAAmB,CAAC;AAC9C,OAAO,KAAK,EAAE,MAAM,EAAE,MAAM,wBAAwB,CAAC;AAErD,MAAM,WAAW,SAAU,SAAQ,KAAK,CAAC,iBAAiB,EAAE,MAAM,EAAE,SAAS,CACzE,OAAO,EACP,cAAc,CACjB;CAAG"}
