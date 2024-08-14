@@ -1,5 +1,4 @@
 import React from 'react';
-import NextLink from 'next/link';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
@@ -52,7 +51,7 @@ const Link:React.FC<Link> = function Link({
 
     if (href) {
         return (
-            <NextLink
+            <a
                 {...props as React.HTMLProps<HTMLAnchorElement>}
                 className={classNames(
                     baseClass,
@@ -63,7 +62,7 @@ const Link:React.FC<Link> = function Link({
                 rel={rel || linkRel}
             >
                 { linkContent }
-            </NextLink>
+            </a>
         );
     }
 

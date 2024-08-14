@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { useSearchParams } from 'next/navigation';
 
 import Question from '../../components/Question';
 import TextInput from '../../components/TextInput';
@@ -40,23 +39,9 @@ const Address:React.FC<Omit<Address, 'type'>> = function Address({
         fullAddress = 'Tell us your full address',
     } = {},
 }) {
-    const searchParams = useSearchParams();
     const stateParam = useMemo(() => `${id}-state`, [id]);
 
     const initialState:AddressState = useMemo(() => {
-        if (searchParams.has(stateParam)) {
-            switch (searchParams.get(stateParam)) {
-                case 'select':
-                    return AddressState.SelectAddress;
-
-                case 'address':
-                    return AddressState.EnterAddress;
-
-                default:
-                    return AddressState.PostcodeLookup;
-            }
-        }
-
         if (rawState) {
             return rawState;
         }
@@ -70,7 +55,7 @@ const Address:React.FC<Omit<Address, 'type'>> = function Address({
         }
 
         return AddressState.PostcodeLookup;
-    }, [rawState, searchParams, stateParam, addressSelect.value, address1.value]);
+    }, [rawState, addressSelect.value, address1.value]);
 
     const [formState, setFormState] = useState<AddressFormState>({
         message: '',

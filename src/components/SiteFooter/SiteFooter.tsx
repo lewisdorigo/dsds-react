@@ -61,13 +61,13 @@ const SiteFooterCopyright:React.FC<
                 className="copyrightText ds_site-footer-logo"
                 href={link}
             >
-                <img {...logo} />
+                <img alt="" {...logo} />
             </a>
         );
     } else if (logo && logo.src) {
         logoElement = (
             <span className="copyrightText ds_site-footer-logo">
-                <img {...logo} />
+                <img alt="" {...logo} />
             </span>
         );
     }
@@ -98,7 +98,7 @@ export const SiteFooterOrg:React.FC<
     },
 }) {
     const logoElem:React.ReactNode = (
-        <img {...logo} />
+        <img alt="" {...logo} />
     );
 
     let logoElement:React.ReactNode;

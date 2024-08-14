@@ -5,6 +5,7 @@ import React, {
     useEffect,
     useMemo,
     useContext,
+    useCallback,
 } from 'react';
 
 import DSDSDatePicker from '@scottish-government/design-system/src/components/date-picker/date-picker';
@@ -130,7 +131,12 @@ const DatePicker:React.FC<Omit<DatePicker, 'type'>> = function DatePicker({
             : date
     ));
 
-    const handleSelect = (date:Date) => {
+    /**
+     * Handle changes to the date value.
+     *
+     * @param {Date} date - The selected date value.
+     */
+    const handleSelect = useCallback((date:Date) => {
         let dateValue = '';
 
         const day = date.getDate().toString().padStart(2, '0');
@@ -162,7 +168,7 @@ const DatePicker:React.FC<Omit<DatePicker, 'type'>> = function DatePicker({
         if (dateSelectCallback) {
             dateSelectCallback(date);
         }
-    };
+    }, [dateFormat, fields, name, dateSelectCallback, setFields]);
 
     useEffect(() => {
         if (!ref.current || !window) {
@@ -176,7 +182,7 @@ const DatePicker:React.FC<Omit<DatePicker, 'type'>> = function DatePicker({
             dateSelectCallback: handleSelect,
             imagePath: '/design-system/images/icons/',
         }).init();
-    }, [ref, minDate, maxDate, disabledDates]);
+    }, [ref, minDate, maxDate, disabledDates, handleSelect]);
 
     let inputs;
 

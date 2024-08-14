@@ -2,6 +2,7 @@
 
 import React, {
     useState,
+    useCallback,
     createContext,
     useMemo,
 } from 'react';
@@ -37,12 +38,15 @@ export const Provider:React.FC<FormProvider> = function Provider({
      * @param {string} name - The name of the field to set.
      * @param {unknown} value - The value of the field to set.
      */
-    const setField = function setField<Type = unknown>(name:string, value:Type) {
-        setFields({
-            ...fields,
-            [name]: value,
-        });
-    };
+    const setField = useCallback(
+        <Type = unknown>(name:string, value:Type) => (
+            setFields({
+                ...fields,
+                [name]: value,
+            })
+        ),
+        [fields],
+    );
 
     /**
      * Gets a value of a field within the context.
@@ -50,16 +54,17 @@ export const Provider:React.FC<FormProvider> = function Provider({
      * @param {string} name - The name of the field to get.
      * @returns {unknown} - The value of the field.
      */
-    const getField = function getField<Type = unknown>(name:string) {
-        return fields[name] as Type;
-    };
+    const getField = useCallback(
+        <Type = unknown>(name:string) => fields[name] as Type,
+        [fields],
+    );
 
     const context:FormContextProps = useMemo(() => ({
         setFields,
         setField,
         getField,
         fields,
-    }), [fields]);
+    }), [fields, setFields, setField, getField]);
 
     return (
         <FormContext.Provider value={context}>

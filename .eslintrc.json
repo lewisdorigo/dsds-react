@@ -1,8 +1,7 @@
 {
     "extends": [
         "airbnb",
-        "airbnb/hooks",
-        "next/core-web-vitals"
+        "airbnb/hooks"
     ],
     "plugins": ["react", "react-hooks"],
     "rules": {
@@ -62,7 +61,6 @@
         "react/jsx-filename-extension": ["error", { "extensions": [".tsx", ".ts"] }],
         "import/extensions": ["error", "never"],
         "react/button-has-type": "off",
-        "@next/next/no-html-link-for-pages": "off",
         "import/no-extraneous-dependencies": ["error", {
             "devDependencies": [
                 "**/*{test,spec}.{js,jsx,ts,tsx,mjs}"
