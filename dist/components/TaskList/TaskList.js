@@ -47,6 +47,9 @@ const TaskListItem = function TaskListItem({ id, label, content, status, link, h
  * @returns {JSX.Element} - The element
  */
 const TaskList = function TaskList({ id, label, content, items = [], ordered = false, headingLevel = 2, }) {
+    if (items.length < 0) {
+        return null;
+    }
     return (react_1.default.createElement(react_1.default.Fragment, null,
         label && (react_1.default.createElement(Heading_1.default, { className: "ds_task-list-heading", level: headingLevel }, (0, htmlToReact_1.default)(label, false))),
         content && (0, htmlToReact_1.default)(content),

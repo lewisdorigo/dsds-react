@@ -23,6 +23,7 @@ const TaskListGroup:React.FC<Omit<
 >> = function TaskListGroup({
     id,
     label,
+    status,
     content,
     items = [],
     ordered = false,
@@ -39,61 +40,76 @@ const TaskListGroup:React.FC<Omit<
 
     const numSections = allSections.length;
     const numComplete = (
-        allSections.filter(({ status }) => status === TaskListStatus.Complete).length
+        allSections
+            .filter(({ status: itemStatus }) => itemStatus === TaskListStatus.Complete)
+            .length
     );
-    const firstIncomplete = allSections.find(({ status }) => status !== TaskListStatus.Complete);
+    const firstIncomplete = (
+        allSections
+            .find(({ status: itemStatus }) => itemStatus !== TaskListStatus.Complete)
+    );
 
     return (
         <>
             { label && (
-                <Heading
-                    className="ds_task-list-status-heading"
-                    level={headingLevel}
-                >
+                <Heading level={headingLevel}>
                     { htmlToReact(label, false) }
                 </Heading>
             )}
+            { status && (
+                <Heading
+                    level={Math.min(headingLevel + 1, 6) as HeadingLevel}
+                    className="ds_task-list-status-heading"
+                >
+                    { htmlToReact(status, false) }
+                </Heading>
+            )}
             { content && htmlToReact(content) }
-            <nav>
-                <p>
-                    You have completed
-                    {` ${numComplete} of ${numSections} `}
-                    sections.
-                </p>
-                { firstIncomplete && (
+
+            { numSections > 0 && (
+                <nav>
                     <p>
-                        <Link href={`#task-item-${firstIncomplete.id}`}>
-                            Skip to first incomplete section
-                        </Link>
+                        You have completed
+                        {` ${numComplete} of ${numSections} `}
+                        sections.
                     </p>
-                )}
-            </nav>
+                    { firstIncomplete && (
+                        <p>
+                            <Link href={`#task-item-${firstIncomplete.id}`}>
+                                Skip to first incomplete section
+                            </Link>
+                        </p>
+                    )}
+                </nav>
+            )}
 
-            <WrapperTag
-                tag={ordered ? 'ol' : 'ul'}
-                className={classNames(
-                    'ds_task-list-group',
-                    ordered ? 'ds_task-list-group--ordered' : '',
-                )}
-                id={id}
-                {...attributes}
-            >
-                { items.map((item, index) => {
-                    const key = `${id}-${index}`;
+            { items.length > 0 && (
+                <WrapperTag
+                    tag={ordered ? 'ol' : 'ul'}
+                    className={classNames(
+                        'ds_task-list-group',
+                        ordered ? 'ds_task-list-group--ordered' : '',
+                    )}
+                    id={id}
+                    {...attributes}
+                >
+                    { items.map((item, index) => {
+                        const key = `${id}-${index}`;
 
-                    return (
-                        <li key={key} className="ds_task-list-group__section">
-                            <TaskList
-                                id={id}
-                                {...item}
-                                headingLevel={
-                                    Math.min(headingLevel + 1, 6) as HeadingLevel
-                                }
-                            />
-                        </li>
-                    );
-                })}
-            </WrapperTag>
+                        return (
+                            <li key={key} className="ds_task-list-group__section">
+                                <TaskList
+                                    id={id}
+                                    {...item}
+                                    headingLevel={
+                                        Math.min(headingLevel + 1, 6) as HeadingLevel
+                                    }
+                                />
+                            </li>
+                        );
+                    })}
+                </WrapperTag>
+            )}
         </>
     );
 };

@@ -6,5 +6,6 @@ export interface TaskListGroup extends Component<
     HTMLOListElement | HTMLUListElement,
     Omit<TaskList, 'id' | 'type'>
 > {
+    status?: React.ReactNode,
     ordered?: boolean,
 }

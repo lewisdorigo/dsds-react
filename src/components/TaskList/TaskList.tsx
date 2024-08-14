@@ -115,6 +115,8 @@ const TaskList:React.FC<Omit<TaskList, 'type'>> = function TaskList({
     ordered = false,
     headingLevel = 2,
 }) {
+    if (items.length < 0) { return null; }
+
     return (
         <>
             { label && (
@@ -126,6 +128,7 @@ const TaskList:React.FC<Omit<TaskList, 'type'>> = function TaskList({
                 </Heading>
             )}
             { content && htmlToReact(content) }
+
             <WrapperTag
                 tag={ordered ? 'ol' : 'ul'}
                 className={classNames(
