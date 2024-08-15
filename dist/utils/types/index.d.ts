@@ -31,6 +31,6 @@ export interface FormComponent<Type = unknown, Tag extends HTMLElement = HTMLEle
     value?: Value;
     error?: Validation.Errors;
 }
-export type ComponentType = React.ReactNode | Component | FormComponent;
+export type ComponentType<Additional = unknown> = (React.ReactNode | Component<unknown, HTMLElement, unknown> & Additional | FormComponent<unknown, HTMLElement, unknown> & Additional);
 export type Components = ComponentType[];
 //# sourceMappingURL=index.d.ts.map

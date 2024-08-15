@@ -9,7 +9,6 @@ export interface RadioItem extends Omit<
     ComponentItem<HTMLInputElement>,
     'content'
 > {
-    content: never,
     name: string,
     hintText?: React.ReactNode,
     size?: RadioSize,
@@ -19,7 +18,7 @@ export interface RadioItem extends Omit<
 export interface RadioGroup extends FormComponent<
     'radio',
     HTMLInputElement,
-    RadioItem,
+    Omit<RadioItem, 'name'>,
     Value
 > {
     size?: RadioSize,

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Components, Component, FormComponent } from '../../utils/types';
+import { Components, ComponentType, Component } from '../../utils/types';
 import { HeadingLevel } from '../../utils/types/meta';
-export type ComponentHelperLookup = Record<string, React.FC<Omit<Component<unknown, any, any>, 'items'> & {
+export type ComponentHelperLookup = Record<string, React.FC<Omit<Component<unknown, any>, 'items'> & {
     items?: any;
 }>>;
 export interface ComponentHelper {
-    component: React.ReactNode | Component | FormComponent;
+    component: ComponentType;
     customLookup?: ComponentHelperLookup;
     headingLevel?: HeadingLevel;
 }

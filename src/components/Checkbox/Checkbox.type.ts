@@ -6,8 +6,10 @@ export enum CheckboxSize {
     Small = 'small'
 }
 
-export interface CheckboxItem extends ComponentItem<HTMLInputElement> {
-    content: never,
+export interface CheckboxItem extends Omit<
+    ComponentItem<HTMLInputElement>,
+    'content'
+> {
     name: string,
     hintText?: React.ReactNode,
     size?: CheckboxSize,
@@ -17,7 +19,7 @@ export interface CheckboxItem extends ComponentItem<HTMLInputElement> {
 export interface Checkbox extends FormComponent<
     'checkbox',
     HTMLInputElement,
-    CheckboxItem,
+    Omit<CheckboxItem, 'name'>,
     Value[]
 > {
     size?: CheckboxSize,
