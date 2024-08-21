@@ -2,20 +2,20 @@
 
 import React from 'react';
 
-import Wrapper from '../Wrapper';
-import WrapperTag from '../WrapperTag';
-import Tag from '../Tag';
+import { Wrapper } from '../Wrapper';
+import { WrapperTag } from '../WrapperTag';
+import { Tag } from '../Tag';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { PhaseBanner } from './PhaseBanner.type';
+import type * as Types from './PhaseBanner.type';
 
 /**
- * @param {PhaseBanner} props - Properties for the element
+ * @param {Types.PhaseBanner} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const PhaseBanner:React.FC<PhaseBanner> = function PhaseBanner({
+export const PhaseBanner:React.FC<Types.PhaseBanner> = function PhaseBanner({
     phase = 'alpha',
     className,
     children,
@@ -45,5 +45,3 @@ const PhaseBanner:React.FC<PhaseBanner> = function PhaseBanner({
         </WrapperTag>
     );
 };
-
-export default PhaseBanner;

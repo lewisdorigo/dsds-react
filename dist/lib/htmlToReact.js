@@ -1,10 +1,4 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.autop = void 0;
-const html_react_parser_1 = __importDefault(require("html-react-parser"));
+import parse from 'html-react-parser';
 /**
  * Replaces double line-breaks with paragraph elements.
  *
@@ -17,7 +11,7 @@ const html_react_parser_1 = __importDefault(require("html-react-parser"));
  * @param {bool} [br=true] - If set, this will convert all remaining line-breaks after paragraphing.
  * @returns {string} - Text which has been converted into correct paragraph tags.
  */
-const autop = function autop(text, br = true) {
+export const autop = function autop(text, br = true) {
     let para = text;
     const preTags = {};
     if (!para || para.trim() === '') {
@@ -92,7 +86,6 @@ const autop = function autop(text, br = true) {
     }
     return para;
 };
-exports.autop = autop;
 /**
  * Replaces double line-breaks with paragraph elements.
  *
@@ -108,8 +101,8 @@ exports.autop = autop;
  */
 const htmlToReact = function htmlToReact(text = '', useAutoP = true, br = true) {
     if (typeof text === 'string') {
-        return (0, html_react_parser_1.default)(useAutoP ? (0, exports.autop)(text, br) : text);
+        return parse(useAutoP ? autop(text, br) : text);
     }
     return text;
 };
-exports.default = htmlToReact;
+export default htmlToReact;

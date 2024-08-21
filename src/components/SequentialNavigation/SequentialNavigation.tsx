@@ -1,21 +1,18 @@
 import React from 'react';
 
-import Link, { Types as LinkTypes } from '../Link';
+import { Link, Types as LinkTypes } from '../Link';
 
 import htmlToReact from '../../lib/htmlToReact';
 import classNames from '../../lib/classNames';
 
-import type {
-    SequentialNavigation,
-    SequentialNavigationItem,
-} from './SequentialNavigation.type';
+import type * as Types from './SequentialNavigation.type';
 
 /**
- * @param {SequentialNavigationItem} props - Properties for the element
+ * @param {Types.SequentialNavigationItem} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SequentialNavigationItem:React.FC<
-    SequentialNavigationItem
+export const SequentialNavigationItem:React.FC<
+    Types.SequentialNavigationItem
 > = function SequentialNavigationItem({
     type = 'previous',
     label,
@@ -62,11 +59,11 @@ const SequentialNavigationItem:React.FC<
 };
 
 /**
- * @param {SequentialNavigation} props - Properties for the element
+ * @param {Types.SequentialNavigation} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SequentialNavigation:React.FC<
-    Omit<SequentialNavigation, 'type'>
+export const SequentialNavigation:React.FC<
+    Omit<Types.SequentialNavigation, 'type'>
 > = function SequentialNavigation({
     id = 'sequential-navigation',
     items = [],
@@ -97,5 +94,3 @@ const SequentialNavigation:React.FC<
         </nav>
     );
 };
-
-export default SequentialNavigation;

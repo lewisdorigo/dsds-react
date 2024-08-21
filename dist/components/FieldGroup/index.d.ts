@@ -1,5 +1,4 @@
-import FieldGroup from './FieldGroup';
 import * as Types from './FieldGroup.type';
-export default FieldGroup;
+export * from './FieldGroup';
 export { Types };
 //# sourceMappingURL=index.d.ts.map

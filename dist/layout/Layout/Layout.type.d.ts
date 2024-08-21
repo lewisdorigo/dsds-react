@@ -1,6 +1,6 @@
 import type React from 'react';
 import type { WrapperTag } from '../../components/WrapperTag/WrapperTag.type';
-export declare enum LayoutTypes {
+export declare enum Type {
     Article = "article",
     CategoryList = "category-list",
     Guide = "guide",
@@ -9,7 +9,7 @@ export declare enum LayoutTypes {
     Questions = "question-page"
 }
 export interface Layout extends Omit<WrapperTag, 'content'> {
-    layout?: LayoutTypes;
+    layout?: Type;
     header?: React.ReactNode;
     partner?: React.ReactNode;
     navigation?: React.ReactNode;

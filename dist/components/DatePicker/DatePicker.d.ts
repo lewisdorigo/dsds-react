@@ -1,9 +1,8 @@
 import React from 'react';
-import type { DatePicker } from './DatePicker.type';
+import * as Types from './DatePicker.type';
 /**
- * @param {DatePickerProps} props - Properties for the element
+ * @param {Types.DatePickerProps} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const DatePicker: React.FC<Omit<DatePicker, 'type'>>;
-export default DatePicker;
+export declare const DatePicker: React.FC<Omit<Types.DatePicker, 'type'>>;
 //# sourceMappingURL=DatePicker.d.ts.map

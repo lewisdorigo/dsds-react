@@ -3,16 +3,13 @@ import React from 'react';
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type {
-    MetadataItem as MetadataItemProps,
-    Metadata as MetadataProps,
-} from './Metadata.type';
+import type * as Types from './Metadata.type';
 
 /**
- * @param {MetadataItemProps} props - Properties for the element
+ * @param {Types.MetadataItem} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-export const MetadataItem:React.FC<MetadataItemProps> = function MetadataItem({
+export const MetadataItem:React.FC<Types.MetadataItem> = function MetadataItem({
     label,
     value: rawValue,
     hideLabel,
@@ -46,10 +43,10 @@ export const MetadataItem:React.FC<MetadataItemProps> = function MetadataItem({
 };
 
 /**
- * @param {MetadataProps} props - Properties for the element
+ * @param {Types.Metadata} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Metadata:React.FC<Omit<MetadataProps, 'type'>> = function Metadata({
+export const Metadata:React.FC<Omit<Types.Metadata, 'type'>> = function Metadata({
     items,
     className,
     inline = false,
@@ -71,5 +68,3 @@ const Metadata:React.FC<Omit<MetadataProps, 'type'>> = function Metadata({
         </dl>
     );
 };
-
-export default Metadata;

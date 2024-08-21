@@ -1,9 +1,8 @@
 import React from 'react';
-import type { PhaseBanner } from './PhaseBanner.type';
+import type * as Types from './PhaseBanner.type';
 /**
- * @param {PhaseBanner} props - Properties for the element
+ * @param {Types.PhaseBanner} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const PhaseBanner: React.FC<PhaseBanner>;
-export default PhaseBanner;
+export declare const PhaseBanner: React.FC<Types.PhaseBanner>;
 //# sourceMappingURL=PhaseBanner.d.ts.map

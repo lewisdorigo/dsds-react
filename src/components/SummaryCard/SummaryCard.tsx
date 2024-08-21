@@ -1,20 +1,22 @@
 import React from 'react';
 
-import SummaryList from '../SummaryList';
-import Link from '../Link';
-import Heading from '../Heading';
+import { SummaryList } from '../SummaryList';
+import { Link } from '../Link';
+import { Heading } from '../Heading';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { SummaryListActions } from '../SummaryList/SummaryList.type';
-import type { SummaryCard } from './SummaryCard.type';
+import type * as SummaryListTypes from '../SummaryList/SummaryList.type';
+import type * as Types from './SummaryCard.type';
 
 /**
- * @param {SummaryListActions} props - Properties for the element
+ * @param {Types.SummaryListActions} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SummaryCardActions:React.FC<SummaryListActions> = function SummaryListActions({
+export const SummaryCardActions:React.FC<
+    SummaryListTypes.SummaryListActions
+> = function SummaryListActions({
     itemId,
     actions = [],
 }) {
@@ -49,11 +51,11 @@ const SummaryCardActions:React.FC<SummaryListActions> = function SummaryListActi
 };
 
 /**
- * @param {SummaryCard} props - Properties for the element
+ * @param {Types.SummaryCard} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SummaryCard:React.FC<Omit<
-    SummaryCard,
+export const SummaryCard:React.FC<Omit<
+    Types.SummaryCard,
     'type'
 >> = function SummaryCard({
     className,
@@ -94,5 +96,3 @@ const SummaryCard:React.FC<Omit<
         </div>
     );
 };
-
-export default SummaryCard;

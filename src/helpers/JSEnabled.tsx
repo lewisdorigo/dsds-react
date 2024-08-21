@@ -7,7 +7,7 @@ import React, { useEffect } from 'react';
  *
  * @returns {null} Null, as it renders nothing.
  */
-const JSEnabled:React.FC = function JSEnabled() {
+export const JSEnabled:React.FC = function JSEnabled() {
     useEffect(() => {
         const element = document.querySelector('html');
 
@@ -24,5 +24,3 @@ const JSEnabled:React.FC = function JSEnabled() {
 
     return null;
 };
-
-export default JSEnabled;

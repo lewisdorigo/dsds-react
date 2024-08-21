@@ -4,13 +4,13 @@ import React, { useRef, useEffect } from 'react';
 
 import HideThisPage from '@scottish-government/design-system/src/components/hide-this-page/hide-this-page';
 
-import type { HidePage } from './HidePage.type';
+import type * as Types from './HidePage.type';
 
 /**
- * @param {HidePage} props - Properties for the element
+ * @param {Types.HidePage} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const HidePage:React.FC<HidePage> = function HidePage({
+export const HidePage:React.FC<Types.HidePage> = function HidePage({
     link = 'http://bbc.co.uk/weather',
 }) {
     const ref = useRef<HTMLDivElement>(null);
@@ -42,5 +42,3 @@ const HidePage:React.FC<HidePage> = function HidePage({
         </div>
     );
 };
-
-export default HidePage;

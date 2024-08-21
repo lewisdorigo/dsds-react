@@ -1,5 +1,4 @@
-import ArticleAside from './ArticleAside';
 import * as Types from './ArticleAside.type';
 
-export default ArticleAside;
+export * from './ArticleAside';
 export { Types };

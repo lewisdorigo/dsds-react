@@ -24,6 +24,6 @@ export declare const autop: (text: string, br?: boolean) => string;
  * @param {bool} [br=true] - If set, this will convert all remaining line-breaks after paragraphing.
  * @returns {JSX.Element} - Text which has been converted into correct paragraph tags.
  */
-declare const htmlToReact: (text?: React.ReactNode, useAutoP?: boolean, br?: boolean) => string | number | bigint | boolean | Iterable<import("react").ReactNode> | Promise<import("react").AwaitedReactNode> | import("react").JSX.Element | import("react").JSX.Element[] | null;
+declare const htmlToReact: (text?: React.ReactNode, useAutoP?: boolean, br?: boolean) => string | number | boolean | Iterable<import("react").ReactNode> | import("react").JSX.Element | import("react").JSX.Element[] | null;
 export default htmlToReact;
 //# sourceMappingURL=htmlToReact.d.ts.map

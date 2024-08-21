@@ -1,24 +1,18 @@
 import React from 'react';
 
-import Link from '../Link';
+import { Link } from '../Link';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type {
-    SummaryListActions,
-    SummaryListAnswer,
-    SummaryListItem,
-    SummaryList,
-    AnswerItem,
-} from './SummaryList.type';
+import type * as Types from './SummaryList.type';
 
 /**
  * @param {DSDS.Component.SummaryList.Actions} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SummaryListActions:React.FC<
-    SummaryListActions
+export const SummaryListActions:React.FC<
+    Types.SummaryListActions
 > = function SummaryListActions({
     itemId,
     actions = [],
@@ -56,11 +50,11 @@ const SummaryListActions:React.FC<
 };
 
 /**
- * @param {SummaryListAnswer} props - Properties for the element
+ * @param {Types.SummaryListAnswer} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SummaryListAnswer:React.FC<
-    SummaryListAnswer
+export const SummaryListAnswer:React.FC<
+    Types.SummaryListAnswer
 > = function SummaryListAnswer({
     answer,
     itemId,
@@ -99,7 +93,7 @@ const SummaryListAnswer:React.FC<
             && Object.prototype.hasOwnProperty.call(answer[0], 'value')
         )
     ) {
-        const ans = answer as AnswerItem[];
+        const ans = answer as Types.AnswerItem[];
         return (
             <dl className="ds_no-margin--bottom">
                 {ans.map(({ label, value }, index) => {
@@ -119,10 +113,10 @@ const SummaryListAnswer:React.FC<
 };
 
 /**
- * @param {SummaryListItem} props - Properties for the element
+ * @param {Types.SummaryListItem} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SummaryListItem:React.FC<SummaryListItem> = function SummaryListItem({
+export const SummaryListItem:React.FC<Types.SummaryListItem> = function SummaryListItem({
     id,
     label,
     value,
@@ -161,10 +155,10 @@ const SummaryListItem:React.FC<SummaryListItem> = function SummaryListItem({
 };
 
 /**
- * @param {SummaryList} props - Properties for the element
+ * @param {Types.SummaryList} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SummaryList:React.FC<Omit<SummaryList, 'type'>> = function SummaryList({
+export const SummaryList:React.FC<Omit<Types.SummaryList, 'type'>> = function SummaryList({
     className,
     borders = true,
     items = [],
@@ -195,5 +189,3 @@ const SummaryList:React.FC<Omit<SummaryList, 'type'>> = function SummaryList({
         </ol>
     );
 };
-
-export default SummaryList;

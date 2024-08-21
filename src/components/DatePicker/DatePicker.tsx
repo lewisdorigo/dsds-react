@@ -9,21 +9,19 @@ import React, {
 } from 'react';
 
 import DSDSDatePicker from '@scottish-government/design-system/src/components/date-picker/date-picker';
-import TextInput from '../TextInput';
-import { InputModes, InputWidth } from '../TextInput/TextInput.type';
-import FormContext from '../../context/FormContext';
+import { TextInput, Types as InputTypes } from '../TextInput';
+import { FormContext } from '../../context/FormContext';
 
 import classNames from '../../lib/classNames';
-import Label from '../Label';
+import { Label } from '../Label';
 
-import type { DatePicker } from './DatePicker.type';
-import { DatePickerFormat } from './DatePicker.type';
+import * as Types from './DatePicker.type';
 
 /**
- * @param {DatePickerProps} props - Properties for the element
+ * @param {Types.DatePickerProps} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const DatePicker:React.FC<Omit<DatePicker, 'type'>> = function DatePicker({
+export const DatePicker:React.FC<Omit<Types.DatePicker, 'type'>> = function DatePicker({
     id,
     name,
     className,
@@ -31,7 +29,7 @@ const DatePicker:React.FC<Omit<DatePicker, 'type'>> = function DatePicker({
     maxDate: rawMaxDate,
     disabledDates: rawDisabledDates = [],
     dateSelectCallback,
-    dateFormat = DatePickerFormat.DayMonthYear,
+    dateFormat = Types.DateFormat.DayMonthYear,
     multiple = false,
     attributes = {},
     value = '',
@@ -94,17 +92,17 @@ const DatePicker:React.FC<Omit<DatePicker, 'type'>> = function DatePicker({
 
     if (value) {
         switch (dateFormat) {
-            case DatePickerFormat.DayMonthYear:
+            case Types.DateFormat.DayMonthYear:
                 regexMatch = value.match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/);
                 [, dayValue, monthValue, yearValue] = regexMatch || ['', '', '', ''];
                 break;
 
-            case DatePickerFormat.MonthDayYear:
+            case Types.DateFormat.MonthDayYear:
                 regexMatch = value.match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/);
                 [, monthValue, dayValue, yearValue] = regexMatch || ['', '', '', ''];
                 break;
 
-            case DatePickerFormat.YearMonthDay:
+            case Types.DateFormat.YearMonthDay:
                 regexMatch = value.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})/);
                 [, yearValue, monthValue, dayValue] = regexMatch || ['', '', '', ''];
                 break;
@@ -144,11 +142,11 @@ const DatePicker:React.FC<Omit<DatePicker, 'type'>> = function DatePicker({
         const year = date.getFullYear();
 
         switch (dateFormat) {
-            case DatePickerFormat.YearMonthDay:
+            case Types.DateFormat.YearMonthDay:
                 dateValue = `${year}/${month}/${day}`;
                 break;
 
-            case DatePickerFormat.MonthDayYear:
+            case Types.DateFormat.MonthDayYear:
                 dateValue = `${month}/${day}/${year}`;
                 break;
 
@@ -196,13 +194,13 @@ const DatePicker:React.FC<Omit<DatePicker, 'type'>> = function DatePicker({
                         type="text"
                         id={`${id}-day`}
                         name={`${name}-day`}
-                        width={InputWidth.Fixed2}
+                        width={InputTypes.Width.Fixed2}
                         className="js-datepicker-date"
                         value={dayValue}
+                        inputMode={InputTypes.Mode.Numeric}
                         hintText={undefined}
                         attributes={{
                             ...attributes,
-                            inputMode: InputModes.Numeric,
                             'aria-describedby': classNames(
                                 attributes['aria-describedby'],
                                 props.hintText ? `${id}-hint-text` : '',
@@ -218,13 +216,13 @@ const DatePicker:React.FC<Omit<DatePicker, 'type'>> = function DatePicker({
                         type="text"
                         id={`${id}-month`}
                         name={`${name}-month`}
-                        width={InputWidth.Fixed2}
+                        width={InputTypes.Width.Fixed2}
+                        inputMode={InputTypes.Mode.Numeric}
                         className="js-datepicker-month"
                         value={monthValue}
                         hintText={undefined}
                         attributes={{
                             ...attributes,
-                            inputMode: InputModes.Numeric,
                             'aria-describedby': classNames(
                                 attributes['aria-describedby'],
                                 props.hintText ? `${id}-hint-text` : '',
@@ -240,13 +238,13 @@ const DatePicker:React.FC<Omit<DatePicker, 'type'>> = function DatePicker({
                         type="text"
                         id={`${id}-year`}
                         name={`${name}-year`}
-                        width={InputWidth.Fixed4}
+                        width={InputTypes.Width.Fixed4}
+                        inputMode={InputTypes.Mode.Numeric}
                         className="js-datepicker-year"
                         value={yearValue}
                         hintText={undefined}
                         attributes={{
                             ...attributes,
-                            inputMode: InputModes.Numeric,
                             'aria-describedby': classNames(
                                 attributes['aria-describedby'],
                                 props.hintText ? `${id}-hint-text` : '',
@@ -265,7 +263,7 @@ const DatePicker:React.FC<Omit<DatePicker, 'type'>> = function DatePicker({
                     type="text"
                     id={id}
                     name={name}
-                    width={InputWidth.Fixed10}
+                    width={InputTypes.Width.Fixed10}
                     attributes={attributes}
                     value={value}
                 />
@@ -288,5 +286,3 @@ const DatePicker:React.FC<Omit<DatePicker, 'type'>> = function DatePicker({
         </div>
     );
 };
-
-export default DatePicker;

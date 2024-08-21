@@ -1,7 +1,7 @@
 import type { FormComponent } from '../../utils/types';
 import type { Value } from '../../utils/types/meta';
 
-export enum TextAreaSize {
+export enum Size {
     Normal,
     Small,
     Large,
@@ -13,5 +13,5 @@ export interface TextArea extends FormComponent<
     never,
     Value
 > {
-    size?: TextAreaSize,
+    size?: Size,
 }

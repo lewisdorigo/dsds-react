@@ -1,26 +1,22 @@
 'use client';
 
 import React from 'react';
-import { useFormStatus } from 'react-dom';
 
-import ButtonGroup from '../../components/ButtonGroup';
-import Button from '../../components/Button';
+import { ButtonGroup } from '../../components/ButtonGroup';
+import { Button, Types as ButtonTypes } from '../../components/Button';
 
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { FormNav } from './FormNav.type';
-import {
-    Type as ButtonType,
-    IconPosition as ButtonIconPosition,
-    Style as ButtonStyle,
-} from '../../components/Button/Button.type';
+import type * as Types from './FormNav.type';
 
-const FormNav:React.FC<Omit<FormNav, 'type'>> = function FormNav({
+/**
+ * @param {Types.FormNav} props - Properties for the element
+ * @returns {JSX.Element} - The element
+ */
+export const FormNav:React.FC<Omit<Types.FormNav, 'type'>> = function FormNav({
     back = true,
     next = true,
 }) {
-    const status = useFormStatus();
-
     let backEnabled;
     let backLabel;
     let backHref;
@@ -67,11 +63,11 @@ const FormNav:React.FC<Omit<FormNav, 'type'>> = function FormNav({
         <ButtonGroup tag="nav">
             { backEnabled && (
                 <Button
-                    style={ButtonStyle.Cancel}
+                    style={ButtonTypes.Style.Cancel}
                     icon="chevron_left"
-                    iconPosition={ButtonIconPosition.Left}
+                    iconPosition={ButtonTypes.IconPosition.Left}
                     href={backHref}
-                    type={!backHref ? ButtonType.Button : undefined}
+                    type={!backHref ? ButtonTypes.Type.Button : undefined}
                     onClick={!backHref ? (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
                         e.preventDefault();
                         window.history.back();
@@ -84,9 +80,7 @@ const FormNav:React.FC<Omit<FormNav, 'type'>> = function FormNav({
                 <Button
                     icon="chevron_right"
                     href={nextHref}
-                    type={!nextHref ? ButtonType.Submit : undefined}
-                    aria-disabled={status?.pending}
-                    disabled={status?.pending}
+                    type={!nextHref ? ButtonTypes.Type.Submit : undefined}
                 >
                     { nextLabel || 'Save and continue' }
                 </Button>
@@ -94,5 +88,3 @@ const FormNav:React.FC<Omit<FormNav, 'type'>> = function FormNav({
         </ButtonGroup>
     );
 };
-
-export default FormNav;

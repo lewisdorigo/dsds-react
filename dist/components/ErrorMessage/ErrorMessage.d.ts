@@ -1,14 +1,13 @@
 import React from 'react';
-import type { ErrorMessage as ErrorMessageProps, ErrorMessages as ErrorMessagesProps } from './ErrorMessage.type';
+import type * as Types from './ErrorMessage.type';
 /**
- * @param {ErrorMessage} props - Properties for the element
+ * @param {Types.ErrorMessage} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const ErrorMessage: React.FC<ErrorMessageProps>;
+export declare const ErrorMessage: React.FC<Types.ErrorMessage>;
 /**
- * @param {ErrorMessages} props - Properties for the element
+ * @param {Types.ErrorMessages} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-export declare const ErrorMessages: React.FC<Omit<ErrorMessagesProps, 'type'>>;
-export default ErrorMessage;
+export declare const ErrorMessages: React.FC<Omit<Types.ErrorMessages, 'type'>>;
 //# sourceMappingURL=ErrorMessage.d.ts.map

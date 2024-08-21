@@ -1,14 +1,13 @@
 import React from 'react';
-import type { ComponentHelper as ComponentHelperProps, ComponentsHelper } from './ComponentHelper.type';
+import type * as Types from './ComponentHelper.type';
 /**
- * @param {ComponentHelperProps} props - Properties for the element
+ * @param {Types.ComponentHelperProps} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-export declare const ComponentHelper: React.FC<ComponentHelperProps>;
+export declare const ComponentHelper: React.FC<Types.ComponentHelper>;
 /**
  * @param {DSDS.Component.ComponentsHelper} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const ComponentsHelper: React.FC<ComponentsHelper>;
-export default ComponentsHelper;
+export declare const ComponentsHelper: React.FC<Types.ComponentsHelper>;
 //# sourceMappingURL=ComponentHelper.d.ts.map

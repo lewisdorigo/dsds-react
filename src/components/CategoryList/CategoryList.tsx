@@ -1,18 +1,18 @@
 import React from 'react';
 
-import WrapperTag from '../WrapperTag';
-import CategoryItem from '../CategoryItem';
-import Card from '../Card';
+import { WrapperTag } from '../WrapperTag';
+import { CategoryItem } from '../CategoryItem';
+import { Card } from '../Card';
 
 import classNames from '../../lib/classNames';
 
-import type { CategoryList } from './CategoryList.type';
+import type * as Types from './CategoryList.type';
 
 /**
- * @param {CategoryList} props - Properties for the element
+ * @param {Types.CategoryList} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const CategoryList:React.FC<Omit<CategoryList, 'type'>> = function CategoryList({
+export const CategoryList:React.FC<Omit<Types.CategoryList, 'type'>> = function CategoryList({
     tag = 'ul',
     id,
     layout,
@@ -59,5 +59,3 @@ const CategoryList:React.FC<Omit<CategoryList, 'type'>> = function CategoryList(
         </WrapperTag>
     );
 };
-
-export default CategoryList;

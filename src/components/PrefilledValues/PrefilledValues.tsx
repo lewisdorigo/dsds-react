@@ -3,14 +3,14 @@ import React, { isValidElement } from 'react';
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { PrefilledValues } from './PrefilledValues.type';
+import type * as Types from './PrefilledValues.type';
 
 /**
- * @param {PrefilledValues} props - Properties for the element
+ * @param {Types.PrefilledValues} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const PrefilledValues:React.FC<
-    Omit<PrefilledValues, 'type'>
+export const PrefilledValues:React.FC<
+    Omit<Types.PrefilledValues, 'type'>
 > = function PrefilledValues({
     items = [],
     id,
@@ -56,5 +56,3 @@ const PrefilledValues:React.FC<
         </dl>
     );
 };
-
-export default PrefilledValues;

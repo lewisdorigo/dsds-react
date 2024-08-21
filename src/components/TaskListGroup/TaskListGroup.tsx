@@ -1,24 +1,23 @@
 import React from 'react';
 
-import WrapperTag from '../WrapperTag';
-import Link from '../Link';
-import Heading from '../Heading';
-import TaskList from '../TaskList';
+import { WrapperTag } from '../WrapperTag';
+import { Link } from '../Link';
+import { Heading } from '../Heading';
+import { TaskList } from '../TaskList';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import { TaskListStatus } from '../TaskList/TaskList.type';
-import type { TaskListGroup } from './TaskListGroup.type';
-import type { TaskListItem } from '../TaskList/TaskList.type';
+import type * as Types from './TaskListGroup.type';
+import * as TaskListTypes from '../TaskList/TaskList.type';
 import type { HeadingLevel } from '../../utils/types/meta';
 
 /**
- * @param {TaskListGroup} props - Properties for the element
+ * @param {Types.TaskListGroup} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const TaskListGroup:React.FC<Omit<
-    TaskListGroup,
+export const TaskListGroup:React.FC<Omit<
+    Types.TaskListGroup,
     'type'
 >> = function TaskListGroup({
     id,
@@ -30,7 +29,7 @@ const TaskListGroup:React.FC<Omit<
     attributes = {},
     headingLevel = 2,
 }) {
-    let allSections:TaskListItem[] = [];
+    let allSections:TaskListTypes.TaskListItem[] = [];
     items.forEach(({ items: groupItems = [] }) => {
         allSections = [
             ...allSections,
@@ -41,12 +40,12 @@ const TaskListGroup:React.FC<Omit<
     const numSections = allSections.length;
     const numComplete = (
         allSections
-            .filter(({ status: itemStatus }) => itemStatus === TaskListStatus.Complete)
+            .filter(({ status: itemStatus }) => itemStatus === TaskListTypes.Status.Complete)
             .length
     );
     const firstIncomplete = (
         allSections
-            .find(({ status: itemStatus }) => itemStatus !== TaskListStatus.Complete)
+            .find(({ status: itemStatus }) => itemStatus !== TaskListTypes.Status.Complete)
     );
 
     return (
@@ -113,5 +112,3 @@ const TaskListGroup:React.FC<Omit<
         </>
     );
 };
-
-export default TaskListGroup;

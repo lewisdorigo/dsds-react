@@ -1,22 +1,21 @@
 import React from 'react';
 
-import Metadata from '../Metadata';
+import { Metadata } from '../Metadata';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import { FileDownloadTypes } from './FileDownload.type';
-import type { FileDownload } from './FileDownload.type';
+import * as Types from './FileDownload.type';
 
 /**
- * @param {FileDownload} props - Properties for the element
+ * @param {Types.FileDownload} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const FileDownload:React.FC<Omit<FileDownload, 'type'>> = function FileDownload({
+export const FileDownload:React.FC<Omit<Types.FileDownload, 'type'>> = function FileDownload({
     link = '#',
     highlight = false,
     label,
-    fileType = FileDownloadTypes.Generic,
+    fileType = Types.FileType.Generic,
     image: rawImage,
     metadata,
     className,
@@ -79,5 +78,3 @@ const FileDownload:React.FC<Omit<FileDownload, 'type'>> = function FileDownload(
         </div>
     );
 };
-
-export default FileDownload;

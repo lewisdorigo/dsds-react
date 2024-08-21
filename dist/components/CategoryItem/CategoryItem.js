@@ -1,24 +1,18 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = __importDefault(require("react"));
-const WrapperTag_1 = __importDefault(require("../WrapperTag"));
-const htmlToReact_1 = __importDefault(require("../../lib/htmlToReact"));
-const classNames_1 = __importDefault(require("../../lib/classNames"));
-const Link_1 = __importDefault(require("../Link"));
+import React from 'react';
+import { WrapperTag } from '../WrapperTag';
+import htmlToReact from '../../lib/htmlToReact';
+import classNames from '../../lib/classNames';
+import { Link } from '../Link';
 /**
- * @param {CategoryItem} props - Properties for the element
+ * @param {Types.CategoryItem} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const CategoryItem = function CategoryItem({ tag = 'div', id, label, content, children, className, headingLevel = 2, link, attributes = {}, }) {
-    return (react_1.default.createElement(WrapperTag_1.default, { tag: tag, id: id, className: (0, classNames_1.default)('ds_category-item', className), ...attributes },
-        react_1.default.createElement(WrapperTag_1.default, { tag: `h${headingLevel}`, className: "ds_category-item__title" }, (link
-            ? (react_1.default.createElement(Link_1.default, { ...link, baseClass: "ds_category-item__link", tabText: false }, (0, htmlToReact_1.default)(label, false)))
-            : (0, htmlToReact_1.default)(label, false))),
-        react_1.default.createElement("div", { className: "ds_category-item__summary" },
-            content && (0, htmlToReact_1.default)(content),
+export const CategoryItem = function CategoryItem({ tag = 'div', id, label, content, children, className, headingLevel = 2, link, attributes = {}, }) {
+    return (React.createElement(WrapperTag, { tag: tag, id: id, className: classNames('ds_category-item', className), ...attributes },
+        React.createElement(WrapperTag, { tag: `h${headingLevel}`, className: "ds_category-item__title" }, (link
+            ? (React.createElement(Link, { ...link, baseClass: "ds_category-item__link", tabText: false }, htmlToReact(label, false)))
+            : htmlToReact(label, false))),
+        React.createElement("div", { className: "ds_category-item__summary" },
+            content && htmlToReact(content),
             children)));
 };
-exports.default = CategoryItem;

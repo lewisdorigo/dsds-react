@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Breadcrumbs } from './Breadcrumbs.type';
+import type * as Types from './Breadcrumbs.type';
 /**
- * @param {Breadcrumbs} props - Properties for the element
+ * @param {Types.Breadcrumbs} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const Breadcrumbs: React.FC<Omit<Breadcrumbs, 'type'>>;
-export default Breadcrumbs;
+export declare const Breadcrumbs: React.FC<Omit<Types.Breadcrumbs, 'type'>>;
 //# sourceMappingURL=Breadcrumbs.d.ts.map

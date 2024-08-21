@@ -1,14 +1,14 @@
 import React from 'react';
-import type { CheckboxItem, Checkbox as CheckboxGroup } from './Checkbox.type';
+import type * as Types from './Checkbox.type';
 /**
- * @param {CheckboxItem} props - Properties for the element
+ * @param {Types.CheckboxItem} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-export declare const Checkbox: React.FC<CheckboxItem>;
+export declare const CheckboxItem: React.FC<Types.CheckboxItem>;
 /**
- * @param {CheckboxGroup} props - Properties for the element
+ * @param {Types.CheckboxGroup} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const CheckboxGroup: React.FC<Omit<CheckboxGroup, 'type'>>;
-export default CheckboxGroup;
+export declare const CheckboxGroup: React.FC<Omit<Types.CheckboxGroup, 'type'>>;
+export { CheckboxGroup as Checkbox };
 //# sourceMappingURL=Checkbox.d.ts.map

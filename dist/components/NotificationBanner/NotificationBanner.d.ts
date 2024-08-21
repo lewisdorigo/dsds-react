@@ -1,9 +1,8 @@
 import React from 'react';
-import type { NotificationBanner } from './NotificationBanner.type';
+import type * as Types from './NotificationBanner.type';
 /**
- * @param {NotificationBanner} props - Properties for the element
+ * @param {Types.NotificationBanner} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const NotificationBanner: React.FC<Omit<NotificationBanner, 'type'>>;
-export default NotificationBanner;
+export declare const NotificationBanner: React.FC<Omit<Types.NotificationBanner, 'type'>>;
 //# sourceMappingURL=NotificationBanner.d.ts.map

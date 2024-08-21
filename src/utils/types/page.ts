@@ -2,7 +2,7 @@ import type React from 'react';
 import type { Components } from './index';
 import type { Value } from './meta';
 import type { Title } from '../../components/PageHeader/PageHeader.type';
-import type { LayoutTypes } from '../../layout/Layout/Layout.type';
+import type { Type as LayoutType } from '../../layout/Layout/Layout.type';
 import type { FormNavButton } from '../../patterns/FormNav/FormNav.type';
 
 interface NextPageOptionsBase {
@@ -38,7 +38,7 @@ interface NextPage {
 export interface Page {
     pageHeader: Title,
     pageTitle?: string | string[],
-    layout?: LayoutTypes,
+    layout?: LayoutType,
     route?: string,
     partOf?: {
         label: React.ReactNode,

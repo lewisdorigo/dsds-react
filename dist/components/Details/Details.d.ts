@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Details } from './Details.type';
+import type * as Types from './Details.type';
 /**
- * @param {Details} props - Properties for the element
+ * @param {Types.Details} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const Details: React.FC<Omit<Details, 'type'>>;
-export default Details;
+export declare const Details: React.FC<Omit<Types.Details, 'type'>>;
 //# sourceMappingURL=Details.d.ts.map

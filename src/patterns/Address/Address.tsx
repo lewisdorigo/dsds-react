@@ -2,23 +2,20 @@
 
 import React, { useState, useMemo } from 'react';
 
-import Question from '../../components/Question';
-import TextInput from '../../components/TextInput';
-import Select from '../../components/Select';
-import Button from '../../components/Button';
-import Link from '../../components/Link';
-import PrefilledValues from '../../components/PrefilledValues';
+import { Question } from '../../components/Question';
+import { TextInput, Types as InputTypes } from '../../components/TextInput';
+import { Select } from '../../components/Select';
+import { Button, Types as ButtonTypes } from '../../components/Button';
+import { Link } from '../../components/Link';
+import { PrefilledValues } from '../../components/PrefilledValues';
 
-import type { Address } from './Address.type';
-import { AddressState, AddressFormState } from './Address.type';
-import { InputWidth } from '../../components/TextInput/TextInput.type';
-import { Type as ButtonType } from '../../components/Button/Button.type';
+import * as Types from './Address.type';
 
 /**
- * @param {Address} props - Properties for the element
+ * @param {Types.Address} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Address:React.FC<Omit<Address, 'type'>> = function Address({
+export const Address:React.FC<Omit<Types.Address, 'type'>> = function Address({
     id,
     state: rawState,
     lookup,
@@ -41,23 +38,23 @@ const Address:React.FC<Omit<Address, 'type'>> = function Address({
 }) {
     const stateParam = useMemo(() => `${id}-state`, [id]);
 
-    const initialState:AddressState = useMemo(() => {
+    const initialState:Types.AddressState = useMemo(() => {
         if (rawState) {
             return rawState;
         }
 
         if (address1.value) {
-            return AddressState.EnterAddress;
+            return Types.AddressState.EnterAddress;
         }
 
         if (addressSelect.value) {
-            return AddressState.SelectAddress;
+            return Types.AddressState.SelectAddress;
         }
 
-        return AddressState.PostcodeLookup;
+        return Types.AddressState.PostcodeLookup;
     }, [rawState, addressSelect.value, address1.value]);
 
-    const [formState, setFormState] = useState<AddressFormState>({
+    const [formState, setFormState] = useState<Types.AddressFormState>({
         message: '',
         postcode: postcodeLookup.value,
         addresses: addressSelect.items,
@@ -98,7 +95,7 @@ const Address:React.FC<Omit<Address, 'type'>> = function Address({
                     ...formState,
                     postcode: '',
                     error: undefined,
-                    state: AddressState.EnterAddress,
+                    state: Types.AddressState.EnterAddress,
                 });
             }}
         >
@@ -107,7 +104,7 @@ const Address:React.FC<Omit<Address, 'type'>> = function Address({
     );
 
     switch (state) {
-        case AddressState.EnterAddress:
+        case Types.AddressState.EnterAddress:
             return (
                 <>
                     <p>
@@ -120,7 +117,7 @@ const Address:React.FC<Omit<Address, 'type'>> = function Address({
                                     ...formState,
                                     postcode: '',
                                     error: undefined,
-                                    state: AddressState.PostcodeLookup,
+                                    state: Types.AddressState.PostcodeLookup,
                                 });
                             }}
                         >
@@ -195,7 +192,7 @@ const Address:React.FC<Omit<Address, 'type'>> = function Address({
                         )}
                         <Question field={postcode}>
                             <TextInput
-                                width={InputWidth.Fixed10}
+                                width={InputTypes.Width.Fixed10}
                                 {...postcode}
                             />
                         </Question>
@@ -203,7 +200,7 @@ const Address:React.FC<Omit<Address, 'type'>> = function Address({
                 </>
             );
 
-        case AddressState.SelectAddress:
+        case Types.AddressState.SelectAddress:
             return (
                 <>
                     <PrefilledValues
@@ -224,7 +221,7 @@ const Address:React.FC<Omit<Address, 'type'>> = function Address({
                                                     ...formState,
                                                     postcode: '',
                                                     error: undefined,
-                                                    state: AddressState.PostcodeLookup,
+                                                    state: Types.AddressState.PostcodeLookup,
                                                 });
                                             }}
                                         >
@@ -244,7 +241,7 @@ const Address:React.FC<Omit<Address, 'type'>> = function Address({
                     <Question field={addressSelect}>
                         <Select
                             {...addressSelect}
-                            width={InputWidth.Fixed20}
+                            width={InputTypes.Width.Fixed20}
                         />
                     </Question>
                     <p>{ typeFullAddressButton }</p>
@@ -266,7 +263,7 @@ const Address:React.FC<Omit<Address, 'type'>> = function Address({
                             }}
                         >
                             <TextInput
-                                width={InputWidth.Fixed10}
+                                width={InputTypes.Width.Fixed10}
                                 {...postcodeLookup}
                                 value={enteredPostcode}
                                 error={
@@ -301,7 +298,7 @@ const Address:React.FC<Omit<Address, 'type'>> = function Address({
                             />
                         </Question>
                         <Button
-                            type={ButtonType.Submit}
+                            type={ButtonTypes.Type.Submit}
                             className="ds_no-margin--top"
                             onClick={handleLookup}
                         >
@@ -313,5 +310,3 @@ const Address:React.FC<Omit<Address, 'type'>> = function Address({
             );
     }
 };
-
-export default Address;

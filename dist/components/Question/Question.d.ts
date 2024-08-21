@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Question } from './Question.type';
+import type * as Types from './Question.type';
 /**
- * @param {Question} props - Properties for the element
+ * @param {Types.Question} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const Question: React.FC<Question>;
-export default Question;
+export declare const Question: React.FC<Types.Question>;
 //# sourceMappingURL=Question.d.ts.map

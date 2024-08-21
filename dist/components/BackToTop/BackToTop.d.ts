@@ -1,9 +1,8 @@
 import React from 'react';
-import type { BackToTop } from './BackToTop.type';
+import type * as Types from './BackToTop.type';
 /**
- * @param {BackToTop} props - Properties for the element
+ * @param {Types.BackToTop} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const BackToTop: React.FC<BackToTop>;
-export default BackToTop;
+export declare const BackToTop: React.FC<Types.BackToTop>;
 //# sourceMappingURL=BackToTop.d.ts.map

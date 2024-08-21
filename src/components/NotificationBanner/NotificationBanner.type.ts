@@ -8,4 +8,5 @@ export interface NotificationBanner extends Component<
     label?: React.ReactNode,
     icon?: boolean | string,
     hasClose?: boolean,
+    closeAction?: React.MouseEventHandler<HTMLButtonElement>,
 }

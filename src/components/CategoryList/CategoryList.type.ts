@@ -3,12 +3,12 @@ import { Card } from '../Card/Card.type';
 import { CategoryItem } from '../CategoryItem/CategoryItem.type';
 import type { HasTag } from '../../utils/types/meta';
 
-export enum CategoryListLayout {
+export enum Layout {
     List = 'list',
     Grid = 'grid',
 }
 
-export enum CategoryListSpacing {
+export enum Spacing {
     Narrow = 'narrow'
 }
 
@@ -20,6 +20,6 @@ export interface CategoryList extends HasTag, Omit<
     >,
     'label' | 'content'
 > {
-    layout?: CategoryListLayout,
-    spacing?: CategoryListSpacing,
+    layout?: Layout,
+    spacing?: Spacing,
 }

@@ -3,23 +3,22 @@
 import React, { useContext } from 'react';
 
 import classNames from '../../lib/classNames';
-import FormContext from '../../context/FormContext';
+import { FormContext } from '../../context/FormContext';
 
-import type { TextArea } from './TextArea.type';
-import { TextAreaSize } from './TextArea.type';
+import * as Types from './TextArea.type';
 
 /**
- * @param {TextArea} props - Properties for the element
+ * @param {Types.TextArea} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const TextArea:React.FC<Omit<TextArea, 'type'>> = function TextArea({
+export const TextArea:React.FC<Omit<Types.TextArea, 'type'>> = function TextArea({
     id,
     name,
     className,
     value,
     hintText,
     error,
-    size = TextAreaSize.Normal,
+    size = Types.Size.Normal,
     attributes = {},
 }) {
     const { setField } = useContext(FormContext);
@@ -47,14 +46,14 @@ const TextArea:React.FC<Omit<TextArea, 'type'>> = function TextArea({
         }
     };
 
-    let rows:number|TextAreaSize;
+    let rows:number;
 
     switch (size) {
-        case TextAreaSize.Small:
+        case Types.Size.Small:
             rows = 2;
             break;
 
-        case TextAreaSize.Large:
+        case Types.Size.Large:
             rows = 5;
             break;
 
@@ -85,5 +84,3 @@ const TextArea:React.FC<Omit<TextArea, 'type'>> = function TextArea({
         />
     );
 };
-
-export default TextArea;

@@ -1,5 +1,4 @@
-import RadioGroup from './Radio';
 import * as Types from './Radio.type';
-export default RadioGroup;
+export * from './Radio';
 export { Types };
 //# sourceMappingURL=index.d.ts.map

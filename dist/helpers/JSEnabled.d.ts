@@ -4,6 +4,5 @@ import React from 'react';
  *
  * @returns {null} Null, as it renders nothing.
  */
-declare const JSEnabled: React.FC;
-export default JSEnabled;
+export declare const JSEnabled: React.FC;
 //# sourceMappingURL=JSEnabled.d.ts.map

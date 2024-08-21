@@ -1,9 +1,8 @@
 import React from 'react';
-import type { PrefilledValues } from './PrefilledValues.type';
+import type * as Types from './PrefilledValues.type';
 /**
- * @param {PrefilledValues} props - Properties for the element
+ * @param {Types.PrefilledValues} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const PrefilledValues: React.FC<Omit<PrefilledValues, 'type'>>;
-export default PrefilledValues;
+export declare const PrefilledValues: React.FC<Omit<Types.PrefilledValues, 'type'>>;
 //# sourceMappingURL=PrefilledValues.d.ts.map

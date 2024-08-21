@@ -4,22 +4,19 @@ import React, { useRef, useEffect } from 'react';
 
 import SideNav from '@scottish-government/design-system/src/components/side-navigation/side-navigation';
 
-import Link from '../Link';
+import { Link } from '../Link';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type {
-    SideNavigationList,
-    SideNavigation,
-} from './SideNavigation.type';
+import type * as Types from './SideNavigation.type';
 
 /**
- * @param {SideNavigationList} props - Properties for the element
+ * @param {Types.SideNavigationList} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SideNavigationList:React.FC<
-    SideNavigationList
+export const SideNavigationList:React.FC<
+    Types.SideNavigationList
 > = function SideNavigationList({
     id = 'side-navigation',
     level = 0,
@@ -79,11 +76,11 @@ const SideNavigationList:React.FC<
 };
 
 /**
- * @param {SideNavigation} props - Properties for the element
+ * @param {Types.SideNavigation} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SideNavigation:React.FC<
-    Omit<SideNavigation, 'type'>
+export const SideNavigation:React.FC<
+    Omit<Types.SideNavigation, 'type'>
 > = function SideNavigation({
     items = [],
     id = 'side-navigation',
@@ -136,5 +133,3 @@ const SideNavigation:React.FC<
         </nav>
     );
 };
-
-export default SideNavigation;

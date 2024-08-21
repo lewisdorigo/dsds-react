@@ -1,9 +1,8 @@
 import React from 'react';
-import type { PageHeader } from './PageHeader.type';
+import type * as Types from './PageHeader.type';
 /**
- * @param {PageHeader} props - Properties for the element
+ * @param {Types.PageHeader} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const PageHeader: React.FC<Omit<PageHeader, 'type'>>;
-export default PageHeader;
+export declare const PageHeader: React.FC<Omit<Types.PageHeader, 'type'>>;
 //# sourceMappingURL=PageHeader.d.ts.map

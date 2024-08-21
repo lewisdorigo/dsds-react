@@ -1,2 +1,2 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+import { Width, Type } from '../TextInput/TextInput.type';
+export { Width, Type };

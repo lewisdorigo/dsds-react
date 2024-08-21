@@ -1,20 +1,20 @@
 import React from 'react';
 
-import Wrapper from '../../components/Wrapper';
-import WrapperTag from '../../components/WrapperTag';
-import BackToTop from '../../components/BackToTop';
-import SkipLinks from '../../components/SkipLinks';
-import JSEnabled from '../../helpers/JSEnabled';
+import { Wrapper } from '../../components/Wrapper';
+import { WrapperTag } from '../../components/WrapperTag';
+import { BackToTop } from '../../components/BackToTop';
+import { SkipLinks } from '../../components/SkipLinks';
+import { JSEnabled } from '../../helpers/JSEnabled';
 
 import classNames from '../../lib/classNames';
 
-import type { Page } from './Page.type';
+import type * as Types from './Page.type';
 
 /**
- * @param {Page} props - Properties for the element
+ * @param {Types.Page} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Page:React.FC<Page> = function Page({
+export const Page:React.FC<Types.Page> = function Page({
     tag = 'div',
     className,
     children,
@@ -73,5 +73,3 @@ const Page:React.FC<Page> = function Page({
         </>
     );
 };
-
-export default Page;

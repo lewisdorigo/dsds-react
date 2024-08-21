@@ -2,7 +2,7 @@ import React from 'react';
 import { FormComponent, ComponentItem } from '../../utils/types';
 import { Value } from '../../utils/types/meta';
 
-export enum CheckboxSize {
+export enum Size {
     Small = 'small'
 }
 
@@ -12,15 +12,15 @@ export interface CheckboxItem extends Omit<
 > {
     name: string,
     hintText?: React.ReactNode,
-    size?: CheckboxSize,
+    size?: Size,
     exclusive?: boolean | string,
 }
 
-export interface Checkbox extends FormComponent<
+export interface CheckboxGroup extends FormComponent<
     'checkbox',
     HTMLInputElement,
     Omit<CheckboxItem, 'name'>,
     Value[]
 > {
-    size?: CheckboxSize,
+    size?: Size,
 }

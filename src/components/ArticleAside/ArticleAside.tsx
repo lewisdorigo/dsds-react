@@ -1,18 +1,18 @@
 import React from 'react';
 
-import WrapperTag from '../WrapperTag';
-import Heading from '../Heading';
+import { WrapperTag } from '../WrapperTag';
+import { Heading } from '../Heading';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { ArticleAside } from './ArticleAside.type';
+import type * as Types from './ArticleAside.type';
 
 /**
- * @param {ArticleAside} props - Properties for the element
+ * @param {Types.ArticleAside} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const ArticleAside:React.FC<Omit<ArticleAside, 'type'>> = function ArticleAside({
+export const ArticleAside:React.FC<Omit<Types.ArticleAside, 'type'>> = function ArticleAside({
     tag = 'aside',
     label,
     content,
@@ -39,5 +39,3 @@ const ArticleAside:React.FC<Omit<ArticleAside, 'type'>> = function ArticleAside(
         </WrapperTag>
     );
 };
-
-export default ArticleAside;

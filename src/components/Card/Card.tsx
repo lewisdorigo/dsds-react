@@ -1,19 +1,19 @@
 import React from 'react';
 
-import WrapperTag from '../WrapperTag';
-import CategoryItem from '../CategoryItem';
-import Image from '../Image';
+import { WrapperTag } from '../WrapperTag';
+import { CategoryItem } from '../CategoryItem';
+import { Image } from '../Image';
 
 import classNames from '../../lib/classNames';
 
-import type { Card } from './Card.type';
+import type * as Types from './Card.type';
 import { AspectRatio } from '../AspectBox/AspectBox.type';
 
 /**
- * @param {Card} props - Properties for the element
+ * @param {Types.Card} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Card:React.FC<Omit<Card, 'type'>> = function Card({
+export const Card:React.FC<Omit<Types.Card, 'type'>> = function Card({
     tag = 'div',
     id,
     label,
@@ -53,5 +53,3 @@ const Card:React.FC<Omit<Card, 'type'>> = function Card({
         </WrapperTag>
     );
 };
-
-export default Card;

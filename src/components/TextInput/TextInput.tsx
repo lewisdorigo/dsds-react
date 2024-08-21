@@ -3,37 +3,38 @@
 import React, { useContext } from 'react';
 
 import classNames from '../../lib/classNames';
-import FormContext from '../../context/FormContext';
+import { FormContext } from '../../context/FormContext';
 
-import type { TextInput } from './TextInput.type';
-import { InputTypes, InputModes, InputWidth } from './TextInput.type';
+import * as Types from './TextInput.type';
 
 /**
- * @param {TextInput} props - Properties for the element
+ * @param {Types.TextInput} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const TextInput:React.FC<TextInput> = function TextInput({
-    type: rawType = InputTypes.Text,
+export const TextInput:React.FC<Types.TextInput> = function TextInput({
+    type: rawType = Types.Type.Text,
     id,
     name,
     className,
     hintText,
     value,
     error,
-    width = InputWidth.Fixed20,
+    inputMode: rawInputMode,
+    width = Types.Width.Fixed20,
     attributes = {},
 }) {
     const { setField } = useContext(FormContext);
+    let inputMode = rawInputMode || attributes.inputMode;
 
     let type:React.HTMLInputTypeAttribute = rawType;
 
-    if (!Object.values(InputTypes).includes(type as InputTypes)) {
-        type = InputTypes.Text;
+    if (!Object.values(Types.Type).includes(type as Types.Type)) {
+        type = Types.Type.Text;
     }
 
-    if (type === InputTypes.Number && !attributes?.inputMode) {
-        type = InputTypes.Text;
-        attributes.inputMode = InputModes.Numeric; // eslint-disable-line no-param-reassign
+    if (type === Types.Type.Number && !attributes?.inputMode) {
+        type = Types.Type.Text;
+        inputMode = Types.Mode.Numeric; // eslint-disable-line no-param-reassign
     }
 
     const handleBlur = (event:React.FocusEvent<HTMLInputElement>) => {
@@ -67,6 +68,7 @@ const TextInput:React.FC<TextInput> = function TextInput({
             name={name}
             defaultValue={value}
             data-1p-ignore
+            inputMode={inputMode}
             className={classNames(
                 'ds_input',
                 width ? `ds_input--${width}` : '',
@@ -83,5 +85,3 @@ const TextInput:React.FC<TextInput> = function TextInput({
         />
     );
 };
-
-export default TextInput;

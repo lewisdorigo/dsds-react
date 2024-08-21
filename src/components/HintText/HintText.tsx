@@ -1,17 +1,17 @@
 import React from 'react';
 
-import WrapperTag from '../WrapperTag';
+import { WrapperTag } from '../WrapperTag';
 
 import htmlToReact from '../../lib/htmlToReact';
 import classNames from '../../lib/classNames';
 
-import type { HintText } from './HintText.type';
+import type * as Types from './HintText.type';
 
 /**
- * @param {HintText} props - Properties for the element
+ * @param {Types.HintText} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const HintText:React.FC<HintText> = function HintText({
+export const HintText:React.FC<Types.HintText> = function HintText({
     className,
     content,
     children,
@@ -30,5 +30,3 @@ const HintText:React.FC<HintText> = function HintText({
         </WrapperTag>
     );
 };
-
-export default HintText;

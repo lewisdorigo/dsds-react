@@ -1,5 +1,4 @@
-import FeatureHeader from './FeatureHeader';
 import * as Types from './FeatureHeader.type';
-export default FeatureHeader;
+export * from './FeatureHeader';
 export { Types };
 //# sourceMappingURL=index.d.ts.map

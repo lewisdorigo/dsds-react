@@ -1,10 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.TaskListStatus = void 0;
-var TaskListStatus;
-(function (TaskListStatus) {
-    TaskListStatus["NotStarted"] = "not-started";
-    TaskListStatus["InProgress"] = "in-progress";
-    TaskListStatus["Complete"] = "complete";
-    TaskListStatus["CannotStart"] = "cannot-start";
-})(TaskListStatus || (exports.TaskListStatus = TaskListStatus = {}));
+export var Status;
+(function (Status) {
+    Status["NotStarted"] = "not-started";
+    Status["InProgress"] = "in-progress";
+    Status["Complete"] = "complete";
+    Status["CannotStart"] = "cannot-start";
+})(Status || (Status = {}));

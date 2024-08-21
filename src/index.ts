@@ -1,3 +1,3 @@
-export * from './components';
-export * from './patterns';
-export * from './context';
+export * as Components from './components';
+export * as Patterns from './patterns';
+export * as Context from './context';

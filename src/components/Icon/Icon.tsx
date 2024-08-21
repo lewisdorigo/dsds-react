@@ -2,13 +2,13 @@ import React from 'react';
 
 import classNames from '../../lib/classNames';
 
-import type { Icon } from './Icon.type';
+import type * as Types from './Icon.type';
 
 /**
- * @param {Icon} props - Properties for the element
+ * @param {Types.Icon} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Icon:React.FC<Icon> = function Icon({
+export const Icon:React.FC<Types.Icon> = function Icon({
     icon,
     accessible = true,
     className,
@@ -36,5 +36,3 @@ const Icon:React.FC<Icon> = function Icon({
         </svg>
     );
 };
-
-export default Icon;

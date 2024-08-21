@@ -1,18 +1,18 @@
 import React from 'react';
 
-import Metadata from '../Metadata';
-import Heading from '../Heading';
+import { Metadata } from '../Metadata';
+import { Heading } from '../Heading';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { PageHeader } from './PageHeader.type';
+import type * as Types from './PageHeader.type';
 
 /**
- * @param {PageHeader} props - Properties for the element
+ * @param {Types.PageHeader} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const PageHeader:React.FC<Omit<PageHeader, 'type'>> = function PageHeader({
+export const PageHeader:React.FC<Omit<Types.PageHeader, 'type'>> = function PageHeader({
     id = 'page-header',
     label,
     title,
@@ -55,5 +55,3 @@ const PageHeader:React.FC<Omit<PageHeader, 'type'>> = function PageHeader({
         </header>
     );
 };
-
-export default PageHeader;

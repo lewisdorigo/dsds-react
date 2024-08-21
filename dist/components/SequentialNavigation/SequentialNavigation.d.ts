@@ -1,9 +1,13 @@
 import React from 'react';
-import type { SequentialNavigation } from './SequentialNavigation.type';
+import type * as Types from './SequentialNavigation.type';
 /**
- * @param {SequentialNavigation} props - Properties for the element
+ * @param {Types.SequentialNavigationItem} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const SequentialNavigation: React.FC<Omit<SequentialNavigation, 'type'>>;
-export default SequentialNavigation;
+export declare const SequentialNavigationItem: React.FC<Types.SequentialNavigationItem>;
+/**
+ * @param {Types.SequentialNavigation} props - Properties for the element
+ * @returns {JSX.Element} - The element
+ */
+export declare const SequentialNavigation: React.FC<Omit<Types.SequentialNavigation, 'type'>>;
 //# sourceMappingURL=SequentialNavigation.d.ts.map

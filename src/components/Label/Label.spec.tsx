@@ -1,7 +1,7 @@
 import React from 'react';
 import { test, expect } from '@playwright/experimental-ct-react';
 
-import Label from './Label';
+import { Label } from './index';
 
 test.describe('Label', () => {
     test.use({ viewport: { width: 500, height: 500 } });

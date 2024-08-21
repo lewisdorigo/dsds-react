@@ -4,5 +4,6 @@ export interface NotificationBanner extends Component<'notification-banner', HTM
     label?: React.ReactNode;
     icon?: boolean | string;
     hasClose?: boolean;
+    closeAction?: React.MouseEventHandler<HTMLButtonElement>;
 }
 //# sourceMappingURL=NotificationBanner.type.d.ts.map

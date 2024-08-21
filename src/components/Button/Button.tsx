@@ -1,23 +1,18 @@
 import React from 'react';
 
-import Icon from '../Icon';
+import { Icon } from '../Icon';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import {
-    Type,
-    IconPosition,
-} from './Button.type';
-
-import type { Button } from './Button.type';
+import * as Types from './Button.type';
 
 /**
- * @param {Button} props - Properties for the element
+ * @param {Types.Button} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Button:React.FC<Button> = function Button({
-    type = Type.Button,
+export const Button:React.FC<Types.Button> = function Button({
+    type = Types.Type.Button,
     href,
     size,
     width,
@@ -31,7 +26,7 @@ const Button:React.FC<Button> = function Button({
     label,
     ...props
 }) {
-    const iconPosition = icon ? rawIconPosition || IconPosition.Right : undefined;
+    const iconPosition = icon ? rawIconPosition || Types.IconPosition.Right : undefined;
 
     const className = classNames(
         'ds_button',
@@ -43,13 +38,13 @@ const Button:React.FC<Button> = function Button({
 
         (
             icon
-            && iconPosition !== IconPosition.IconOnly
+            && iconPosition !== Types.IconPosition.IconOnly
                 ? 'ds_button--has-icon'
                 : ''
         ),
         (
-            iconPosition === IconPosition.Left
-            || iconPosition === IconPosition.Right
+            iconPosition === Types.IconPosition.Left
+            || iconPosition === Types.IconPosition.Right
                 ? `ds_button--has-icon--${iconPosition}`
                 : ''
         ),
@@ -59,12 +54,12 @@ const Button:React.FC<Button> = function Button({
         <>
             {
                 icon
-                && iconPosition === IconPosition.Left
+                && iconPosition === Types.IconPosition.Left
                 && <Icon icon={icon} />
             }
             {(
                 icon
-                && iconPosition === IconPosition.IconOnly
+                && iconPosition === Types.IconPosition.IconOnly
                     ? (
                         <>
                             <span className="visually-hidden">
@@ -82,8 +77,8 @@ const Button:React.FC<Button> = function Button({
             {
                 icon
                 && (
-                    iconPosition === IconPosition.Right
-                    || iconPosition === IconPosition.IconOnly
+                    iconPosition === Types.IconPosition.Right
+                    || iconPosition === Types.IconPosition.IconOnly
                 )
                 && <Icon icon={icon} />
             }
@@ -112,5 +107,3 @@ const Button:React.FC<Button> = function Button({
         </button>
     );
 };
-
-export default Button;

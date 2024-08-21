@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Card } from './Card.type';
+import type * as Types from './Card.type';
 /**
- * @param {Card} props - Properties for the element
+ * @param {Types.Card} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const Card: React.FC<Omit<Card, 'type'>>;
-export default Card;
+export declare const Card: React.FC<Omit<Types.Card, 'type'>>;
 //# sourceMappingURL=Card.d.ts.map

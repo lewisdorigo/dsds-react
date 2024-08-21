@@ -1,5 +1,4 @@
-import AspectBox from './AspectBox';
 import * as Types from './AspectBox.type';
 
-export default AspectBox;
+export * from './AspectBox';
 export { Types };

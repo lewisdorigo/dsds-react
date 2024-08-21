@@ -1,17 +1,17 @@
 import React, { isValidElement } from 'react';
 
-import WrapperTag from '../WrapperTag';
+import { WrapperTag } from '../WrapperTag';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { AspectBox } from './AspectBox.type';
+import type * as Types from './AspectBox.type';
 
 /**
- * @param {AspectBox} props - Properties for the element
+ * @param {Types.AspectBox} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const AspectBox:React.FC<Omit<AspectBox, 'type'>> = function AspectBox({
+export const AspectBox:React.FC<Omit<Types.AspectBox, 'type'>> = function AspectBox({
     tag = 'div',
     ratio,
     children,
@@ -50,5 +50,3 @@ const AspectBox:React.FC<Omit<AspectBox, 'type'>> = function AspectBox({
         </WrapperTag>
     );
 };
-
-export default AspectBox;

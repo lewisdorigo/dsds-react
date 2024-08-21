@@ -1,18 +1,18 @@
 import React from 'react';
 
-import WrapperTag from '../WrapperTag';
+import { WrapperTag } from '../WrapperTag';
 
 import htmlToReact from '../../lib/htmlToReact';
 import classNames from '../../lib/classNames';
-import Link, { Types as LinkTypes } from '../Link';
+import { Link, Types as LinkTypes } from '../Link';
 
-import type { CategoryItem } from './CategoryItem.type';
+import type * as Types from './CategoryItem.type';
 
 /**
- * @param {CategoryItem} props - Properties for the element
+ * @param {Types.CategoryItem} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const CategoryItem:React.FC<Omit<CategoryItem, 'type'>> = function CategoryItem({
+export const CategoryItem:React.FC<Omit<Types.CategoryItem, 'type'>> = function CategoryItem({
     tag = 'div',
     id,
     label,
@@ -58,5 +58,3 @@ const CategoryItem:React.FC<Omit<CategoryItem, 'type'>> = function CategoryItem(
         </WrapperTag>
     );
 };
-
-export default CategoryItem;

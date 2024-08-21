@@ -4,21 +4,18 @@ import React, { useEffect, useRef } from 'react';
 
 import DSDSAccordion from '@scottish-government/design-system/src/components/accordion/accordion';
 
-import Heading from '../Heading';
+import { Heading } from '../Heading';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type {
-    Accordion,
-    Item,
-} from './Accordion.type';
+import * as Types from './Accordion.type';
 
 /**
- * @param {Item} props - Properties for the element
+ * @param {Types.Item} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-export const AccordionItem:React.FC<Item> = function AccordionItem({
+export const AccordionItem:React.FC<Types.Item> = function AccordionItem({
     id,
     label,
     content,
@@ -65,10 +62,10 @@ export const AccordionItem:React.FC<Item> = function AccordionItem({
 };
 
 /**
- * @param {Accordion} props - Properties for the element
+ * @param {Types.Accordion} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Accordion:React.FC<Omit<Accordion, 'type'>> = function Accordion({
+export const Accordion:React.FC<Omit<Types.Accordion, 'type'>> = function Accordion({
     id,
     allowOpenAll = true,
     items = [],
@@ -119,5 +116,3 @@ const Accordion:React.FC<Omit<Accordion, 'type'>> = function Accordion({
         </div>
     );
 };
-
-export default Accordion;

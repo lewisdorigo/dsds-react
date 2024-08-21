@@ -1,11 +1,10 @@
 import React from 'react';
-import type { Wrapper } from './Wrapper.type';
+import type * as Types from './Wrapper.type';
 /**
  * Wraps any given children in a given `tag`.
  *
- * @param {Wrapper} props - Properties for the element
+ * @param {Types.Wrapper} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const Wrapper: React.ForwardRefExoticComponent<Omit<Wrapper, "ref"> & React.RefAttributes<HTMLDivElement>>;
-export default Wrapper;
+export declare const Wrapper: React.ForwardRefExoticComponent<Omit<Types.Wrapper, "ref"> & React.RefAttributes<HTMLDivElement>>;
 //# sourceMappingURL=Wrapper.d.ts.map

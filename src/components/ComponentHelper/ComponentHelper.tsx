@@ -5,66 +5,62 @@ import React, { isValidElement, useContext, useMemo } from 'react';
 import htmlToReact from '../../lib/htmlToReact';
 import { parseConditions } from '../../lib/conditional';
 
-import FormContext from '../../context/FormContext';
+import { FormContext } from '../../context/FormContext';
 
-import Question from '../Question';
+import { Question } from '../Question';
 
-import Address, { Types as AddressTypes } from '../../patterns/Address';
+import { Address, Types as AddressTypes } from '../../patterns/Address';
 
-import Accordion, { Types as AccordionTypes } from '../Accordion';
-import Breadcrumbs, { Types as BreadcrumbsTypes } from '../Breadcrumbs';
-import Button, { Types as ButtonTypes } from '../Button';
-import ButtonGroup, { Types as ButtonGroupTypes } from '../ButtonGroup';
-import Card, { Types as CardTypes } from '../Card';
-import CategoryItem, { Types as CategoryItemTypes } from '../CategoryItem';
-import CategoryList, { Types as CategoryListTypes } from '../CategoryList';
-import CheckboxGroup, { Types as CheckboxTypes } from '../Checkbox'; // eslint-disable-line import/no-cycle
-import ConfirmationMessage, { Types as ConfirmationMessageTypes } from '../ConfirmationMessage';
-import ContactDetails, { Types as ContactDetailsTypes } from '../ContactDetails';
-import Currency, { Types as CurrencyTypes } from '../Currency';
-import DatePicker, { Types as DatePickerTypes } from '../DatePicker';
-import Details, { Types as DetailsTypes } from '../Details';
-import ErrorSummary, { Types as ErrorSummaryTypes } from '../ErrorSummary';
-import FeatureHeader, { Types as FeatureHeaderTypes } from '../FeatureHeader';
-import FieldGroup, { Types as FieldGroupTypes } from '../FieldGroup';
-import FileDownload, { Types as FileDownloadTypes } from '../FileDownload';
-import Html, { Types as HtmlTypes } from '../Html';
-import Image, { Types as ImageTypes } from '../Image';
-import InsetText, { Types as InsetTextTypes } from '../InsetText';
-import List, { Types as ListTypes } from '../List';
-import NotificationBanner, { Types as NotificationBannerTypes } from '../NotificationBanner';
-import NotificationPanel, { Types as NotificationPanelTypes } from '../NotificationPanel';
-import PageHeader, { Types as PageHeaderTypes } from '../PageHeader';
-import Pagination, { Types as PaginationTypes } from '../Pagination';
-import RadioGroup, { Types as RadioTypes } from '../Radio'; // eslint-disable-line import/no-cycle
-import Select, { Types as SelectTypes } from '../Select';
-import SequentialNavigation, { Types as SequentialNavigationTypes } from '../SequentialNavigation';
-import SideNavigation, { Types as SideNavigationTypes } from '../SideNavigation';
-import SummaryCard, { Types as SummaryCardTypes } from '../SummaryCard';
-import SummaryList, { Types as SummaryListTypes } from '../SummaryList';
-import Tabs, { Types as TabsTypes } from '../Tabs';
-import TaskList, { Types as TaskListTypes } from '../TaskList';
-import TaskListGroup, { Types as TaskListGroupTypes } from '../TaskListGroup';
-import TextArea, { Types as TextAreaTypes } from '../TextArea';
-import TextInput, { Types as TextInputTypes } from '../TextInput';
-import WarningText, { Types as WarningTextTypes } from '../WarningText';
+import { Accordion, Types as AccordionTypes } from '../Accordion';
+import { Breadcrumbs, Types as BreadcrumbsTypes } from '../Breadcrumbs';
+import { Button, Types as ButtonTypes } from '../Button';
+import { ButtonGroup, Types as ButtonGroupTypes } from '../ButtonGroup';
+import { Card, Types as CardTypes } from '../Card';
+import { CategoryItem, Types as CategoryItemTypes } from '../CategoryItem';
+import { CategoryList, Types as CategoryListTypes } from '../CategoryList';
+import { CheckboxGroup, Types as CheckboxTypes } from '../Checkbox'; // eslint-disable-line import/no-cycle
+import { ConfirmationMessage, Types as ConfirmationMessageTypes } from '../ConfirmationMessage';
+import { ContactDetails, Types as ContactDetailsTypes } from '../ContactDetails';
+import { Currency, Types as CurrencyTypes } from '../Currency';
+import { DatePicker, Types as DatePickerTypes } from '../DatePicker';
+import { Details, Types as DetailsTypes } from '../Details';
+import { ErrorSummary, Types as ErrorSummaryTypes } from '../ErrorSummary';
+import { FeatureHeader, Types as FeatureHeaderTypes } from '../FeatureHeader';
+import { FieldGroup, Types as FieldGroupTypes } from '../FieldGroup';
+import { FileDownload, Types as FileDownloadTypes } from '../FileDownload';
+import { Html, Types as HtmlTypes } from '../Html';
+import { Image, Types as ImageTypes } from '../Image';
+import { InsetText, Types as InsetTextTypes } from '../InsetText';
+import { List, Types as ListTypes } from '../List';
+import { NotificationBanner, Types as NotificationBannerTypes } from '../NotificationBanner';
+import { NotificationPanel, Types as NotificationPanelTypes } from '../NotificationPanel';
+import { PageHeader, Types as PageHeaderTypes } from '../PageHeader';
+import { Pagination, Types as PaginationTypes } from '../Pagination';
+import { RadioGroup, Types as RadioTypes } from '../Radio'; // eslint-disable-line import/no-cycle
+import { Select, Types as SelectTypes } from '../Select';
+import { SequentialNavigation, Types as SequentialNavigationTypes } from '../SequentialNavigation';
+import { SideNavigation, Types as SideNavigationTypes } from '../SideNavigation';
+import { SummaryCard, Types as SummaryCardTypes } from '../SummaryCard';
+import { SummaryList, Types as SummaryListTypes } from '../SummaryList';
+import { Tabs, Types as TabsTypes } from '../Tabs';
+import { TaskList, Types as TaskListTypes } from '../TaskList';
+import { TaskListGroup, Types as TaskListGroupTypes } from '../TaskListGroup';
+import { TextArea, Types as TextAreaTypes } from '../TextArea';
+import { TextInput, Types as TextInputTypes } from '../TextInput';
+import { WarningText, Types as WarningTextTypes } from '../WarningText';
 
-import type {
-    ComponentHelperLookup,
-    ComponentHelper as ComponentHelperProps,
-    ComponentsHelper,
-} from './ComponentHelper.type';
+import type * as Types from './ComponentHelper.type';
 
 import type { Component, FormComponent } from '../../utils/types';
 import type { HeadingLevel } from '../../utils/types/meta';
 
-let CUSTOM_LOOKUP:ComponentHelperLookup;
+let CUSTOM_LOOKUP:Types.ComponentHelperLookup;
 
 /**
- * @param {ComponentHelperProps} props - Properties for the element
+ * @param {Types.ComponentHelperProps} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-export const ComponentHelper:React.FC<ComponentHelperProps> = function ComponentHelper({
+export const ComponentHelper:React.FC<Types.ComponentHelper> = function ComponentHelper({
     component,
     customLookup: lookupBase,
     headingLevel = 1,
@@ -148,8 +144,8 @@ export const ComponentHelper:React.FC<ComponentHelperProps> = function Component
 
         case 'checkbox':
             return (
-                <Question field={field as CheckboxTypes.Checkbox}>
-                    <CheckboxGroup {...field as CheckboxTypes.Checkbox} />
+                <Question field={field as CheckboxTypes.CheckboxGroup}>
+                    <CheckboxGroup {...field as CheckboxTypes.CheckboxGroup} />
                 </Question>
             );
 
@@ -280,8 +276,8 @@ export const ComponentHelper:React.FC<ComponentHelperProps> = function Component
  * @param {DSDS.Component.ComponentsHelper} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const ComponentsHelper:React.FC<
-    ComponentsHelper
+export const ComponentsHelper:React.FC<
+    Types.ComponentsHelper
 > = function ComponentsHelper({
     components = [],
     customLookup,
@@ -299,5 +295,3 @@ const ComponentsHelper:React.FC<
         );
     });
 };
-
-export default ComponentsHelper;

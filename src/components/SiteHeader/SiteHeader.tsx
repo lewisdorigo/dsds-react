@@ -1,19 +1,19 @@
 import React from 'react';
 
-import Wrapper from '../Wrapper';
-import SiteBranding from '../SiteBranding';
-import PhaseBanner from '../PhaseBanner';
-import SiteNavigation from '../SiteNavigation';
+import { Wrapper } from '../Wrapper';
+import { SiteBranding } from '../SiteBranding';
+import { PhaseBanner } from '../PhaseBanner';
+import { SiteNavigation } from '../SiteNavigation';
 
 import classNames from '../../lib/classNames';
 
-import type { SiteHeader } from './SiteHeader.type';
+import type * as Types from './SiteHeader.type';
 
 /**
- * @param {SiteHeader} props - Properties for the element
+ * @param {Types.SiteHeader} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SiteHeader:React.FC<SiteHeader> = function SiteHead({
+export const SiteHeader:React.FC<Types.SiteHeader> = function SiteHead({
     className,
     'aria-label': ariaLabel = 'Site Header',
 
@@ -61,5 +61,3 @@ const SiteHeader:React.FC<SiteHeader> = function SiteHead({
         </header>
     );
 };
-
-export default SiteHeader;

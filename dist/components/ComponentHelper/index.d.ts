@@ -1,5 +1,4 @@
-import ComponentsHelper from './ComponentHelper';
 import * as Types from './ComponentHelper.type';
-export default ComponentsHelper;
+export * from './ComponentHelper';
 export { Types };
 //# sourceMappingURL=index.d.ts.map

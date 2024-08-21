@@ -3,17 +3,17 @@
 import React, { useEffect, useRef } from 'react';
 import ToTop from '@scottish-government/design-system/src/components/back-to-top/back-to-top';
 
-import type { BackToTop } from './BackToTop.type';
+import type * as Types from './BackToTop.type';
 
-import Icon from '../Icon';
+import { Icon } from '../Icon';
 
 import classNames from '../../lib/classNames';
 
 /**
- * @param {BackToTop} props - Properties for the element
+ * @param {Types.BackToTop} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const BackToTop:React.FC<BackToTop> = function BackToTop({
+export const BackToTop:React.FC<Types.BackToTop> = function BackToTop({
     top = '#page-top',
     footer = '.ds_site-footer',
     content = 'Back to top',
@@ -56,5 +56,3 @@ const BackToTop:React.FC<BackToTop> = function BackToTop({
         </div>
     );
 };
-
-export default BackToTop;

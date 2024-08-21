@@ -3,24 +3,21 @@
 import React, { useContext } from 'react';
 
 import classNames from '../../lib/classNames';
-import FormContext from '../../context/FormContext';
+import { FormContext } from '../../context/FormContext';
 
-import type { Select } from './Select.type';
-
-import { InputWidth } from '../TextInput/TextInput.type';
-
+import * as Types from './Select.type';
 /**
- * @param {Select} props - Properties for the element
+ * @param {Types.Select} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Select:React.FC<Omit<Select, 'type'>> = function Select({
+export const Select:React.FC<Omit<Types.Select, 'type'>> = function Select({
     id,
     name,
     className,
     value,
     error,
     attributes = {},
-    width = InputWidth.Fixed20,
+    width = Types.Width.Fixed20,
     allowNull = true,
     hintText,
     items = [],
@@ -91,5 +88,3 @@ const Select:React.FC<Omit<Select, 'type'>> = function Select({
         </div>
     );
 };
-
-export default Select;

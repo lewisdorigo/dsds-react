@@ -1,9 +1,8 @@
 import React from 'react';
-import type { TaskListGroup } from './TaskListGroup.type';
+import type * as Types from './TaskListGroup.type';
 /**
- * @param {TaskListGroup} props - Properties for the element
+ * @param {Types.TaskListGroup} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const TaskListGroup: React.FC<Omit<TaskListGroup, 'type'>>;
-export default TaskListGroup;
+export declare const TaskListGroup: React.FC<Omit<Types.TaskListGroup, 'type'>>;
 //# sourceMappingURL=TaskListGroup.d.ts.map

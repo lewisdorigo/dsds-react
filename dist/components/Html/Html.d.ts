@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Html } from './Html.type';
+import type * as Types from './Html.type';
 /**
- * @param {Html} props - Properties for the element
+ * @param {Types.Html} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const Html: React.FC<Html>;
-export default Html;
+export declare const Html: React.FC<Types.Html>;
 //# sourceMappingURL=Html.d.ts.map

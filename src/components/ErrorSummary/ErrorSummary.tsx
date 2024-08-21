@@ -1,19 +1,19 @@
 import React from 'react';
 
-import Link from '../Link';
-import Heading from '../Heading';
+import { Link } from '../Link';
+import { Heading } from '../Heading';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { ErrorSummary } from './ErrorSummary.type';
+import type * as Types from './ErrorSummary.type';
 
 /**
- * @param {ErrorSummary} props - Properties for the element
+ * @param {Types.ErrorSummary} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const ErrorSummary:React.FC<
-    Omit<ErrorSummary, 'type'>
+export const ErrorSummary:React.FC<
+    Omit<Types.ErrorSummary, 'type'>
 > = function ErrorSummary({
     items = [],
     id = 'error-summary',
@@ -77,5 +77,3 @@ const ErrorSummary:React.FC<
         </div>
     );
 };
-
-export default ErrorSummary;

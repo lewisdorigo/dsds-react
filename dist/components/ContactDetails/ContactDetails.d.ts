@@ -1,9 +1,8 @@
 import React from 'react';
-import type { ContactDetails } from './ContactDetails.type';
+import type * as Types from './ContactDetails.type';
 /**
- * @param {ContactDetails} props - Properties for the element
+ * @param {Types.ContactDetails} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const ContactDetails: React.FC<Omit<ContactDetails, 'type'>>;
-export default ContactDetails;
+export declare const ContactDetails: React.FC<Omit<Types.ContactDetails, 'type'>>;
 //# sourceMappingURL=ContactDetails.d.ts.map

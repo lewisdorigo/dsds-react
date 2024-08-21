@@ -1,15 +1,15 @@
 import React from 'react';
 
-import WrapperTag from '../WrapperTag';
+import { WrapperTag } from '../WrapperTag';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { List } from './List.type';
+import type * as Types from './List.type';
 
 /**
- * @param {List} props - Properties for the element
+ * @param {Types.List} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const List:React.FC<Omit<List, 'type'>> = function List({
+export const List:React.FC<Omit<Types.List, 'type'>> = function List({
     ordered = false,
     id,
     className,
@@ -34,5 +34,3 @@ const List:React.FC<Omit<List, 'type'>> = function List({
         </WrapperTag>
     );
 };
-
-export default List;

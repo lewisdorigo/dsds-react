@@ -1,14 +1,13 @@
 import React from 'react';
-import type { Accordion, Item } from './Accordion.type';
+import * as Types from './Accordion.type';
 /**
- * @param {Item} props - Properties for the element
+ * @param {Types.Item} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-export declare const AccordionItem: React.FC<Item>;
+export declare const AccordionItem: React.FC<Types.Item>;
 /**
- * @param {Accordion} props - Properties for the element
+ * @param {Types.Accordion} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const Accordion: React.FC<Omit<Accordion, 'type'>>;
-export default Accordion;
+export declare const Accordion: React.FC<Omit<Types.Accordion, 'type'>>;
 //# sourceMappingURL=Accordion.d.ts.map

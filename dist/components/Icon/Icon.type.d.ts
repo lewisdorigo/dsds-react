@@ -1,5 +1,5 @@
 import React from 'react';
-export declare enum IconSize {
+export declare enum Size {
     Sixteen = 16,
     Twenty = 20,
     TwentyFour = 24,
@@ -15,7 +15,7 @@ export interface Icon extends React.SVGProps<SVGSVGElement> {
     icon: string;
     label?: string;
     accessible?: boolean;
-    size?: IconSize;
+    size?: Size;
     pathToSvg?: string;
 }
 //# sourceMappingURL=Icon.type.d.ts.map

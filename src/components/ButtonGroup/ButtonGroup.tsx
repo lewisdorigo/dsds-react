@@ -1,18 +1,18 @@
 import React from 'react';
 
-import WrapperTag from '../WrapperTag';
-import Heading from '../Heading';
+import { WrapperTag } from '../WrapperTag';
+import { Heading } from '../Heading';
 
 import classNames from '../../lib/classNames';
-import Button from '../Button';
+import { Button } from '../Button';
 
-import type { ButtonGroup } from './ButtonGroup.type';
+import type * as Types from './ButtonGroup.type';
 
 /**
- * @param {ButtonGroup} props - Properties for the element
+ * @param {Types.ButtonGroup} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const ButtonGroup:React.FC<Omit<ButtonGroup, 'type'>> = function ButtonGroup({
+export const ButtonGroup:React.FC<Omit<Types.ButtonGroup, 'type'>> = function ButtonGroup({
     id,
     tag = 'nav',
     className,
@@ -51,5 +51,3 @@ const ButtonGroup:React.FC<Omit<ButtonGroup, 'type'>> = function ButtonGroup({
         </>
     );
 };
-
-export default ButtonGroup;

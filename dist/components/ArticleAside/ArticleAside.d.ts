@@ -1,9 +1,8 @@
 import React from 'react';
-import type { ArticleAside } from './ArticleAside.type';
+import type * as Types from './ArticleAside.type';
 /**
- * @param {ArticleAside} props - Properties for the element
+ * @param {Types.ArticleAside} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const ArticleAside: React.FC<Omit<ArticleAside, 'type'>>;
-export default ArticleAside;
+export declare const ArticleAside: React.FC<Omit<Types.ArticleAside, 'type'>>;
 //# sourceMappingURL=ArticleAside.d.ts.map

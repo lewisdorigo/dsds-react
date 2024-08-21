@@ -3,13 +3,13 @@ import React from 'react';
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { Link } from './Link.type';
+import type * as Types from './Link.type';
 
 /**
- * @param {Link} props - Properties for the element
+ * @param {Types.Link} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Link:React.FC<Link> = function Link({
+export const Link:React.FC<Types.Link> = function Link({
     content,
     href,
     type,
@@ -79,5 +79,3 @@ const Link:React.FC<Link> = function Link({
         </button>
     );
 };
-
-export default Link;

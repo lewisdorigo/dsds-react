@@ -2,22 +2,21 @@
 
 import React, { useState, useMemo } from 'react';
 
-import Wrapper from '../Wrapper';
-import Heading from '../Heading';
-import Icon from '../Icon';
-import { IconSize } from '../Icon/Icon.type';
+import { Wrapper } from '../Wrapper';
+import { Heading } from '../Heading';
+import { Icon, Types as IconTypes } from '../Icon';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { NotificationBanner } from './NotificationBanner.type';
+import type * as Types from './NotificationBanner.type';
 
 /**
- * @param {NotificationBanner} props - Properties for the element
+ * @param {Types.NotificationBanner} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const NotificationBanner:React.FC<
-    Omit<NotificationBanner, 'type'>
+export const NotificationBanner:React.FC<
+    Omit<Types.NotificationBanner, 'type'>
 > = function NotificationBanner({
     id = 'notification-banner',
     label = 'Information',
@@ -25,6 +24,7 @@ const NotificationBanner:React.FC<
     content,
     children,
     hasClose = true,
+    closeAction,
     className,
     headingLevel,
     attributes: {
@@ -83,7 +83,7 @@ const NotificationBanner:React.FC<
                             )}
                             aria-hidden="true"
                         >
-                            <Icon icon={icon} size={IconSize.Fill} accessible={false} />
+                            <Icon icon={icon} size={IconTypes.Size.Fill} accessible={false} />
                         </span>
                     )}
                     <div className="ds_notification__text">
@@ -102,11 +102,15 @@ const NotificationBanner:React.FC<
                             onClick={(e) => {
                                 e.preventDefault();
                                 setVisible(false);
+
+                                if (typeof closeAction === 'function') {
+                                    closeAction(e);
+                                }
                             }}
                             // ref={notification}
                         >
                             <span className="visually-hidden">Close this notification</span>
-                            <Icon icon="close" size={IconSize.Fill} accessible={false} />
+                            <Icon icon="close" size={IconTypes.Size.Fill} accessible={false} />
                         </button>
                     )}
                 </div>
@@ -114,5 +118,3 @@ const NotificationBanner:React.FC<
         </div>
     );
 };
-
-export default NotificationBanner;

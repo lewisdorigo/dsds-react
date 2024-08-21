@@ -1,23 +1,23 @@
 import React, { forwardRef } from 'react';
 
-import Heading from '../Heading';
-import HintText from '../HintText';
-import WrapperTag from '../WrapperTag';
-import ComponentsHelper from '../ComponentHelper/ComponentHelper'; // eslint-disable-line import/no-cycle
+import { Heading } from '../Heading';
+import { HintText } from '../HintText';
+import { WrapperTag } from '../WrapperTag';
+import { ComponentsHelper } from '../ComponentHelper/ComponentHelper'; // eslint-disable-line import/no-cycle
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { FieldGroup } from './FieldGroup.type';
+import type * as Types from './FieldGroup.type';
 
 /**
  * Wraps any given children in a given `tag`.
  *
- * @param {FieldGroup} props - Properties for the element
+ * @param {Types.FieldGroup} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
 // eslint-disable-next-line prefer-arrow-callback
-const FieldGroup = forwardRef<HTMLElement, FieldGroup>(function FieldGroup({
+export const FieldGroup = forwardRef<HTMLElement, Types.FieldGroup>(function FieldGroup({
     type = 'group',
     tag: rawTag,
     className,
@@ -68,5 +68,3 @@ const FieldGroup = forwardRef<HTMLElement, FieldGroup>(function FieldGroup({
         </WrapperTag>
     );
 });
-
-export default FieldGroup;

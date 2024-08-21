@@ -3,19 +3,18 @@ import React from 'react';
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import Icon from '../Icon';
-import { IconSize } from '../Icon/Icon.type';
+import { Icon, Types as IconTypes } from '../Icon';
 
-import Heading from '../Heading';
+import { Heading } from '../Heading';
 
-import type { ConfirmationMessage } from './ConfirmationMessage.type';
+import type * as Types from './ConfirmationMessage.type';
 
 /**
- * @param {ConfirmationMessage} props - Properties for the element
+ * @param {Types.ConfirmationMessage} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const ConfirmationMessage:React.FC<
-    Omit<ConfirmationMessage, 'type'>
+export const ConfirmationMessage:React.FC<
+    Omit<Types.ConfirmationMessage, 'type'>
 > = function ConfirmationMessage({
     label,
     className,
@@ -35,7 +34,7 @@ const ConfirmationMessage:React.FC<
             <Icon
                 className="ds_confirmation-message__icon"
                 icon="check_circle"
-                size={IconSize.TwentyFour}
+                size={IconTypes.Size.TwentyFour}
             />
 
             <Heading
@@ -53,5 +52,3 @@ const ConfirmationMessage:React.FC<
         </div>
     );
 };
-
-export default ConfirmationMessage;

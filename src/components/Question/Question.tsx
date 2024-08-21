@@ -3,24 +3,23 @@
 import React, { useRef, useEffect } from 'react';
 import CharacterCount from '@scottish-government/design-system/src/forms/character-count/character-count';
 
-import WrapperTag from '../WrapperTag';
+import { WrapperTag } from '../WrapperTag';
 
-import Label from '../Label';
-import type { Label as LabelType } from '../Label/Label.type';
-import type { DatePicker as DatePickerType } from '../DatePicker/DatePicker.type';
-import HintText from '../HintText';
+import { Label, Types as LabelTypes } from '../Label';
+import { Types as DatePickerTypes } from '../DatePicker';
+import { HintText } from '../HintText';
 import { ErrorMessages } from '../ErrorMessage';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { Question } from './Question.type';
+import type * as Types from './Question.type';
 
 /**
- * @param {Question} props - Properties for the element
+ * @param {Types.Question} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Question:React.FC<Question> = function Question({
+export const Question:React.FC<Types.Question> = function Question({
     className,
     children,
     field,
@@ -45,10 +44,10 @@ const Question:React.FC<Question> = function Question({
 
     if (
         rawLabel
-        && typeof (rawLabel as Label).label !== 'undefined'
+        && typeof (rawLabel as LabelTypes.Label).label !== 'undefined'
     ) {
-        label = htmlToReact((rawLabel as LabelType).label, false);
-        labelHidden = (rawLabel as LabelType).hidden || false;
+        label = htmlToReact((rawLabel as LabelTypes.Label).label, false);
+        labelHidden = (rawLabel as LabelTypes.Label).hidden || false;
     } else {
         label = htmlToReact(rawLabel as React.ReactNode, false);
     }
@@ -74,7 +73,7 @@ const Question:React.FC<Question> = function Question({
             break;
 
         case 'date':
-            tag = (field as DatePickerType).multiple ? 'fieldset' : 'div';
+            tag = (field as DatePickerTypes.DatePicker).multiple ? 'fieldset' : 'div';
             break;
 
         default:
@@ -128,5 +127,3 @@ const Question:React.FC<Question> = function Question({
         </WrapperTag>
     );
 };
-
-export default Question;

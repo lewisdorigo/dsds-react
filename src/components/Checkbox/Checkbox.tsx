@@ -7,22 +7,19 @@ import React, {
     useMemo,
 } from 'react';
 
-import HintText from '../HintText';
-import FieldGroup from '../FieldGroup'; // eslint-disable-line import/no-cycle
+import { HintText } from '../HintText';
+import { FieldGroup } from '../FieldGroup'; // eslint-disable-line import/no-cycle
 
 import classNames from '../../lib/classNames';
-import FormContext from '../../context/FormContext/FormContext';
+import { FormContext } from '../../context/FormContext/FormContext';
 
-import type {
-    CheckboxItem,
-    Checkbox as CheckboxGroup,
-} from './Checkbox.type';
+import type * as Types from './Checkbox.type';
 
 /**
- * @param {CheckboxItem} props - Properties for the element
+ * @param {Types.CheckboxItem} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-export const Checkbox:React.FC<CheckboxItem> = function Checkbox({
+export const CheckboxItem:React.FC<Types.CheckboxItem> = function Checkbox({
     id,
     label,
     hintText,
@@ -69,10 +66,10 @@ export const Checkbox:React.FC<CheckboxItem> = function Checkbox({
 };
 
 /**
- * @param {CheckboxGroup} props - Properties for the element
+ * @param {Types.CheckboxGroup} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const CheckboxGroup:React.FC<Omit<CheckboxGroup, 'type'>> = function CheckboxGroup({
+export const CheckboxGroup:React.FC<Omit<Types.CheckboxGroup, 'type'>> = function CheckboxGroup({
     id,
     name,
     items: rawItems,
@@ -156,7 +153,7 @@ const CheckboxGroup:React.FC<Omit<CheckboxGroup, 'type'>> = function CheckboxGro
             {items?.map((checkbox, index) => {
                 const key = `${id}-${index}`;
                 return (
-                    <Checkbox
+                    <CheckboxItem
                         key={key}
                         size={size}
                         {...checkbox}
@@ -184,4 +181,4 @@ const CheckboxGroup:React.FC<Omit<CheckboxGroup, 'type'>> = function CheckboxGro
     );
 };
 
-export default CheckboxGroup;
+export { CheckboxGroup as Checkbox };

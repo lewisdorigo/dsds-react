@@ -1,9 +1,8 @@
 import React from 'react';
-import type { SiteNavigation } from './SiteNavigation.type';
+import type * as Types from './SiteNavigation.type';
 /**
- * @param {SiteNavigation} props - Properties for the element
+ * @param {Types.SiteNavigation} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const SiteNavigation: React.FC<SiteNavigation>;
-export default SiteNavigation;
+export declare const SiteNavigation: React.FC<Types.SiteNavigation>;
 //# sourceMappingURL=SiteNavigation.d.ts.map

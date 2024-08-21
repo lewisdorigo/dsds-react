@@ -6,15 +6,15 @@ import DSDSTabs from '@scottish-government/design-system/src/components/tabs/tab
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import Heading from '../Heading';
+import { Heading } from '../Heading';
 
-import type { Tabs } from './Tabs.type';
+import type * as Types from './Tabs.type';
 
 /**
- * @param {Tabs} props - Properties for the element
+ * @param {Types.Tabs} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Tabs:React.FC<Omit<Tabs, 'type'>> = function Tabs({
+export const Tabs:React.FC<Omit<Types.Tabs, 'type'>> = function Tabs({
     items = [],
     label,
     bordered = true,
@@ -89,5 +89,3 @@ const Tabs:React.FC<Omit<Tabs, 'type'>> = function Tabs({
         </div>
     );
 };
-
-export default Tabs;

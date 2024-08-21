@@ -1,5 +1,4 @@
-import Icon from './Icon';
 import * as Types from './Icon.type';
-export default Icon;
+export * from './Icon';
 export { Types };
 //# sourceMappingURL=index.d.ts.map

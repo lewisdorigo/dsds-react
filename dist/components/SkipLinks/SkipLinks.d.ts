@@ -1,9 +1,8 @@
 import React from 'react';
-import type { SkipLinks } from './SkipLinks.type';
+import type * as Types from './SkipLinks.type';
 /**
- * @param {SkipLinks} props - Properties for the element
+ * @param {Types.SkipLinks} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const SkipLinks: React.FC<SkipLinks>;
-export default SkipLinks;
+export declare const SkipLinks: React.FC<Types.SkipLinks>;
 //# sourceMappingURL=SkipLinks.d.ts.map

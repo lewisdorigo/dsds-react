@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Pagination } from './Pagination.type';
+import type * as Types from './Pagination.type';
 /**
- * @param {Pagination} props - Properties for the element
+ * @param {Types.Pagination} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const Pagination: React.FC<Omit<Pagination, 'type'>>;
-export default Pagination;
+export declare const Pagination: React.FC<Omit<Types.Pagination, 'type'>>;
 //# sourceMappingURL=Pagination.d.ts.map

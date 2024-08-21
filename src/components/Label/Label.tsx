@@ -3,13 +3,13 @@ import React from 'react';
 import htmlToReact from '../../lib/htmlToReact';
 import classNames from '../../lib/classNames';
 
-import type { Label } from './Label.type';
+import type * as Types from './Label.type';
 
 /**
- * @param {Label} props - Properties for the element
+ * @param {Types.Label} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Label:React.FC<Label> = function Label({
+export const Label:React.FC<Types.Label> = function Label({
     className,
     content,
     children,
@@ -30,5 +30,3 @@ const Label:React.FC<Label> = function Label({
         </label>
     );
 };
-
-export default Label;

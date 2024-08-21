@@ -1,9 +1,8 @@
 import React from 'react';
-import type { InsetText } from './InsetText.type';
+import type * as Types from './InsetText.type';
 /**
- * @param {InsetText} props - Properties for the element
+ * @param {Types.InsetText} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const InsetText: React.FC<Omit<InsetText, 'type'>>;
-export default InsetText;
+export declare const InsetText: React.FC<Omit<Types.InsetText, 'type'>>;
 //# sourceMappingURL=InsetText.d.ts.map

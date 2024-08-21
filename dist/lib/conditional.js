@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseConditions = exports.parseConditional = exports.parseCondition = void 0;
-const conditional_1 = require("../utils/types/conditional");
-const parseCondition = ({ fieldId: conditionalField, value: conditionValue, operator: conditionType = '===', }, formValues) => {
+import { ConditionType, } from '../utils/types/conditional';
+export const parseCondition = ({ fieldId: conditionalField, value: conditionValue, operator: conditionType = '===', }, formValues) => {
     const fieldValue = formValues[conditionalField];
     switch (conditionType) {
         case '>':
@@ -26,16 +23,15 @@ const parseCondition = ({ fieldId: conditionalField, value: conditionValue, oper
             return conditionValue === fieldValue;
     }
 };
-exports.parseCondition = parseCondition;
-const parseConditional = (conditions, formValues, type = conditional_1.ConditionType.And) => {
+export const parseConditional = (conditions, formValues, type = ConditionType.And) => {
     let conditionsMet = false;
     conditions.every((condition) => {
         let conditionMet = false;
         if (typeof condition.conditions !== 'undefined') {
-            conditionMet = (0, exports.parseConditional)(condition.conditions, formValues, condition.type);
+            conditionMet = parseConditional(condition.conditions, formValues, condition.type);
         }
         else {
-            conditionMet = (0, exports.parseCondition)(condition, formValues);
+            conditionMet = parseCondition(condition, formValues);
         }
         if (!conditionMet && type === 'and') {
             conditionsMet = false;
@@ -49,14 +45,12 @@ const parseConditional = (conditions, formValues, type = conditional_1.Condition
     });
     return conditionsMet;
 };
-exports.parseConditional = parseConditional;
-const parseConditions = (conditions, formValues) => {
+export const parseConditions = (conditions, formValues) => {
     if (Array.isArray(conditions)) {
-        return (0, exports.parseConditional)(conditions, formValues);
+        return parseConditional(conditions, formValues);
     }
     if (!conditions) {
         return true;
     }
-    return (0, exports.parseConditional)(conditions?.conditions, formValues, conditions?.type);
+    return parseConditional(conditions?.conditions, formValues, conditions?.type);
 };
-exports.parseConditions = parseConditions;

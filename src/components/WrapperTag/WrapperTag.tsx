@@ -1,16 +1,16 @@
 import React, { forwardRef } from 'react';
 
-import type { WrapperTag } from './WrapperTag.type';
+import type * as Types from './WrapperTag.type';
 
 /**
  * Wraps any given children in a given `tag`.
  *
- * @param {WrapperTag} props - Properties for the element
+ * @param {Types.WrapperTag} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const WrapperTag = forwardRef<
+export const WrapperTag = forwardRef<
     HTMLOrSVGElement,
-    WrapperTag
+    Types.WrapperTag
 >(function WrapperTag({ // eslint-disable-line prefer-arrow-callback
     tag = 'div',
     children,
@@ -25,5 +25,3 @@ const WrapperTag = forwardRef<
         children,
     );
 });
-
-export default WrapperTag;

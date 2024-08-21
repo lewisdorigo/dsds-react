@@ -1,5 +1,4 @@
-import CheckboxGroup from './Checkbox'; // eslint-disable-line import/no-cycle
-import * as Types from './Checkbox.type'; // eslint-disable-line import/no-cycle
+import * as Types from './Checkbox.type';
 
-export default CheckboxGroup;
+export * from './Checkbox';
 export { Types };

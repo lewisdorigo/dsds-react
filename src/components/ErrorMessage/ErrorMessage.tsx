@@ -1,20 +1,17 @@
 import React from 'react';
 
-import WrapperTag from '../WrapperTag';
+import { WrapperTag } from '../WrapperTag';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type {
-    ErrorMessage as ErrorMessageProps,
-    ErrorMessages as ErrorMessagesProps,
-} from './ErrorMessage.type';
+import type * as Types from './ErrorMessage.type';
 
 /**
- * @param {ErrorMessage} props - Properties for the element
+ * @param {Types.ErrorMessage} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const ErrorMessage:React.FC<ErrorMessageProps> = function ErrorMessage({
+export const ErrorMessage:React.FC<Types.ErrorMessage> = function ErrorMessage({
     tag = 'div',
     children,
     className,
@@ -35,11 +32,11 @@ const ErrorMessage:React.FC<ErrorMessageProps> = function ErrorMessage({
 };
 
 /**
- * @param {ErrorMessages} props - Properties for the element
+ * @param {Types.ErrorMessages} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
 export const ErrorMessages:React.FC<
-    Omit<ErrorMessagesProps, 'type'>
+    Omit<Types.ErrorMessages, 'type'>
 > = function ErrorMessages({
     items: rawErrors = [],
     id = '',
@@ -72,5 +69,3 @@ export const ErrorMessages:React.FC<
         </ul>
     );
 };
-
-export default ErrorMessage;

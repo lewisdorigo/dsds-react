@@ -1,5 +1,4 @@
-import NotificationBanner from './NotificationBanner';
 import * as Types from './NotificationBanner.type';
-export default NotificationBanner;
+export * from './NotificationBanner';
 export { Types };
 //# sourceMappingURL=index.d.ts.map

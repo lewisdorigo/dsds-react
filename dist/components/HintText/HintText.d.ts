@@ -1,9 +1,8 @@
 import React from 'react';
-import type { HintText } from './HintText.type';
+import type * as Types from './HintText.type';
 /**
- * @param {HintText} props - Properties for the element
+ * @param {Types.HintText} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const HintText: React.FC<HintText>;
-export default HintText;
+export declare const HintText: React.FC<Types.HintText>;
 //# sourceMappingURL=HintText.d.ts.map

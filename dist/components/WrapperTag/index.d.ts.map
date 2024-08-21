@@ -1,1 +1,1 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/WrapperTag/index.ts"],"names":[],"mappings":"AAAA,OAAO,UAAU,MAAM,cAAc,CAAC;AACtC,OAAO,KAAK,KAAK,MAAM,mBAAmB,CAAC;AAE3C,eAAe,UAAU,CAAC;AAC1B,OAAO,EAAE,KAAK,EAAE,CAAC"}
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/WrapperTag/index.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,KAAK,MAAM,mBAAmB,CAAC;AAE3C,cAAc,cAAc,CAAC;AAC7B,OAAO,EAAE,KAAK,EAAE,CAAC"}

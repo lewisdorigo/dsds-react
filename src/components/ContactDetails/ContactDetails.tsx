@@ -1,18 +1,18 @@
 import React from 'react';
 
-import Heading from '../Heading';
+import { Heading } from '../Heading';
 
 import htmlToReact from '../../lib/htmlToReact';
 import classNames from '../../lib/classNames';
 
-import type { ContactDetails } from './ContactDetails.type';
+import type * as Types from './ContactDetails.type';
 
 /**
- * @param {ContactDetails} props - Properties for the element
+ * @param {Types.ContactDetails} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const ContactDetails:React.FC<
-    Omit<ContactDetails, 'type'>
+export const ContactDetails:React.FC<
+    Omit<Types.ContactDetails, 'type'>
 > = function ContactDetails({
     id,
     label,
@@ -61,5 +61,3 @@ const ContactDetails:React.FC<
         </div>
     );
 };
-
-export default ContactDetails;

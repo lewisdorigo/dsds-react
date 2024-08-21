@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from '../../utils/types';
 import { MetadataItem } from '../Metadata/Metadata.type';
 
-export enum FileDownloadTypes {
+export enum FileType {
     CSV = 'csv',
     Excel = 'excel',
     File = 'file',
@@ -23,7 +23,7 @@ export interface FileDownload extends Component<
 >, React.PropsWithChildren {
     link: string,
     label: React.ReactNode,
-    fileType?: FileDownloadTypes,
+    fileType?: FileType,
     image?: string,
     metadata?: MetadataItem[],
     highlight?: boolean,

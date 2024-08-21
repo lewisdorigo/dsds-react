@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Currency } from './Currency.type';
+import * as Types from './Currency.type';
 /**
- * @param {Currency} props - Properties for the element
+ * @param {Types.Currency} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const Currency: React.FC<Omit<Currency, 'type'>>;
-export default Currency;
+export declare const Currency: React.FC<Omit<Types.Currency, 'type'>>;
 //# sourceMappingURL=Currency.d.ts.map

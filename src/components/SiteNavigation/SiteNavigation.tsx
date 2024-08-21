@@ -3,18 +3,18 @@
 import React, { useEffect, useRef } from 'react';
 import MobileMenu from '@scottish-government/design-system/src/components/site-navigation/site-navigation';
 
-import Link from '../Link';
-import Icon from '../Icon';
+import { Link } from '../Link';
+import { Icon } from '../Icon';
 
 import classNames from '../../lib/classNames';
 
-import type { SiteNavigation } from './SiteNavigation.type';
+import type * as Types from './SiteNavigation.type';
 
 /**
- * @param {SiteNavigation} props - Properties for the element
+ * @param {Types.SiteNavigation} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SiteNavigation:React.FC<SiteNavigation> = function SiteNavigation({
+export const SiteNavigation:React.FC<Types.SiteNavigation> = function SiteNavigation({
     id = 'site-navigation',
     className,
     'aria-label': ariaLabel = 'Site Navigation',
@@ -110,5 +110,3 @@ const SiteNavigation:React.FC<SiteNavigation> = function SiteNavigation({
         </>
     );
 };
-
-export default SiteNavigation;

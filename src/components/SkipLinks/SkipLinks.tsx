@@ -2,13 +2,13 @@ import React from 'react';
 
 import classNames from '../../lib/classNames';
 
-import type { SkipLinks } from './SkipLinks.type';
+import type * as Types from './SkipLinks.type';
 
 /**
- * @param {SkipLinks} props - Properties for the element
+ * @param {Types.SkipLinks} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SkipLinks:React.FC<SkipLinks> = function SkipLinks({
+export const SkipLinks:React.FC<Types.SkipLinks> = function SkipLinks({
     mainContent = '#main-content',
     items = [],
     className,
@@ -46,5 +46,3 @@ const SkipLinks:React.FC<SkipLinks> = function SkipLinks({
         </div>
     );
 };
-
-export default SkipLinks;

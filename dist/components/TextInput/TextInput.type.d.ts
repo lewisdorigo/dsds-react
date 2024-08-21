@@ -1,6 +1,6 @@
 import type { FormComponent } from '../../utils/types';
 import type { Value } from '../../utils/types/meta';
-export declare enum InputWidth {
+export declare enum Width {
     Fixed20 = "fixed-20",
     Fixed10 = "fixed-10",
     Fixed5 = "fixed-5",
@@ -13,7 +13,7 @@ export declare enum InputWidth {
     FluidThird = "fluid-one-third",
     FluidQuarter = "fluid-one-quarter"
 }
-export declare enum InputTypes {
+export declare enum Type {
     Color = "color",
     Date = "date",
     DateTime = "datetime-local",
@@ -28,7 +28,7 @@ export declare enum InputTypes {
     Url = "url",
     Week = "week"
 }
-export declare enum InputModes {
+export declare enum Mode {
     None = "none",
     Text = "text",
     Telephone = "tel",
@@ -38,7 +38,8 @@ export declare enum InputModes {
     Decimal = "decimal",
     Search = "search"
 }
-export interface TextInput extends FormComponent<string | InputTypes, HTMLInputElement, never, Value> {
-    width?: InputWidth;
+export interface TextInput extends FormComponent<string | Type, HTMLInputElement, never, Value> {
+    inputMode?: Mode;
+    width?: Width;
 }
 //# sourceMappingURL=TextInput.type.d.ts.map

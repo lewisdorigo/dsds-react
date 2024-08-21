@@ -3,13 +3,13 @@ import React from 'react';
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { Details } from './Details.type';
+import type * as Types from './Details.type';
 
 /**
- * @param {Details} props - Properties for the element
+ * @param {Types.Details} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Details:React.FC<Omit<Details, 'type'>> = function Details({
+export const Details:React.FC<Omit<Types.Details, 'type'>> = function Details({
     id,
     label,
     content,
@@ -37,5 +37,3 @@ const Details:React.FC<Omit<Details, 'type'>> = function Details({
         </details>
     );
 };
-
-export default Details;

@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Label } from './Label.type';
+import type * as Types from './Label.type';
 /**
- * @param {Label} props - Properties for the element
+ * @param {Types.Label} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const Label: React.FC<Label>;
-export default Label;
+export declare const Label: React.FC<Types.Label>;
 //# sourceMappingURL=Label.d.ts.map

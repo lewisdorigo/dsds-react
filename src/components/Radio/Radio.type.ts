@@ -2,7 +2,7 @@ import React from 'react';
 import { FormComponent, ComponentItem, Components } from '../../utils/types';
 import { Value } from '../../utils/types/meta';
 
-export enum RadioSize {
+export enum Size {
     Small = 'small'
 }
 export interface RadioItem extends Omit<
@@ -11,7 +11,7 @@ export interface RadioItem extends Omit<
 > {
     name: string,
     hintText?: React.ReactNode,
-    size?: RadioSize,
+    size?: Size,
     items?: Components,
 }
 
@@ -21,6 +21,6 @@ export interface RadioGroup extends FormComponent<
     Omit<RadioItem, 'name'>,
     Value
 > {
-    size?: RadioSize,
+    size?: Size,
     inline?: boolean,
 }

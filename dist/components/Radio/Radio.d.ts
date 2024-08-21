@@ -1,14 +1,14 @@
 import React from 'react';
-import type { RadioItem, RadioGroup } from './Radio.type';
+import type * as Types from './Radio.type';
 /**
- * @param {RadioItem} props - Properties for the element
+ * @param {Types.RadioItem} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-export declare const Radio: React.FC<RadioItem>;
+export declare const RadioItem: React.FC<Types.RadioItem>;
 /**
- * @param {RadioGroup} props - Properties for the element
+ * @param {Types.RadioGroup} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const RadioGroup: React.FC<Omit<RadioGroup, 'type'>>;
-export default RadioGroup;
+export declare const RadioGroup: React.FC<Omit<Types.RadioGroup, 'type'>>;
+export { RadioGroup as Radio };
 //# sourceMappingURL=Radio.d.ts.map

@@ -1,9 +1,8 @@
 import React from 'react';
-import type { FileDownload } from './FileDownload.type';
+import * as Types from './FileDownload.type';
 /**
- * @param {FileDownload} props - Properties for the element
+ * @param {Types.FileDownload} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const FileDownload: React.FC<Omit<FileDownload, 'type'>>;
-export default FileDownload;
+export declare const FileDownload: React.FC<Omit<Types.FileDownload, 'type'>>;
 //# sourceMappingURL=FileDownload.d.ts.map

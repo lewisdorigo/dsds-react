@@ -1,16 +1,16 @@
 import React from 'react';
 
-import Link from '../Link';
+import { Link } from '../Link';
 
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { SiteBranding } from './SiteBranding.type';
+import type * as Types from './SiteBranding.type';
 
 /**
- * @param {SiteBranding} props - Properties for the element
+ * @param {Types.SiteBranding} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SiteBranding:React.FC<SiteBranding> = function SiteBranding({
+export const SiteBranding:React.FC<Types.SiteBranding> = function SiteBranding({
     title,
     logo,
     smallLogo,
@@ -51,5 +51,3 @@ const SiteBranding:React.FC<SiteBranding> = function SiteBranding({
         </div>
     );
 };
-
-export default SiteBranding;

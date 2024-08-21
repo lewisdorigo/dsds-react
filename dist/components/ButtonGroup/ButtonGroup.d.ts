@@ -1,9 +1,8 @@
 import React from 'react';
-import type { ButtonGroup } from './ButtonGroup.type';
+import type * as Types from './ButtonGroup.type';
 /**
- * @param {ButtonGroup} props - Properties for the element
+ * @param {Types.ButtonGroup} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const ButtonGroup: React.FC<Omit<ButtonGroup, 'type'>>;
-export default ButtonGroup;
+export declare const ButtonGroup: React.FC<Omit<Types.ButtonGroup, 'type'>>;
 //# sourceMappingURL=ButtonGroup.d.ts.map

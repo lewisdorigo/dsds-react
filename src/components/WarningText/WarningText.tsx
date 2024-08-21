@@ -3,13 +3,13 @@ import React from 'react';
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { WarningText } from './WarningText.type';
+import type * as Types from './WarningText.type';
 
 /**
- * @param {WarningText} props - Properties for the element
+ * @param {Types.WarningText} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const WarningText:React.FC<Omit<WarningText, 'type'>> = function WarningText({
+export const WarningText:React.FC<Omit<Types.WarningText, 'type'>> = function WarningText({
     id,
     label,
     symbol = '!',
@@ -43,5 +43,3 @@ const WarningText:React.FC<Omit<WarningText, 'type'>> = function WarningText({
         </div>
     );
 };
-
-export default WarningText;

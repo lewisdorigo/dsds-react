@@ -1,9 +1,9 @@
 import React from 'react';
 
-import WrapperTag from '../WrapperTag';
+import { WrapperTag } from '../WrapperTag';
 import classNames from '../../lib/classNames';
 
-import type { Heading } from './Heading.type';
+import type * as Types from './Heading.type';
 
 // const classes = [
 //     null,
@@ -16,10 +16,10 @@ import type { Heading } from './Heading.type';
 // ];
 
 /**
- * @param {Heading} props - Properties for the element
+ * @param {Types.Heading} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Heading:React.FC<Heading> = function Heading({
+export const Heading:React.FC<Types.Heading> = function Heading({
     level = 2,
     isLegend = false,
     className,
@@ -47,5 +47,3 @@ const Heading:React.FC<Heading> = function Heading({
         </WrapperTag>
     );
 };
-
-export default Heading;

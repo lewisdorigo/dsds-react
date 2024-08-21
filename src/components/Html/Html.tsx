@@ -1,16 +1,16 @@
 import React from 'react';
 
-import Heading from '../Heading';
+import { Heading } from '../Heading';
 
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { Html } from './Html.type';
+import type * as Types from './Html.type';
 
 /**
- * @param {Html} props - Properties for the element
+ * @param {Types.Html} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Html:React.FC<Html> = function Html({
+export const Html:React.FC<Types.Html> = function Html({
     label,
     headingLevel,
     content,
@@ -24,5 +24,3 @@ const Html:React.FC<Html> = function Html({
         </>
     );
 };
-
-export default Html;

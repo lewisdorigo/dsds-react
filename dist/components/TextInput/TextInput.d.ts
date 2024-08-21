@@ -1,9 +1,8 @@
 import React from 'react';
-import type { TextInput } from './TextInput.type';
+import * as Types from './TextInput.type';
 /**
- * @param {TextInput} props - Properties for the element
+ * @param {Types.TextInput} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const TextInput: React.FC<TextInput>;
-export default TextInput;
+export declare const TextInput: React.FC<Types.TextInput>;
 //# sourceMappingURL=TextInput.d.ts.map

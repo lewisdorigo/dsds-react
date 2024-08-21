@@ -1,9 +1,8 @@
 import React from 'react';
-import type { HidePage } from './HidePage.type';
+import type * as Types from './HidePage.type';
 /**
- * @param {HidePage} props - Properties for the element
+ * @param {Types.HidePage} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const HidePage: React.FC<HidePage>;
-export default HidePage;
+export declare const HidePage: React.FC<Types.HidePage>;
 //# sourceMappingURL=HidePage.d.ts.map

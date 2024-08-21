@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.TextAreaSize = void 0;
-var TextAreaSize;
-(function (TextAreaSize) {
-    TextAreaSize[TextAreaSize["Normal"] = 0] = "Normal";
-    TextAreaSize[TextAreaSize["Small"] = 1] = "Small";
-    TextAreaSize[TextAreaSize["Large"] = 2] = "Large";
-})(TextAreaSize || (exports.TextAreaSize = TextAreaSize = {}));
+export var Size;
+(function (Size) {
+    Size[Size["Normal"] = 0] = "Normal";
+    Size[Size["Small"] = 1] = "Small";
+    Size[Size["Large"] = 2] = "Large";
+})(Size || (Size = {}));

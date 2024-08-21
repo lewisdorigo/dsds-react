@@ -1,17 +1,17 @@
 import React from 'react';
 
-import WrapperTag from '../WrapperTag';
+import { WrapperTag } from '../WrapperTag';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { InsetText } from './InsetText.type';
+import type * as Types from './InsetText.type';
 
 /**
- * @param {InsetText} props - Properties for the element
+ * @param {Types.InsetText} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const InsetText:React.FC<Omit<InsetText, 'type'>> = function InsetText({
+export const InsetText:React.FC<Omit<Types.InsetText, 'type'>> = function InsetText({
     id,
     tag = 'div',
     content,
@@ -36,5 +36,3 @@ const InsetText:React.FC<Omit<InsetText, 'type'>> = function InsetText({
         </WrapperTag>
     );
 };
-
-export default InsetText;

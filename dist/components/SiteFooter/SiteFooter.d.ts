@@ -1,14 +1,23 @@
 import React from 'react';
-import type { SiteFooterOrganisation, SiteFooter } from './SiteFooter.type';
+import type * as Types from './SiteFooter.type';
 /**
- * @param {SiteFooterOrganisation} props - Properties for the element
+ * @param {Types.SiteFooterLinks} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-export declare const SiteFooterOrg: React.FC<SiteFooterOrganisation>;
+export declare const SiteFooterLinks: React.FC<Types.SiteFooterLinks>;
 /**
- * @param {SiteFooter} props - Properties for the element
+ * @param {Types.SiteFooterCopyright} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const SiteFooter: React.FC<SiteFooter>;
-export default SiteFooter;
+export declare const SiteFooterCopyright: React.FC<Types.SiteFooterCopyright>;
+/**
+ * @param {Types.SiteFooterOrganisation} props - Properties for the element
+ * @returns {JSX.Element} - The element
+ */
+export declare const SiteFooterOrganisation: React.FC<Types.SiteFooterOrganisation>;
+/**
+ * @param {Types.SiteFooter} props - Properties for the element
+ * @returns {JSX.Element} - The element
+ */
+export declare const SiteFooter: React.FC<Types.SiteFooter>;
 //# sourceMappingURL=SiteFooter.d.ts.map

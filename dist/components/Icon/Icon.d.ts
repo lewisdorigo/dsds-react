@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Icon } from './Icon.type';
+import type * as Types from './Icon.type';
 /**
- * @param {Icon} props - Properties for the element
+ * @param {Types.Icon} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const Icon: React.FC<Icon>;
-export default Icon;
+export declare const Icon: React.FC<Types.Icon>;
 //# sourceMappingURL=Icon.d.ts.map

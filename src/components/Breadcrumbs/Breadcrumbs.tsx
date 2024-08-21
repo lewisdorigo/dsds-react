@@ -1,17 +1,17 @@
 import React from 'react';
 
-import Link from '../Link';
+import { Link } from '../Link';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { Breadcrumbs } from './Breadcrumbs.type';
+import type * as Types from './Breadcrumbs.type';
 
 /**
- * @param {Breadcrumbs} props - Properties for the element
+ * @param {Types.Breadcrumbs} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Breadcrumbs:React.FC<Omit<Breadcrumbs, 'type'>> = function Breadcrumbs({
+export const Breadcrumbs:React.FC<Omit<Types.Breadcrumbs, 'type'>> = function Breadcrumbs({
     items = [],
     id = 'breadcrumbs',
     hideCurrent = false,
@@ -65,5 +65,3 @@ const Breadcrumbs:React.FC<Omit<Breadcrumbs, 'type'>> = function Breadcrumbs({
         </nav>
     );
 };
-
-export default Breadcrumbs;

@@ -1,16 +1,16 @@
 import React from 'react';
 
-import Icon from '../Icon';
+import { Icon } from '../Icon';
 
 import classNames from '../../lib/classNames';
 
-import type { Pagination } from './Pagination.type';
+import type * as Types from './Pagination.type';
 
 /**
- * @param {Pagination} props - Properties for the element
+ * @param {Types.Pagination} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Pagination:React.FC<Omit<Pagination, 'type'>> = function Pagination({
+export const Pagination:React.FC<Omit<Types.Pagination, 'type'>> = function Pagination({
     currentIndex = 0,
     eachSideOfCurrent = 1,
     items = [],
@@ -124,5 +124,3 @@ const Pagination:React.FC<Omit<Pagination, 'type'>> = function Pagination({
         </nav>
     );
 };
-
-export default Pagination;

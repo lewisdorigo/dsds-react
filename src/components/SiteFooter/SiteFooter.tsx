@@ -1,24 +1,19 @@
 import React from 'react';
 
-import Link from '../Link';
-import Wrapper from '../Wrapper';
+import { Link } from '../Link';
+import { Wrapper } from '../Wrapper';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type {
-    SiteFooterLinks,
-    SiteFooterCopyright,
-    SiteFooterOrganisation,
-    SiteFooter,
-} from './SiteFooter.type';
+import type * as Types from './SiteFooter.type';
 
 /**
- * @param {SiteFooterLinks} props - Properties for the element
+ * @param {Types.SiteFooterLinks} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SiteFooterLinks:React.FC<
-    SiteFooterLinks
+export const SiteFooterLinks:React.FC<
+    Types.SiteFooterLinks
 > = function SiteFooterLinks({
     menuItems,
 }) {
@@ -41,11 +36,11 @@ const SiteFooterLinks:React.FC<
 };
 
 /**
- * @param {SiteFooterCopyright} props - Properties for the element
+ * @param {Types.SiteFooterCopyright} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SiteFooterCopyright:React.FC<
-    SiteFooterCopyright
+export const SiteFooterCopyright:React.FC<
+    Types.SiteFooterCopyright
 > = function SiteFooterCopyright({
     logo: {
         link,
@@ -86,11 +81,11 @@ const SiteFooterCopyright:React.FC<
 };
 
 /**
- * @param {SiteFooterOrganisation} props - Properties for the element
+ * @param {Types.SiteFooterOrganisation} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-export const SiteFooterOrg:React.FC<
-    SiteFooterOrganisation
+export const SiteFooterOrganisation:React.FC<
+    Types.SiteFooterOrganisation
 > = function SiteFooterOrg({
     logo: {
         link,
@@ -121,10 +116,10 @@ export const SiteFooterOrg:React.FC<
 };
 
 /**
- * @param {SiteFooter} props - Properties for the element
+ * @param {Types.SiteFooter} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const SiteFooter:React.FC<SiteFooter> = function SiteFooter({
+export const SiteFooter:React.FC<Types.SiteFooter> = function SiteFooter({
     menuItems,
     copyright,
     organisation,
@@ -147,11 +142,9 @@ const SiteFooter:React.FC<SiteFooter> = function SiteFooter({
                         <SiteFooterLinks menuItems={menuItems} />
                     )}
                     { copyright && <SiteFooterCopyright {...copyright} /> }
-                    { organisation && <SiteFooterOrg {...organisation} /> }
+                    { organisation && <SiteFooterOrganisation {...organisation} /> }
                 </div>
             </Wrapper>
         </footer>
     );
 };
-
-export default SiteFooter;

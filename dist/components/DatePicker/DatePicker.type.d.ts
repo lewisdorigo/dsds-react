@@ -1,6 +1,6 @@
 import { FormComponent } from '../../utils/types';
 import { Value } from '../../utils/types/meta';
-export declare enum DatePickerFormat {
+export declare enum DateFormat {
     DayMonthYear = "DMY",
     MonthDayYear = "MDY",
     YearMonthDay = "YMD"
@@ -11,7 +11,7 @@ export interface DatePicker extends FormComponent<'date' | 'date-picker', HTMLIn
     maxDate?: string | Date;
     disabledDates?: (Date | string)[];
     dateSelectCallback?: SelectCallback;
-    dateFormat?: DatePickerFormat;
+    dateFormat?: DateFormat;
     multiple?: boolean;
 }
 export {};

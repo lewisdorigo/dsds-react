@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Address } from './Address.type';
+import * as Types from './Address.type';
 /**
- * @param {Address} props - Properties for the element
+ * @param {Types.Address} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const Address: React.FC<Omit<Address, 'type'>>;
-export default Address;
+export declare const Address: React.FC<Omit<Types.Address, 'type'>>;
 //# sourceMappingURL=Address.d.ts.map

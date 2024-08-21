@@ -1,9 +1,8 @@
 import React from 'react';
-import type { WarningText } from './WarningText.type';
+import type * as Types from './WarningText.type';
 /**
- * @param {WarningText} props - Properties for the element
+ * @param {Types.WarningText} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const WarningText: React.FC<Omit<WarningText, 'type'>>;
-export default WarningText;
+export declare const WarningText: React.FC<Omit<Types.WarningText, 'type'>>;
 //# sourceMappingURL=WarningText.d.ts.map

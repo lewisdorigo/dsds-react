@@ -1,18 +1,15 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.FileDownloadTypes = void 0;
-var FileDownloadTypes;
-(function (FileDownloadTypes) {
-    FileDownloadTypes["CSV"] = "csv";
-    FileDownloadTypes["Excel"] = "excel";
-    FileDownloadTypes["File"] = "file";
-    FileDownloadTypes["Generic"] = "generic";
-    FileDownloadTypes["GeoData"] = "geodata";
-    FileDownloadTypes["Image"] = "image";
-    FileDownloadTypes["PDF"] = "pdf";
-    FileDownloadTypes["PowerPoint"] = "ppt";
-    FileDownloadTypes["RichText"] = "rtf";
-    FileDownloadTypes["PlainText"] = "text";
-    FileDownloadTypes["Word"] = "word";
-    FileDownloadTypes["XML"] = "xml";
-})(FileDownloadTypes || (exports.FileDownloadTypes = FileDownloadTypes = {}));
+export var FileType;
+(function (FileType) {
+    FileType["CSV"] = "csv";
+    FileType["Excel"] = "excel";
+    FileType["File"] = "file";
+    FileType["Generic"] = "generic";
+    FileType["GeoData"] = "geodata";
+    FileType["Image"] = "image";
+    FileType["PDF"] = "pdf";
+    FileType["PowerPoint"] = "ppt";
+    FileType["RichText"] = "rtf";
+    FileType["PlainText"] = "text";
+    FileType["Word"] = "word";
+    FileType["XML"] = "xml";
+})(FileType || (FileType = {}));

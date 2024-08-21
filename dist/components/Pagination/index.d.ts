@@ -1,5 +1,4 @@
-import Pagination from './Pagination';
 import * as Types from './Pagination.type';
-export default Pagination;
+export * from './Pagination';
 export { Types };
 //# sourceMappingURL=index.d.ts.map

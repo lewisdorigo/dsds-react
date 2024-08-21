@@ -1,17 +1,17 @@
 import React from 'react';
 
-import Image from '../Image';
-import Heading from '../Heading';
+import { Image } from '../Image';
+import { Heading } from '../Heading';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { FeatureHeader } from './FeatureHeader.type';
+import type * as Types from './FeatureHeader.type';
 /**
- * @param {FeatureHeader} props - Properties for the element
+ * @param {Types.FeatureHeader} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const FeatureHeader:React.FC<FeatureHeader> = function FeatureHeader({
+export const FeatureHeader:React.FC<Types.FeatureHeader> = function FeatureHeader({
     title,
     className,
     content,
@@ -58,5 +58,3 @@ const FeatureHeader:React.FC<FeatureHeader> = function FeatureHeader({
         </header>
     );
 };
-
-export default FeatureHeader;

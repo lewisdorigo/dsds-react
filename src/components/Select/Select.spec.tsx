@@ -1,7 +1,7 @@
 import React from 'react';
 import { test, expect } from '@playwright/experimental-ct-react';
 
-import Select from './Select';
+import { Select } from './index';
 
 test.describe('Select', () => {
     test.use({ viewport: { width: 500, height: 500 } });

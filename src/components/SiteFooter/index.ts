@@ -1,5 +1,4 @@
-import SiteFooter from './SiteFooter';
 import * as Types from './SiteFooter.type';
 
-export default SiteFooter;
+export * from './SiteFooter';
 export { Types };

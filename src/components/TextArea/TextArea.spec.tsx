@@ -1,7 +1,7 @@
 import React from 'react';
 import { test, expect } from '@playwright/experimental-ct-react';
 
-import TextArea from './TextArea';
+import { TextArea } from './index';
 
 test.describe('TextArea', () => {
     test.use({ viewport: { width: 500, height: 500 } });

@@ -1,9 +1,8 @@
 import React from 'react';
-import type { AspectBox } from './AspectBox.type';
+import type * as Types from './AspectBox.type';
 /**
- * @param {AspectBox} props - Properties for the element
+ * @param {Types.AspectBox} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const AspectBox: React.FC<Omit<AspectBox, 'type'>>;
-export default AspectBox;
+export declare const AspectBox: React.FC<Omit<Types.AspectBox, 'type'>>;
 //# sourceMappingURL=AspectBox.d.ts.map

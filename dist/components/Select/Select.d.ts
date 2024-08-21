@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Select } from './Select.type';
+import * as Types from './Select.type';
 /**
- * @param {Select} props - Properties for the element
+ * @param {Types.Select} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const Select: React.FC<Omit<Select, 'type'>>;
-export default Select;
+export declare const Select: React.FC<Omit<Types.Select, 'type'>>;
 //# sourceMappingURL=Select.d.ts.map

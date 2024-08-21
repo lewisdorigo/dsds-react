@@ -1,26 +1,22 @@
 import React from 'react';
 
-import WrapperTag from '../WrapperTag';
-import HintText from '../HintText';
-import Link from '../Link';
-import Heading from '../Heading';
+import { WrapperTag } from '../WrapperTag';
+import { HintText } from '../HintText';
+import { Link } from '../Link';
+import { Heading } from '../Heading';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import { TaskListStatus } from './TaskList.type';
-import type {
-    TaskListItem,
-    TaskList,
-} from './TaskList.type';
+import * as Types from './TaskList.type';
 
 import { HeadingLevel } from '../../utils/types/meta';
 
 /**
- * @param {TaskListItem} props - Properties for the element
+ * @param {Types.TaskListItem} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const TaskListItem:React.FC<TaskListItem> = function TaskListItem({
+export const TaskListItem:React.FC<Types.TaskListItem> = function TaskListItem({
     id,
     label,
     content,
@@ -32,15 +28,15 @@ const TaskListItem:React.FC<TaskListItem> = function TaskListItem({
     let statusLabel;
 
     switch (status) {
-        case TaskListStatus.Complete:
+        case Types.Status.Complete:
             statusLabel = 'Complete';
             break;
 
-        case TaskListStatus.InProgress:
+        case Types.Status.InProgress:
             statusLabel = 'In Progress';
             break;
 
-        case TaskListStatus.CannotStart:
+        case Types.Status.CannotStart:
             statusLabel = 'Cannot start yet';
             break;
 
@@ -104,10 +100,10 @@ const TaskListItem:React.FC<TaskListItem> = function TaskListItem({
 };
 
 /**
- * @param {TaskList} props - Properties for the element
+ * @param {Types.TaskList} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const TaskList:React.FC<Omit<TaskList, 'type'>> = function TaskList({
+export const TaskList:React.FC<Omit<Types.TaskList, 'type'>> = function TaskList({
     id,
     label,
     content,
@@ -154,5 +150,3 @@ const TaskList:React.FC<Omit<TaskList, 'type'>> = function TaskList({
         </>
     );
 };
-
-export default TaskList;

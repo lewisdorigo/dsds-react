@@ -1,7 +1,7 @@
 import type { Component, ComponentItem } from '../../utils/types';
 import type { HeadingLevel } from '../../utils/types/meta';
 
-export enum TaskListStatus {
+export enum Status {
     NotStarted = 'not-started',
     InProgress = 'in-progress',
     Complete = 'complete',
@@ -12,7 +12,7 @@ export interface TaskListItem extends Omit<
     ComponentItem<HTMLLIElement>,
     'value'
 > {
-    status: TaskListStatus,
+    status: Status,
     link?: string,
     headingLevel?: HeadingLevel,
 }

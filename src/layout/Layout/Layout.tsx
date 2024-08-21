@@ -1,21 +1,20 @@
 import React from 'react';
 
-import WrapperTag from '../../components/WrapperTag';
-import HidePage from '../../components/HidePage';
+import { WrapperTag } from '../../components/WrapperTag';
+import { HidePage } from '../../components/HidePage';
 
 import classNames from '../../lib/classNames';
 
-import type { Layout } from './Layout.type';
-import { LayoutTypes } from './Layout.type';
+import * as Types from './Layout.type';
 
 /**
- * @param {Layout} props - Properties for the element
+ * @param {Types.Layout} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Layout:React.FC<Layout> = function Layout({
+export const Layout:React.FC<Types.Layout> = function Layout({
     tag = 'main',
     id = 'main-content',
-    layout = LayoutTypes.Article,
+    layout = Types.Type.Article,
     className,
     children,
 
@@ -63,5 +62,3 @@ const Layout:React.FC<Layout> = function Layout({
         </WrapperTag>
     );
 };
-
-export default Layout;

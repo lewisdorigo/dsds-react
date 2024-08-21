@@ -1,9 +1,8 @@
 import React from 'react';
-import type { CategoryList } from './CategoryList.type';
+import type * as Types from './CategoryList.type';
 /**
- * @param {CategoryList} props - Properties for the element
+ * @param {Types.CategoryList} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const CategoryList: React.FC<Omit<CategoryList, 'type'>>;
-export default CategoryList;
+export declare const CategoryList: React.FC<Omit<Types.CategoryList, 'type'>>;
 //# sourceMappingURL=CategoryList.d.ts.map

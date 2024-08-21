@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Takes an aribitrary number of class names and combines them into a single class name.
  *
@@ -9,4 +7,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const classNames = function classNames(...className) {
     return className.filter((v) => v).join(' ');
 };
-exports.default = classNames;
+export default classNames;

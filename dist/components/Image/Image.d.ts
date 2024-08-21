@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Image } from './Image.type';
+import type * as Types from './Image.type';
 /**
- * @param {ImageProps} props - Properties for the element
+ * @param {Types.ImageProps} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const Image: React.FC<Omit<Image, 'type'>>;
-export default Image;
+export declare const Image: React.FC<Omit<Types.Image, 'type'>>;
 //# sourceMappingURL=Image.d.ts.map

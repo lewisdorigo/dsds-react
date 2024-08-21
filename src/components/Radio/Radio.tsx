@@ -2,23 +2,20 @@
 
 import React, { useContext } from 'react';
 
-import HintText from '../HintText';
-import FieldGroup from '../FieldGroup'; // eslint-disable-line import/no-cycle
-import ComponentsHelper from '../ComponentHelper/ComponentHelper'; // eslint-disable-line import/no-cycle
+import { HintText } from '../HintText';
+import { FieldGroup } from '../FieldGroup'; // eslint-disable-line import/no-cycle
+import { ComponentsHelper } from '../ComponentHelper'; // eslint-disable-line import/no-cycle
 
 import classNames from '../../lib/classNames';
-import FormContext from '../../context/FormContext';
+import { FormContext } from '../../context/FormContext';
 
-import type {
-    RadioItem,
-    RadioGroup,
-} from './Radio.type';
+import type * as Types from './Radio.type';
 
 /**
- * @param {RadioItem} props - Properties for the element
+ * @param {Types.RadioItem} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-export const Radio:React.FC<RadioItem> = function Radio({
+export const RadioItem:React.FC<Types.RadioItem> = function Radio({
     id,
     label,
     hintText,
@@ -82,10 +79,10 @@ export const Radio:React.FC<RadioItem> = function Radio({
 };
 
 /**
- * @param {RadioGroup} props - Properties for the element
+ * @param {Types.RadioGroup} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const RadioGroup:React.FC<Omit<RadioGroup, 'type'>> = function RadioGroup({
+export const RadioGroup:React.FC<Omit<Types.RadioGroup, 'type'>> = function RadioGroup({
     id,
     name,
     items,
@@ -105,7 +102,7 @@ const RadioGroup:React.FC<Omit<RadioGroup, 'type'>> = function RadioGroup({
             {items?.map((radio, index) => {
                 const key = `${id}-${index}`;
                 return (
-                    <Radio
+                    <RadioItem
                         key={key}
                         size={size}
                         {...radio}
@@ -127,4 +124,4 @@ const RadioGroup:React.FC<Omit<RadioGroup, 'type'>> = function RadioGroup({
     );
 };
 
-export default RadioGroup;
+export { RadioGroup as Radio };

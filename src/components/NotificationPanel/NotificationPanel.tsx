@@ -1,18 +1,18 @@
 import React from 'react';
 
-import Heading from '../Heading';
+import { Heading } from '../Heading';
 
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
-import type { NotificationPanel } from './NotificationPanel.type';
+import type * as Types from './NotificationPanel.type';
 
 /**
- * @param {NotificationPanel} props - Properties for the element
+ * @param {Types.NotificationPanel} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const NotificationPanel:React.FC<
-    Omit<NotificationPanel, 'type'>
+export const NotificationPanel:React.FC<
+    Omit<Types.NotificationPanel, 'type'>
 > = function NotificationPanel({
     label = 'Thank you',
     content,
@@ -46,5 +46,3 @@ const NotificationPanel:React.FC<
         </div>
     );
 };
-
-export default NotificationPanel;

@@ -1,7 +1,7 @@
 import type { FormComponent } from '../../utils/types';
 import type { Value } from '../../utils/types/meta';
 
-export enum InputWidth {
+export enum Width {
     Fixed20 = 'fixed-20',
     Fixed10 = 'fixed-10',
     Fixed5 = 'fixed-5',
@@ -16,7 +16,7 @@ export enum InputWidth {
     FluidQuarter = 'fluid-one-quarter',
 }
 
-export enum InputTypes {
+export enum Type {
     Color = 'color',
     Date = 'date',
     DateTime = 'datetime-local',
@@ -32,7 +32,7 @@ export enum InputTypes {
     Week = 'week',
 }
 
-export enum InputModes {
+export enum Mode {
     None = 'none',
     Text = 'text',
     Telephone = 'tel',
@@ -44,10 +44,11 @@ export enum InputModes {
 }
 
 export interface TextInput extends FormComponent<
-    string | InputTypes,
+    string | Type,
     HTMLInputElement,
     never,
     Value
 > {
-    width?: InputWidth,
+    inputMode?: Mode,
+    width?: Width,
 }

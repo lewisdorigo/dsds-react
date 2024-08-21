@@ -1,9 +1,8 @@
 import React from 'react';
-import type { TextArea } from './TextArea.type';
+import * as Types from './TextArea.type';
 /**
- * @param {TextArea} props - Properties for the element
+ * @param {Types.TextArea} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const TextArea: React.FC<Omit<TextArea, 'type'>>;
-export default TextArea;
+export declare const TextArea: React.FC<Omit<Types.TextArea, 'type'>>;
 //# sourceMappingURL=TextArea.d.ts.map

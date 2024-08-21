@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Tag } from './Tag.type';
+import type * as Types from './Tag.type';
 /**
- * @param {Tag} props - Properties for the element
+ * @param {Types.Tag} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const Tag: React.FC<Tag>;
-export default Tag;
+export declare const Tag: React.FC<Types.Tag>;
 //# sourceMappingURL=Tag.d.ts.map

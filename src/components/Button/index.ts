@@ -1,5 +1,4 @@
-import Button from './Button';
 import * as Types from './Button.type';
 
-export default Button;
+export * from './Button';
 export { Types };

@@ -7,18 +7,14 @@ import React, {
     useMemo,
 } from 'react';
 
-import type {
-    FieldsType,
-    FormContext as FormContextProps,
-    FormProvider,
-} from './FormContext.type';
+import type * as Types from './FormContext.type';
 
-const FormContext = createContext<FormContextProps>({
+export const FormContext = createContext<Types.FormContext>({
     setFields: () => ({}),
     setField: () => ({}),
     getField: () => ({}),
     fields: {},
-} as FormContextProps);
+} as Types.FormContext);
 
 /**
  * React context provider. Should be wrapped around your form so that form fields can be updated.
@@ -26,11 +22,11 @@ const FormContext = createContext<FormContextProps>({
  * @param {FormProvider} params - The form props.
  * @returns {JSX.Element} - The context provider.
  */
-export const Provider:React.FC<FormProvider> = function Provider({
+export const Provider:React.FC<Types.FormProvider> = function Provider({
     initial = {},
     children,
 }) {
-    const [fields, setFields] = useState<FieldsType>(initial);
+    const [fields, setFields] = useState<Types.FieldsType>(initial);
 
     /**
      * Sets the value of a field within the form context.
@@ -59,7 +55,7 @@ export const Provider:React.FC<FormProvider> = function Provider({
         [fields],
     );
 
-    const context:FormContextProps = useMemo(() => ({
+    const context:Types.FormContext = useMemo(() => ({
         setFields,
         setField,
         getField,
@@ -72,5 +68,3 @@ export const Provider:React.FC<FormProvider> = function Provider({
         </FormContext.Provider>
     );
 };
-
-export default FormContext;

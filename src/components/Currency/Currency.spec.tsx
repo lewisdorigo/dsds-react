@@ -1,8 +1,8 @@
 import React from 'react';
 import { test, expect } from '@playwright/experimental-ct-react';
 
-import Currency from './Currency';
-import { InputWidth } from '../TextInput/TextInput.type';
+import { Currency } from './index';
+import * as Types from './Currency.type';
 
 test.describe('Currency', () => {
     test.use({ viewport: { width: 500, height: 500 } });
@@ -142,7 +142,7 @@ test.describe('Currency', () => {
     });
 
     test('Has Set Width', async ({ mount }) => {
-        const width = InputWidth.Fixed5;
+        const width = Types.Width.Fixed5;
 
         const component = await mount(
             <Currency

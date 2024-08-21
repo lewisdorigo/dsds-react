@@ -1,9 +1,8 @@
 import React from 'react';
-import type { NotificationPanel } from './NotificationPanel.type';
+import type * as Types from './NotificationPanel.type';
 /**
- * @param {NotificationPanel} props - Properties for the element
+ * @param {Types.NotificationPanel} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-declare const NotificationPanel: React.FC<Omit<NotificationPanel, 'type'>>;
-export default NotificationPanel;
+export declare const NotificationPanel: React.FC<Omit<Types.NotificationPanel, 'type'>>;
 //# sourceMappingURL=NotificationPanel.d.ts.map

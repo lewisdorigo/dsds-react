@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from '../../utils/types';
 import { Image } from '../Image/Image.type';
 
-export enum FeatureHeaderStyle {
+export enum Style {
     Wide = 'wide'
 }
 
@@ -16,5 +16,5 @@ export interface FeatureHeader extends React.PropsWithChildren, Omit<
     title: React.ReactNode,
     image?: Omit<Image, 'type'>,
     hasBackground?: boolean,
-    style: FeatureHeaderStyle,
+    style: Style,
 }

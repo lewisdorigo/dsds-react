@@ -1,59 +1,29 @@
 'use client';
-"use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Checkbox = void 0;
-const react_1 = __importStar(require("react"));
-const HintText_1 = __importDefault(require("../HintText"));
-const FieldGroup_1 = __importDefault(require("../FieldGroup")); // eslint-disable-line import/no-cycle
-const classNames_1 = __importDefault(require("../../lib/classNames"));
-const FormContext_1 = __importDefault(require("../../context/FormContext/FormContext"));
+import React, { useRef, useContext, useState, useMemo, } from 'react';
+import { HintText } from '../HintText';
+import { FieldGroup } from '../FieldGroup'; // eslint-disable-line import/no-cycle
+import classNames from '../../lib/classNames';
+import { FormContext } from '../../context/FormContext/FormContext';
 /**
- * @param {CheckboxItem} props - Properties for the element
+ * @param {Types.CheckboxItem} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const Checkbox = function Checkbox({ id, label, hintText, value, name, attributes = {}, size, exclusive = false, }) {
-    return (react_1.default.createElement(react_1.default.Fragment, null,
-        exclusive && (react_1.default.createElement("p", { className: "ds_checkbox-separator" }, typeof exclusive === 'string' ? exclusive : 'or')),
-        react_1.default.createElement("div", { className: (0, classNames_1.default)('ds_checkbox', size ? `ds_checkbox--${size}` : ''), id: `${id}-wrapper` },
-            react_1.default.createElement("input", { ...attributes, className: "ds_checkbox__input", id: id, name: name, type: "checkbox", value: value, "aria-describedby": hintText ? `${id}-hint-text` : undefined, "data-behaviour": exclusive ? 'exclusive' : undefined }),
-            react_1.default.createElement("label", { className: "ds_checkbox__label", htmlFor: id }, label),
-            hintText && react_1.default.createElement(HintText_1.default, { content: hintText, id: `${id}-hint-text` }))));
+export const CheckboxItem = function Checkbox({ id, label, hintText, value, name, attributes = {}, size, exclusive = false, }) {
+    return (React.createElement(React.Fragment, null,
+        exclusive && (React.createElement("p", { className: "ds_checkbox-separator" }, typeof exclusive === 'string' ? exclusive : 'or')),
+        React.createElement("div", { className: classNames('ds_checkbox', size ? `ds_checkbox--${size}` : ''), id: `${id}-wrapper` },
+            React.createElement("input", { ...attributes, className: "ds_checkbox__input", id: id, name: name, type: "checkbox", value: value, "aria-describedby": hintText ? `${id}-hint-text` : undefined, "data-behaviour": exclusive ? 'exclusive' : undefined }),
+            React.createElement("label", { className: "ds_checkbox__label", htmlFor: id }, label),
+            hintText && React.createElement(HintText, { content: hintText, id: `${id}-hint-text` }))));
 };
-exports.Checkbox = Checkbox;
 /**
- * @param {CheckboxGroup} props - Properties for the element
+ * @param {Types.CheckboxGroup} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
-const CheckboxGroup = function CheckboxGroup({ id, name, items: rawItems, className, attributes = {}, hintText, error, size, value: rawValue = [], }) {
-    const ref = (0, react_1.useRef)(null);
-    const [value, setValue] = (0, react_1.useState)(rawValue);
-    const { setField } = (0, react_1.useContext)(FormContext_1.default);
+export const CheckboxGroup = function CheckboxGroup({ id, name, items: rawItems, className, attributes = {}, hintText, error, size, value: rawValue = [], }) {
+    const ref = useRef(null);
+    const [value, setValue] = useState(rawValue);
+    const { setField } = useContext(FormContext);
     const handleChange = (event) => {
         /* If the `ref` isn't currently set, we should exist out early…  */
         if (!ref.current) {
@@ -91,16 +61,16 @@ const CheckboxGroup = function CheckboxGroup({ id, name, items: rawItems, classN
         setValue(fieldValues);
         setField(name, fieldValues);
     };
-    const items = (0, react_1.useMemo)(() => (rawItems?.map((item) => ({
+    const items = useMemo(() => (rawItems?.map((item) => ({
         ...item,
         attributes: {
             ...item.attributes,
             checked: item.value ? value.includes(item.value) : false,
         },
     }))), [value, rawItems]);
-    return (react_1.default.createElement(FieldGroup_1.default, { id: id, className: className, ref: ref }, items?.map((checkbox, index) => {
+    return (React.createElement(FieldGroup, { id: id, className: className, ref: ref }, items?.map((checkbox, index) => {
         const key = `${id}-${index}`;
-        return (react_1.default.createElement(exports.Checkbox, { key: key, size: size, ...checkbox, name: name, attributes: {
+        return (React.createElement(CheckboxItem, { key: key, size: size, ...checkbox, name: name, attributes: {
                 ...attributes,
                 ...checkbox.attributes,
                 onChange: (event) => {
@@ -109,8 +79,8 @@ const CheckboxGroup = function CheckboxGroup({ id, name, items: rawItems, classN
                         checkbox.attributes.onChange(event);
                     }
                 },
-                'aria-describedby': (0, classNames_1.default)(attributes['aria-describedby'], hintText ? `${id}-hint-text` : '', error ? `${id}-errors` : ''),
+                'aria-describedby': classNames(attributes['aria-describedby'], hintText ? `${id}-hint-text` : '', error ? `${id}-errors` : ''),
             } }));
     })));
 };
-exports.default = CheckboxGroup;
+export { CheckboxGroup as Checkbox };
