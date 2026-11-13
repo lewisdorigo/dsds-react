@@ -18,7 +18,7 @@
         "dist"
     ],
     "scripts": {
-        "lint": "eslint @types/**/* src/**/*",
+        "lint": "eslint @types/**/* src/**/* --no-warn-ignored",
         "type-check": "tsc --skipLibCheck --noEmit",
         "test": "playwright test --quiet --config playwright.config.ts",
         "build": "./build-roots.sh && npx tsc",
@@ -26,30 +26,38 @@
         "set-hooks": "git config core.hooksPath ./.githooks && chmod -f 755 ./.githooks/*"
     },
     "dependencies": {
-        "html-react-parser": "^5.1.12"
+        "@typescript-eslint/parser": "^8.72.2",
+        "html-react-parser": "^6.1.0"
     },
     "peerDependencies": {
-        "@scottish-government/design-system": "^2.0.0",
-        "@types/node": "^20.2.5",
-        "@types/react": "^18.2.8",
-        "@types/react-dom": "^18.2.4",
-        "react": "^18.0.0",
-        "react-dom": "^18.2.0",
-        "typescript": "^5.0.0"
+        "@scottish-government/design-system": "^4.3.0",
+        "@types/node": "^26.5.0",
+        "@types/react": "^19.3.0",
+        "@types/react-dom": "^19.3.0",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "typescript": "^6.0.0"
     },
     "devDependencies": {
-        "@commitlint/cli": "^19.0.0",
-        "@commitlint/config-conventional": "^19.0.0",
+        "@commitlint/cli": "^21.2.0",
+        "@commitlint/config-conventional": "^21.2.0",
         "@playwright/experimental-ct-react": "^1.45.2",
         "@playwright/test": "^1.45.2",
-        "@types/node": "^20.14.11",
-        "@typescript-eslint/eslint-plugin": "^7.0.0",
-        "@typescript-eslint/parser": "^7.0.0",
-        "eslint": "^8.0.0",
+        "@scottish-government/design-system": "^4.3.0",
+        "@stylistic/eslint-plugin-ts": "^4.2.0",
+        "@types/node": "^26.5.0",
+        "@types/react": "^19.3.0",
+        "@types/react-dom": "^19.3.0",
+        "eslint": "^9.39.2",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-jsdoc": "^61.7.1",
         "eslint-plugin-jsx-a11y": "^6.7.1",
         "eslint-plugin-react": "^7.32.2",
-        "eslint-plugin-react-hooks": "^4.6.0"
+        "eslint-plugin-react-hooks": "^7.0.1",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "typescript": "^6.0.0",
+        "typescript-eslint": "^8.54.0"
     }
 }

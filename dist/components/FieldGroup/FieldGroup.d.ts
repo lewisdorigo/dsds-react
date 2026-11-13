@@ -2,7 +2,6 @@ import React from 'react';
 import type * as Types from './FieldGroup.type';
 /**
  * Wraps any given children in a given `tag`.
- *
  * @param {Types.FieldGroup} props - Properties for the element
  * @returns {JSX.Element} - The element
  */

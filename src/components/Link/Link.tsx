@@ -69,7 +69,7 @@ export const Link:React.FC<Types.Link> = function Link({
     return (
         <button
             {...props as React.HTMLProps<HTMLButtonElement>}
-            type={type}
+            type={type} // eslint-disable-line react/button-has-type
             className={classNames(
                 baseClass,
                 className,

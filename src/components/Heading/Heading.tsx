@@ -36,7 +36,7 @@ export const Heading:React.FC<Types.Heading> = function Heading({
 
     return (
         <WrapperTag
-            tag={tag as keyof JSX.IntrinsicElements}
+            tag={tag as keyof React.JSX.IntrinsicElements}
             className={classNames(
                 className,
                 // levelClass,

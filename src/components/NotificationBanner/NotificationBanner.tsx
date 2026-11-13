@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react';
 
 import { Wrapper } from '../Wrapper';
 import { Heading } from '../Heading';
+import { ButtonGroup } from '../ButtonGroup';
 import { Icon, Types as IconTypes } from '../Icon';
 
 import classNames from '../../lib/classNames';
@@ -27,6 +28,7 @@ export const NotificationBanner:React.FC<
     closeAction,
     className,
     headingLevel,
+    actions = [],
     attributes: {
         'aria-label': ariaLabel = 'Notification',
         ...attributes
@@ -89,6 +91,9 @@ export const NotificationBanner:React.FC<
                     <div className="ds_notification__text">
                         { content && htmlToReact(content) }
                         { children }
+                        { actions && actions.length > 0 && (
+                            <ButtonGroup items={actions} />
+                        )}
                     </div>
 
                     { hasClose && (

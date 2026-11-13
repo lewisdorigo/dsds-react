@@ -6,6 +6,5 @@ export interface SequentialNavigationItem extends ComponentItem<HTMLDivElement> 
     link: Omit<Link, 'content'>;
     label: React.ReactNode;
 }
-export interface SequentialNavigation extends Omit<Component<'sequential-navigation', HTMLDivElement, SequentialNavigationItem>, 'label' | 'content'> {
-}
+export type SequentialNavigation = Omit<Component<'sequential-navigation', HTMLDivElement, SequentialNavigationItem>, 'label' | 'content'>;
 //# sourceMappingURL=SequentialNavigation.type.d.ts.map

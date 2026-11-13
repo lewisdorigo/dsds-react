@@ -4,6 +4,5 @@ export interface ContactDetailsItem extends Omit<ComponentItem, 'id' | 'value'> 
     label: React.ReactNode;
     items?: React.ReactNode[];
 }
-export interface ContactDetails extends Component<'contact-details', HTMLDivElement, ContactDetailsItem> {
-}
+export type ContactDetails = Component<'contact-details', HTMLDivElement, ContactDetailsItem>;
 //# sourceMappingURL=ContactDetails.type.d.ts.map

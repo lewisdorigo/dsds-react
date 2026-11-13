@@ -1,4 +1,5 @@
-import React, { isValidElement } from 'react';
+import React from 'react';
+import addClassToElement from '../../lib/addClass';
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 /**
@@ -13,10 +14,6 @@ export const PrefilledValues = function PrefilledValues({ items = [], id, label 
             React.createElement("dd", { className: "ds_prefilled-value-list__value" },
                 React.createElement("div", null, htmlToReact(item.value, false)),
                 ' ',
-                item.actions.map((action) => (action && typeof action === 'object' && isValidElement(action)
-                    ? React.cloneElement(action, {
-                        className: classNames('ds_prefilled-value-list__value-actions', action.props.className ? action.props.className : null),
-                    })
-                    : action)))));
+                item.actions.map((action) => addClassToElement(action, 'ds_prefilled-value-list__value-actions')))));
     })));
 };

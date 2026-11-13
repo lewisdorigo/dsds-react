@@ -34,7 +34,7 @@ export const CategoryItem:React.FC<Omit<Types.CategoryItem, 'type'>> = function 
             {...attributes}
         >
             <WrapperTag
-                tag={`h${headingLevel}` as keyof JSX.IntrinsicElements}
+                tag={`h${headingLevel}` as keyof React.JSX.IntrinsicElements}
                 className="ds_category-item__title"
             >
                 {(

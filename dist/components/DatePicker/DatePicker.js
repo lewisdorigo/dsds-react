@@ -75,12 +75,14 @@ export const DatePicker = function DatePicker({ id, name, className, minDate: ra
         : date));
     /**
      * Handle changes to the date value.
-     *
      * @param {Date} date - The selected date value.
      */
     const handleSelect = useCallback((date) => {
         let dateValue = '';
-        const day = date.getDate().toString().padStart(2, '0');
+        const day = (date
+            .getDate()
+            .toString()
+            .padStart(2, '0'));
         const month = (date.getMonth() + 1).toString().padStart(2, '0');
         const year = date.getFullYear();
         switch (dateFormat) {
@@ -113,7 +115,6 @@ export const DatePicker = function DatePicker({ id, name, className, minDate: ra
             maxDate,
             disabledDates,
             dateSelectCallback: handleSelect,
-            imagePath: '/design-system/images/icons/',
         }).init();
     }, [ref, minDate, maxDate, disabledDates, handleSelect]);
     let inputs;

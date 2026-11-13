@@ -2,7 +2,6 @@
 import { useEffect } from 'react';
 /**
  * Adds 'js-enabled' class to `<html>` on mount and removes on unmount. Does not render content.
- *
  * @returns {null} Null, as it renders nothing.
  */
 export const JSEnabled = function JSEnabled() {

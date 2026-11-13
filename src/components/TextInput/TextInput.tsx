@@ -34,7 +34,7 @@ export const TextInput:React.FC<Types.TextInput> = function TextInput({
 
     if (type === Types.Type.Number && !attributes?.inputMode) {
         type = Types.Type.Text;
-        inputMode = Types.Mode.Numeric; // eslint-disable-line no-param-reassign
+        inputMode = Types.Mode.Numeric;
     }
 
     const handleBlur = (event:React.FocusEvent<HTMLInputElement>) => {

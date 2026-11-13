@@ -25,7 +25,7 @@ export const SiteNavigation:React.FC<Types.SiteNavigation> = function SiteNaviga
     const ref = useRef(null);
 
     useEffect(() => {
-        if (mobile && typeof window !== 'undefined') {
+        if (ref.current && mobile && typeof window !== 'undefined') {
             new MobileMenu(ref.current).init();
         }
     }, [mobile, ref]);

@@ -29,11 +29,7 @@ export interface Component<
     headingLevel?: Meta.HeadingLevel,
 
     attributes?: Partial<React.HTMLProps<Tag>>,
-    items?: (
-        Items extends never
-            ? Items
-            : Items[]
-    ),
+    items?: Items[],
     conditions?: Conditional.Condition | Conditional.Items,
 
     ref?: React.Ref<Tag>,
@@ -44,10 +40,7 @@ export interface FormComponent<
     Tag extends HTMLElement = HTMLElement,
     Items = never,
     Value = Meta.Value | Meta.Value[],
-> extends Omit<
-    Component<Type, Tag, Items>,
-    'label'
-> {
+> extends Omit<Component<Type, Tag, Items>, 'label'> {
     id: string,
     name: string,
 

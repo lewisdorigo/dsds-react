@@ -100,7 +100,7 @@ export const Button:React.FC<Types.Button> = function Button({
     return (
         <button
             {...props as React.HTMLProps<HTMLButtonElement>}
-            type={type}
+            type={type} // eslint-disable-line react/button-has-type
             className={className}
         >
             { buttonContent }

@@ -8,10 +8,10 @@ import HideThisPage from '@scottish-government/design-system/src/components/hide
 export const HidePage = function HidePage({ link = 'http://bbc.co.uk/weather', }) {
     const ref = useRef(null);
     useEffect(() => {
-        if (!ref.current || !window) {
+        if (!ref.current || typeof window === 'undefined') {
             return;
         }
-        new HideThisPage(window).init();
+        new HideThisPage(ref.current).init();
         document.body.classList.add('ds_has-hide-page');
     }, [ref]);
     return (React.createElement("div", { className: "ds_hide-page", ref: ref },

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useEffect } from 'react';
-import CharacterCount from '@scottish-government/design-system/src/forms/character-count/character-count';
+import CharacterCount from '@scottish-government/design-system/src/components/character-count/character-count';
 
 import { WrapperTag } from '../WrapperTag';
 
@@ -64,7 +64,7 @@ export const Question:React.FC<Types.Question> = function Question({
         </>
     );
 
-    let tag:keyof JSX.IntrinsicElements = 'div';
+    let tag:keyof React.JSX.IntrinsicElements = 'div';
 
     switch (type) {
         case 'radio':
@@ -80,7 +80,7 @@ export const Question:React.FC<Types.Question> = function Question({
     }
 
     useEffect(() => {
-        if (!!ref.current || typeof window === 'undefined') { return; }
+        if (!ref.current || typeof window === 'undefined') { return; }
 
         if (maxLength) {
             new CharacterCount(ref.current).init();
