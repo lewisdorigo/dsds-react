@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 
-import HideThisPage from '@scottish-government/design-system/src/components/hide-this-page/hide-this-page';
+import HideThisPage from '@scottish-government/design-system/dist/scripts/components/hide-this-page/hide-this-page';
 
 import type * as Types from './HidePage.type';
 

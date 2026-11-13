@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
-import DSDSTabs from '@scottish-government/design-system/src/components/tabs/tabs';
+import DSDSTabs from '@scottish-government/design-system/dist/scripts/components/tabs/tabs';
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 import { Heading } from '../Heading';

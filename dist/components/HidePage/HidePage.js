@@ -1,6 +1,6 @@
 'use client';
 import React, { useRef, useEffect } from 'react';
-import HideThisPage from '@scottish-government/design-system/src/components/hide-this-page/hide-this-page';
+import HideThisPage from '@scottish-government/design-system/dist/scripts/components/hide-this-page/hide-this-page';
 /**
  * @param {Types.HidePage} props - Properties for the element
  * @returns {JSX.Element} - The element

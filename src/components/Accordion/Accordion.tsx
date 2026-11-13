@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 
-import DSDSAccordion from '@scottish-government/design-system/src/components/accordion/accordion';
+import DSDSAccordion from '@scottish-government/design-system/dist/scripts/components/accordion/accordion';
 
 import { Heading } from '../Heading';
 

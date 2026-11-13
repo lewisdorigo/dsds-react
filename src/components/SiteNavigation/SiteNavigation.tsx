@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import MobileMenu from '@scottish-government/design-system/src/components/site-navigation/site-navigation';
+import MobileMenu from '@scottish-government/design-system/dist/scripts/components/site-navigation/site-navigation';
 
 import { Link } from '../Link';
 import { Icon } from '../Icon';

@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
-import ToTop from '@scottish-government/design-system/src/components/back-to-top/back-to-top';
+import ToTop from '@scottish-government/design-system/dist/scripts/components/back-to-top/back-to-top';
 import { Icon } from '../Icon';
 import classNames from '../../lib/classNames';
 /**
