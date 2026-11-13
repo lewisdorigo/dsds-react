@@ -20,6 +20,7 @@ export * as ErrorSummary from './ErrorSummary';
 export * as FeatureHeader from './FeatureHeader';
 export * as FieldGroup from './FieldGroup';
 export * as FileDownload from './FileDownload';
+export * as FileUpload from './FileUpload';
 export * as Heading from './Heading';
 export * as HidePage from './HidePage';
 export * as HintText from './HintText';

@@ -2,7 +2,7 @@ import { Component } from '../../utils/types';
 import { WrapperTag } from '../WrapperTag/WrapperTag.type';
 import { Errors } from '../../utils/types/validation';
 
-export interface ErrorMessage extends WrapperTag { }
+export type ErrorMessage = WrapperTag;
 
 export interface ErrorMessages extends Omit<
     Component<

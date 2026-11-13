@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 
 import { HintText } from '../HintText';
-import { FieldGroup } from '../FieldGroup'; // eslint-disable-line import/no-cycle
+import { FieldGroup } from '../FieldGroup';
 
 import classNames from '../../lib/classNames';
 import { FormContext } from '../../context/FormContext/FormContext';

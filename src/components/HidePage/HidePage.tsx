@@ -16,11 +16,11 @@ export const HidePage:React.FC<Types.HidePage> = function HidePage({
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (!ref.current || !window) {
+        if (!ref.current || typeof window === 'undefined') {
             return;
         }
 
-        new HideThisPage(window).init();
+        new HideThisPage(ref.current).init();
         document.body.classList.add('ds_has-hide-page');
     }, [ref]);
 

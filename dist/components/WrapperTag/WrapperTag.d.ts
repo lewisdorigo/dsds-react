@@ -2,7 +2,6 @@ import React from 'react';
 import type * as Types from './WrapperTag.type';
 /**
  * Wraps any given children in a given `tag`.
- *
  * @param {Types.WrapperTag} props - Properties for the element
  * @returns {JSX.Element} - The element
  */

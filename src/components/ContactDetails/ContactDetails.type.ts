@@ -9,8 +9,8 @@ export interface ContactDetailsItem extends Omit<
     items?: React.ReactNode[],
 }
 
-export interface ContactDetails extends Component<
+export type ContactDetails = Component<
     'contact-details',
     HTMLDivElement,
     ContactDetailsItem
-> {}
+>;

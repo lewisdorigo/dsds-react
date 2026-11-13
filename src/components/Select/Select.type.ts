@@ -4,11 +4,10 @@ import { Value } from '../../utils/types/meta';
 
 export { Width };
 
-export interface SelectItem extends Omit<
+export type SelectItem = Omit<
     ComponentItem<HTMLOptionElement>,
     'content'
-> {
-}
+>;
 
 export interface Select extends FormComponent<
     'select',

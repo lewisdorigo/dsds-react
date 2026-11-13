@@ -1,4 +1,3 @@
 import { WrapperTag } from '../WrapperTag/WrapperTag.type';
-export interface Tag extends WrapperTag {
-}
+export type Tag = WrapperTag;
 //# sourceMappingURL=Tag.type.d.ts.map

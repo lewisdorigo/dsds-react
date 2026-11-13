@@ -2,17 +2,16 @@ import React, { forwardRef } from 'react';
 import { Heading } from '../Heading';
 import { HintText } from '../HintText';
 import { WrapperTag } from '../WrapperTag';
-import { ComponentsHelper } from '../ComponentHelper/ComponentHelper'; // eslint-disable-line import/no-cycle
+import { ComponentsHelper } from '../ComponentHelper/ComponentHelper';
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 /**
  * Wraps any given children in a given `tag`.
- *
  * @param {Types.FieldGroup} props - Properties for the element
  * @returns {JSX.Element} - The element
  */
 // eslint-disable-next-line prefer-arrow-callback
-export const FieldGroup = forwardRef(function FieldGroup({ type = 'group', tag: rawTag, className, children, content, id, label = '', headingLevel = 2, inline = false, hintText, items, attributes = {}, }, ref) {
+export const FieldGroup = forwardRef(function FieldGroupFnc({ type = 'group', tag: rawTag, className, children, content, id, label = '', headingLevel = 2, inline = false, hintText, items, attributes = {}, }, ref) {
     let tag;
     if (rawTag) {
         tag = rawTag;

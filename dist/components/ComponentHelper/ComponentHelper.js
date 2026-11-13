@@ -12,7 +12,7 @@ import { ButtonGroup } from '../ButtonGroup';
 import { Card } from '../Card';
 import { CategoryItem } from '../CategoryItem';
 import { CategoryList } from '../CategoryList';
-import { CheckboxGroup } from '../Checkbox'; // eslint-disable-line import/no-cycle
+import { CheckboxGroup } from '../Checkbox';
 import { ConfirmationMessage } from '../ConfirmationMessage';
 import { ContactDetails } from '../ContactDetails';
 import { Currency } from '../Currency';
@@ -30,7 +30,7 @@ import { NotificationBanner } from '../NotificationBanner';
 import { NotificationPanel } from '../NotificationPanel';
 import { PageHeader } from '../PageHeader';
 import { Pagination } from '../Pagination';
-import { RadioGroup } from '../Radio'; // eslint-disable-line import/no-cycle
+import { RadioGroup } from '../Radio';
 import { Select } from '../Select';
 import { SequentialNavigation } from '../SequentialNavigation';
 import { SideNavigation } from '../SideNavigation';

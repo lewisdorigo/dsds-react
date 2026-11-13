@@ -6,9 +6,8 @@ import parse from 'html-react-parser';
  * replace double line-breaks with HTML paragraph tags. The remaining
  * line-breaks after conversion become `<br />` tags, unless `br` is set to '0'
  * or 'false'.
- *
  * @param {string} text - The text which has to be formatted.
- * @param {bool} [br=true] - If set, this will convert all remaining line-breaks after paragraphing.
+ * @param {bool} [br] - If set, this will convert all remaining line-breaks after paragraphing.
  * @returns {string} - Text which has been converted into correct paragraph tags.
  */
 export const autop = function autop(text, br = true) {
@@ -93,10 +92,9 @@ export const autop = function autop(text, br = true) {
  * replace double line-breaks with HTML paragraph tags. The remaining
  * line-breaks after conversion become `<br />` tags, unless `br` is set to '0'
  * or 'false'.
- *
  * @param {React.ReactNode} text - The text which has to be formatted.
- * @param {bool} [useAutoP=true] - If set, will add paragraph tags using the `autop` function.
- * @param {bool} [br=true] - If set, this will convert all remaining line-breaks after paragraphing.
+ * @param {bool} [useAutoP] - If set, will add paragraph tags using the `autop` function.
+ * @param {bool} [br] - If set, this will convert all remaining line-breaks after paragraphing.
  * @returns {JSX.Element} - Text which has been converted into correct paragraph tags.
  */
 const htmlToReact = function htmlToReact(text = '', useAutoP = true, br = true) {

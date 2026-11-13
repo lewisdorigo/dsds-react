@@ -17,7 +17,7 @@ export interface Component<Type = unknown, Tag extends HTMLElement = HTMLElement
     className?: string;
     headingLevel?: Meta.HeadingLevel;
     attributes?: Partial<React.HTMLProps<Tag>>;
-    items?: (Items extends never ? Items : Items[]);
+    items?: Items[];
     conditions?: Conditional.Condition | Conditional.Items;
     ref?: React.Ref<Tag>;
 }

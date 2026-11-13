@@ -1,6 +1,6 @@
 'use client';
 import React, { useRef, useEffect } from 'react';
-import CharacterCount from '@scottish-government/design-system/src/forms/character-count/character-count';
+import CharacterCount from '@scottish-government/design-system/src/components/character-count/character-count';
 import { WrapperTag } from '../WrapperTag';
 import { Label } from '../Label';
 import { HintText } from '../HintText';
@@ -41,7 +41,7 @@ export const Question = function Question({ className, children, field, }) {
         default:
     }
     useEffect(() => {
-        if (!!ref.current || typeof window === 'undefined') {
+        if (!ref.current || typeof window === 'undefined') {
             return;
         }
         if (maxLength) {

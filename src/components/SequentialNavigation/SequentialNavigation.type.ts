@@ -8,11 +8,11 @@ export interface SequentialNavigationItem extends ComponentItem<HTMLDivElement> 
     label: React.ReactNode,
 }
 
-export interface SequentialNavigation extends Omit<
+export type SequentialNavigation = Omit<
     Component<
         'sequential-navigation',
         HTMLDivElement,
         SequentialNavigationItem
     >,
     'label' | 'content'
-> {}
+>;

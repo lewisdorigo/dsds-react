@@ -6,7 +6,7 @@ export interface Label {
 }
 export type Value = string;
 export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
-export type TagName = keyof JSX.IntrinsicElements;
+export type TagName = keyof React.JSX.IntrinsicElements;
 export interface HasTag {
     tag?: TagName;
 }

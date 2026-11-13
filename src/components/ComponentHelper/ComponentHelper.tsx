@@ -18,7 +18,7 @@ import { ButtonGroup, Types as ButtonGroupTypes } from '../ButtonGroup';
 import { Card, Types as CardTypes } from '../Card';
 import { CategoryItem, Types as CategoryItemTypes } from '../CategoryItem';
 import { CategoryList, Types as CategoryListTypes } from '../CategoryList';
-import { CheckboxGroup, Types as CheckboxTypes } from '../Checkbox'; // eslint-disable-line import/no-cycle
+import { CheckboxGroup, Types as CheckboxTypes } from '../Checkbox';
 import { ConfirmationMessage, Types as ConfirmationMessageTypes } from '../ConfirmationMessage';
 import { ContactDetails, Types as ContactDetailsTypes } from '../ContactDetails';
 import { Currency, Types as CurrencyTypes } from '../Currency';
@@ -36,7 +36,7 @@ import { NotificationBanner, Types as NotificationBannerTypes } from '../Notific
 import { NotificationPanel, Types as NotificationPanelTypes } from '../NotificationPanel';
 import { PageHeader, Types as PageHeaderTypes } from '../PageHeader';
 import { Pagination, Types as PaginationTypes } from '../Pagination';
-import { RadioGroup, Types as RadioTypes } from '../Radio'; // eslint-disable-line import/no-cycle
+import { RadioGroup, Types as RadioTypes } from '../Radio';
 import { Select, Types as SelectTypes } from '../Select';
 import { SequentialNavigation, Types as SequentialNavigationTypes } from '../SequentialNavigation';
 import { SideNavigation, Types as SideNavigationTypes } from '../SideNavigation';

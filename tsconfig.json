@@ -18,15 +18,15 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "incremental": true,
-        "baseUrl": ".",
         "declaration": true,
         "declarationMap": true,
         "composite": true,
         "outDir": "./dist",
         "rootDir": "./src",
         "paths": {
+            "*": [ "./*" ],
             // "@/*": ["./src/*"],
-            // "@design-system/*": ["./node_modules/@scottish-government/design-system/src/*"],
+            "@design-system/*": ["./node_modules/@scottish-government/design-system/src/*"],
         },
         "typeRoots": [
             "./node_modules/@types",

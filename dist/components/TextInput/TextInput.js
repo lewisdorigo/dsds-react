@@ -16,7 +16,7 @@ export const TextInput = function TextInput({ type: rawType = Types.Type.Text, i
     }
     if (type === Types.Type.Number && !attributes?.inputMode) {
         type = Types.Type.Text;
-        inputMode = Types.Mode.Numeric; // eslint-disable-line no-param-reassign
+        inputMode = Types.Mode.Numeric;
     }
     const handleBlur = (event) => {
         const { target } = event;

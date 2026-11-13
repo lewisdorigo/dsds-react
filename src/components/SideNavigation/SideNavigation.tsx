@@ -118,7 +118,6 @@ export const SideNavigation:React.FC<
                 id={`show-${id}`}
                 aria-controls={`${id}-0`}
             />
-            { /* eslint-disable jsx-a11y/label-has-associated-control */ }
             <label
                 className="ds_side-navigation__expand ds_link"
                 htmlFor={`show-${id}`}
@@ -127,7 +126,6 @@ export const SideNavigation:React.FC<
                 { htmlToReact(label) }
                 <span className="ds_side-navigation__expand-indicator" />
             </label>
-            { /* eslint-enable jsx-a11y/label-has-associated-control */ }
 
             <SideNavigationList id={id} level={0} items={items} />
         </nav>

@@ -3,8 +3,8 @@
 import React, { useContext } from 'react';
 
 import { HintText } from '../HintText';
-import { FieldGroup } from '../FieldGroup'; // eslint-disable-line import/no-cycle
-import { ComponentsHelper } from '../ComponentHelper'; // eslint-disable-line import/no-cycle
+import { FieldGroup } from '../FieldGroup';
+import { ComponentsHelper } from '../ComponentHelper';
 
 import classNames from '../../lib/classNames';
 import { FormContext } from '../../context/FormContext';

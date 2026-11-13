@@ -1,7 +1,8 @@
-import React, { isValidElement } from 'react';
+import React from 'react';
 
 import { WrapperTag } from '../WrapperTag';
 
+import addClassToElement from '../../lib/addClass';
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';
 
@@ -18,17 +19,6 @@ export const AspectBox:React.FC<Omit<Types.AspectBox, 'type'>> = function Aspect
     content,
     attributes = {},
 }) {
-    const addClass = (item:React.ReactNode) => (
-        item && typeof item === 'object' && isValidElement(item)
-            ? React.cloneElement(item as React.ReactElement, {
-                className: classNames(
-                    'ds_aspect-box__inner',
-                    item.props.className ? item.props.className : null,
-                ),
-            })
-            : item
-    );
-
     return (
         <WrapperTag
             tag={tag}
@@ -40,12 +30,12 @@ export const AspectBox:React.FC<Omit<Types.AspectBox, 'type'>> = function Aspect
         >
             { content && React.Children.map<React.ReactNode, React.ReactNode>(
                 htmlToReact(content),
-                addClass,
+                (item) => addClassToElement(item, 'ds_aspect-box__inner'),
             )}
 
             { React.Children.map<React.ReactNode, React.ReactNode>(
                 children,
-                addClass,
+                (item) => addClassToElement(item, 'ds_aspect-box__inner'),
             )}
         </WrapperTag>
     );

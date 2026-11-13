@@ -11,7 +11,7 @@ import classNames from '../../lib/classNames';
 export const SiteNavigation = function SiteNavigation({ id = 'site-navigation', className, 'aria-label': ariaLabel = 'Site Navigation', menuItems, mobile = false, ...props }) {
     const ref = useRef(null);
     useEffect(() => {
-        if (mobile && typeof window !== 'undefined') {
+        if (ref.current && mobile && typeof window !== 'undefined') {
             new MobileMenu(ref.current).init();
         }
     }, [mobile, ref]);
