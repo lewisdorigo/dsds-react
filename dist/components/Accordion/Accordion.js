@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
-import DSDSAccordion from '@scottish-government/design-system/src/components/accordion/accordion';
+import DSDSAccordion from '@scottish-government/design-system/dist/scripts/components/accordion/accordion';
 import { Heading } from '../Heading';
 import classNames from '../../lib/classNames';
 import htmlToReact from '../../lib/htmlToReact';

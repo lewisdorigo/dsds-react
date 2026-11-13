@@ -8,7 +8,7 @@ import React, {
     useCallback,
 } from 'react';
 
-import DSDSDatePicker from '@scottish-government/design-system/src/components/date-picker/date-picker';
+import DSDSDatePicker from '@scottish-government/design-system/dist/scripts/components/date-picker/date-picker';
 import { TextInput, Types as InputTypes } from '../TextInput';
 import { FormContext } from '../../context/FormContext';
 

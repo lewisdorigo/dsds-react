@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 
-import SideNav from '@scottish-government/design-system/src/components/side-navigation/side-navigation';
+import SideNav from '@scottish-government/design-system/dist/scripts/components/side-navigation/side-navigation';
 
 import { Link } from '../Link';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useEffect } from 'react';
-import CharacterCount from '@scottish-government/design-system/src/components/character-count/character-count';
+import CharacterCount from '@scottish-government/design-system/dist/scripts/components/character-count/character-count';
 
 import { WrapperTag } from '../WrapperTag';
 
